@@ -72,3 +72,25 @@
 
     alert(`Загальна вартість ТОВАР_1 - ${totalPriceOfGoods1}грн, \nЗагальна вартість ТОВАР_2 - ${totalPriceOfGoods2}грн, \nЗагальна вартість обох - ${totalPriceBothGoods}грн`)
 }
+
+/*
+4. З клавіатури вводиться вік дитини. Вивести на екран через скільки років
+вона буде відвідувати садочок, піде у школу, закінчить школу, вступить і
+закінчить університет
+*/
+
+{
+    let yearsOfChild = parseInt(prompt('Скільки років дитині?', 0))
+    let startKinderGarden = 3
+    let startSchool = 7
+    let startHighSchool = 17
+    let finishSchool = 16
+    let finishHighSchool = 23
+    
+    document.write(`В садочок через ${startKinderGarden-yearsOfChild} р`)
+    document.write('<br>')
+    document.write(`В школу через ${startSchool-yearsOfChild} р, закінчить через ${finishSchool-yearsOfChild} р`)
+    document.write('<br>')
+    document.write(`В ВНЗ через ${startHighSchool-yearsOfChild} р, закінчить через ${finishHighSchool-yearsOfChild} р`)
+}
+
