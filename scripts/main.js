@@ -4,7 +4,7 @@
 {
     let userName = prompt('Як тебе звати', 'Іван')
     let userSecondName = prompt('Прізвище', 'Білий')
-    document.write('Привіт ' + userName +' '+ userSecondName)
+    document.write('Привіт ' + userName + ' ' + userSecondName)
 }
 // Задача. Користувач вводить два числа. Знайти суму, різницю, добуток, частку.
 {
@@ -47,7 +47,7 @@
     let whatSalary = parseFloat(prompt('Вкажіть який розмір заробітної плати', 673.53))
     let costOfLiving = parseFloat(prompt('Який прожитковий мінімум', 750))
     let differenceOfSalary = costOfLiving - whatSalary
-    
+
     if (differenceOfSalary > 0) {
         document.write(`Ваша соціальна допомога становить - ${differenceOfSalary.toFixed(2)}грн`)
     } else {
@@ -86,12 +86,12 @@
     let startHighSchool = 17
     let finishSchool = 16
     let finishHighSchool = 23
-    
-    document.write(`В садочок через ${startKinderGarden-yearsOfChild} р`)
+
+    document.write(`В садочок через ${startKinderGarden - yearsOfChild} р`)
     document.write('<br>')
-    document.write(`В школу через ${startSchool-yearsOfChild} р, закінчить через ${finishSchool-yearsOfChild} р`)
+    document.write(`В школу через ${startSchool - yearsOfChild} р, закінчить через ${finishSchool - yearsOfChild} р`)
     document.write('<br>')
-    document.write(`В ВНЗ через ${startHighSchool-yearsOfChild} р, закінчить через ${finishHighSchool-yearsOfChild} р`)
+    document.write(`В ВНЗ через ${startHighSchool - yearsOfChild} р, закінчить через ${finishHighSchool - yearsOfChild} р`)
 }
 
 /*
@@ -99,7 +99,33 @@
 якщо йому нараховано S грн., а податок становить 20%.
 */
 
-let sallaryBrutto = prompt('ЗП', 1000)
-let sallaryNetto = sallaryBrutto - (sallaryBrutto / 100 * 20)
-document.write(`Буде нараховано - ${sallaryNetto}`)
+{
+    let sallaryBrutto = prompt('ЗП', 1000)
+    let sallaryNetto = sallaryBrutto - (sallaryBrutto / 100 * 20)
+    document.write(`Буде нараховано - ${sallaryNetto}`)
+}
 
+/*
+6. Дано три дійсні змінні a, b і c. Скласти алгоритм, який міняє місцями
+значення цих змінних наступним чином: змінна a набуває значення
+змінної b, змінна b набуває значення змінної c, а змінна c – попереднє
+значення змінної a.
+*/
+
+{
+    let a = parseFloat(prompt('Введіть знічення А', 1))
+    let b = parseFloat(prompt('Введіть знічення B', 2))
+    let c = parseFloat(prompt('Введіть знічення C', 3))
+
+    let aB = b
+    let bC = c
+    let cA = a
+
+    document.write(`A = ${aB}`)
+    document.write('<br>')
+    document.write(`B = ${bC}`)
+    document.write('<br>')
+    document.write(`C = ${cA}`)
+    document.write('<br>')
+    
+}
