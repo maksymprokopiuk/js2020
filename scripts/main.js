@@ -226,3 +226,19 @@
 
     document.write(`${yearsPassed}роки і ${monthsPassed}місяці`)
 }
+
+// 15. З клавіатури вводиться номер місяця. Визначити, який буде місяць через
+// вказану кількість N місяців.
+{
+    let numberOfMonth = parseInt((prompt('Введіть номер місяця від 1 до 12', 10))) //10
+    let countOfMonth = parseInt((prompt('Введіть кількість місяців', 4))) //4
+
+    let allMonths = (numberOfMonth + countOfMonth)
+
+    let years = parseInt(allMonths / 12)
+
+    let thisMonth = allMonths - (years*12)
+
+    document.write(`Місяць буде - ${thisMonth}`)
+
+}
