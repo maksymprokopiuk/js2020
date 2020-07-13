@@ -147,3 +147,18 @@
 
     document.write(`Століття - ${parseInt(century) + 1}`)
 }
+
+/*
+9. Скласти програму для розв’язування задачі: йде N-а секунда суток,
+визначити скільки повних годин і повних хвилин пройшло до цього
+моменту.
+*/
+
+{
+    let secondsOfDay = parseInt(prompt('Вкажіть кількість секунд', 18000))
+
+    let minutesOfDay = secondsOfDay / 60
+    let hoursOfDay = minutesOfDay / 60
+
+    document.write(`${secondsOfDay} секунд складається з ${Math.floor(minutesOfDay)} хвилин або ${Math.floor(hoursOfDay)} годин`)
+}
