@@ -179,3 +179,20 @@
 
     document.write(`${hrnWithoutCoins}грн ${kopWithoutCoins}копійок`)
 }
+
+/*
+14. З клавіатури вводиться кількість місяців, які пройшли від деякого
+моменту часу. Вивести повну кількість років і місяців. Наприклад, дано 28
+місяців, а вивести 2 роки і 4 місяці.
+*/
+
+{
+    let months = parseInt(prompt('Вкажіть кількість місяців', 28))
+
+    let yearsPassed = months / 12 
+    yearsPassed = parseInt(yearsPassed)
+    let monthsPassed = yearsPassed
+    monthsPassed = months - monthsPassed.toFixed() * 12
+
+    document.write(`${yearsPassed}роки і ${monthsPassed}місяці`)
+}
