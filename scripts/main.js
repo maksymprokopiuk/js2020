@@ -94,3 +94,12 @@
     document.write(`В ВНЗ через ${startHighSchool-yearsOfChild} р, закінчить через ${finishHighSchool-yearsOfChild} р`)
 }
 
+/*
+5. Визначити, яку платню одержить на фірмі сумісник за виконану роботу,
+якщо йому нараховано S грн., а податок становить 20%.
+*/
+
+let sallaryBrutto = prompt('ЗП', 1000)
+let sallaryNetto = sallaryBrutto - (sallaryBrutto / 100 * 20)
+document.write(`Буде нараховано - ${sallaryNetto}`)
+
