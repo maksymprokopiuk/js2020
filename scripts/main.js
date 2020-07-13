@@ -162,3 +162,20 @@
 
     document.write(`${secondsOfDay} секунд складається з ${Math.floor(minutesOfDay)} хвилин або ${Math.floor(hoursOfDay)} годин`)
 }
+
+/*
+10. З клавіатури вводиться кількість монет номіналом 1 копійка. Визначити
+скільки гривень і копійок є у даній сумі . Наприклад, дано 245 копійок, а
+вивести 2 грн 45 копійок.
+*/
+
+{
+    let sumOfCoins = parseInt(prompt('Введіть монети', 245))
+
+    let hrn = sumOfCoins / 100
+    let hrnWithoutCoins = parseInt(hrn)
+    let kop = hrn - hrnWithoutCoins
+    let kopWithoutCoins = kop.toFixed(2) * 100
+
+    document.write(`${hrnWithoutCoins}грн ${kopWithoutCoins}копійок`)
+}
