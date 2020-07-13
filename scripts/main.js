@@ -129,3 +129,21 @@
     document.write('<br>')
     
 }
+
+/*
+7
+*/
+
+/*
+8. Розробити програму, яка за номером року Y визначає номер століття C
+(врахувати, що початком XX століття був 1901, а не 1900 рік).
+*/
+
+{
+    let year = parseFloat(prompt('Вкажіть рік', 1850))
+
+    year = year - 1
+    let century = year / 100
+
+    document.write(`Століття - ${parseInt(century) + 1}`)
+}
