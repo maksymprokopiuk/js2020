@@ -210,6 +210,22 @@
 
 }
 
+// 13. З клавіатури вводиться номер дня тижня (від 1 до 7). Визначити який буде
+// день тижня через N днів.
+{
+    let numberOfWeek = parseInt((prompt('Введіть номер тижня від 1 до 7', 5)))
+    let countOfWeek = parseInt((prompt('Введіть кількість днів через', 4)))
+
+    let allDays = (numberOfWeek + countOfWeek)
+
+    let days = parseInt(allDays / 7)
+
+    let thisWeek = allDays - (days*7)
+
+    document.write(`День буде - ${thisWeek}`)
+
+}
+
 /*
 14. З клавіатури вводиться кількість місяців, які пройшли від деякого
 моменту часу. Вивести повну кількість років і місяців. Наприклад, дано 28
@@ -230,8 +246,8 @@
 // 15. З клавіатури вводиться номер місяця. Визначити, який буде місяць через
 // вказану кількість N місяців.
 {
-    let numberOfMonth = parseInt((prompt('Введіть номер місяця від 1 до 12', 10))) //10
-    let countOfMonth = parseInt((prompt('Введіть кількість місяців', 4))) //4
+    let numberOfMonth = parseInt((prompt('Введіть номер місяця від 1 до 12', 10)))
+    let countOfMonth = parseInt((prompt('Введіть кількість місяців', 4)))
 
     let allMonths = (numberOfMonth + countOfMonth)
 
