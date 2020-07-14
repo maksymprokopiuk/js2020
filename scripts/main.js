@@ -134,6 +134,15 @@
 7
 */
 
+{
+    let number = parseFloat(prompt('Введіть число:', 1))
+
+    let intPart = Math.trunc(number)
+    let fracPart = number - intPart
+
+    document.write(`int = ${intPart}, frac = ${fracPart.toFixed(2)}`)
+}
+
 /*
 8. Розробити програму, яка за номером року Y визначає номер століття C
 (врахувати, що початком XX століття був 1901, а не 1900 рік).
