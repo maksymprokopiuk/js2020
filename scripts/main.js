@@ -131,16 +131,14 @@
 }
 
 /*
-7
+7. Скласти алгоритм, який обчислює цілу і дробову частину даного числа х.
 */
 
 {
-    let number = parseFloat(prompt('Введіть число:', 1))
-
+    let number = parseFloat(prompt('Введіть число:', 35.14))
     let intPart = Math.trunc(number)
     let fracPart = number - intPart
-
-    document.write(`int = ${intPart}, frac = ${fracPart.toFixed(2)}`)
+    document.write(`int = ${intPart}, frac = ${parseInt(fracPart*100)}`)
 }
 
 /*
