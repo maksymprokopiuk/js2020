@@ -127,7 +127,7 @@
     document.write('<br>')
     document.write(`C = ${cA}`)
     document.write('<br>')
-    
+
 }
 
 /*
@@ -138,7 +138,7 @@
     let number = parseFloat(prompt('Введіть число:', 35.14))
     let intPart = Math.trunc(number)
     let fracPart = number - intPart
-    document.write(`int = ${intPart}, frac = ${parseInt(fracPart*100)}`)
+    document.write(`int = ${intPart}, frac = ${parseInt(fracPart * 100)}`)
 }
 
 /*
@@ -197,7 +197,7 @@
     let coin5 = 5
     let coin25 = 25
     let coin50 = 50
-    
+
     let coins = parseInt(prompt(`Введіть кількість монет номіналом ${coin2} копійки`, 100))
 
     document.write(`${(coins * coin2) / 100}грн`)
@@ -230,7 +230,7 @@
 
     let days = parseInt(allDays / 7)
 
-    let thisWeek = allDays - (days*7)
+    let thisWeek = allDays - (days * 7)
 
     document.write(`День буде - ${thisWeek}`)
 
@@ -245,7 +245,7 @@
 {
     let months = parseInt(prompt('Вкажіть кількість місяців', 28))
 
-    let yearsPassed = months / 12 
+    let yearsPassed = months / 12
     yearsPassed = parseInt(yearsPassed)
     let monthsPassed = yearsPassed
     monthsPassed = months - monthsPassed.toFixed() * 12
@@ -266,8 +266,21 @@
 
     let years = parseInt(allMonths / 12)
 
-    let thisMonth = allMonths - (years*12)
+    let thisMonth = allMonths - (years * 12)
 
     document.write(`Місяць буде - ${thisMonth}`)
 
+}
+
+/*
+16. Зашифрувати символ методом зміщення (шифр Цезаря).
+*/
+
+{
+    let s = prompt('Symbol')
+    let shift = parseInt(prompt('Shift = '))
+    let code = s.charCodeAt(0)
+    let resCode = (code - 65 + shift) % 26 + 65
+    let resSymbol = String.fromCharCode(resCode)
+    document.write(` Res = ${resSymbol}`)
 }
