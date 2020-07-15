@@ -8,6 +8,13 @@
 
     document.write(`Площа - ${square}, периметр - ${perimeter}`)
 }
+// 2. Дано (вводиться з клавіатури) кількість кілограмів помідорів та вартість одиниці.
+{
+    let numberOfTomatoes = parseInt(prompt('Скільки кг помідорів?', 10))
+    let priceOfTomatoes = parseFloat(prompt('Яка вартість, грн за кг?', 30))
+
+    document.write(`Загальна вартість - ${numberOfTomatoes*priceOfTomatoes} грн`)
+}
 // 3. З клавіатури вводиться рік народження учня. Визначити вік учня.
 {
     let studBirthday = parseInt(prompt('Введіть рік народження учня', 2000))
