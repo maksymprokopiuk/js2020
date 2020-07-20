@@ -608,10 +608,8 @@ else
 // За два постріли спробувати потопити корабель.
 
 // let squares = parseInt(prompt('Введіть кількість квадратів', 5))
-// let squares = 5
 // Позиція корабля визначається комп’ютером випадковим чином.
 // let positionBoat = parseInt(Math.random()*(6-1)+1)
-// let positionBoat = 3
 
 // let userShot = parseInt(prompt('Зробіть постріл від 1 до 5', 1))
 
@@ -643,9 +641,89 @@ else
 // Задача 3.1. Модифікувати попередню задачу з можливістю після пострілу переміщення
 // корабля у випадковим чином вибрану сусідню клітинку (якщо звичайно корабель не було
 // потоплено за першим разом).
-//=========================================================================================
-// Задача 3.2. Модифікувати попередню задачу таким чином, що кораблем керує користувач,
-// а комп’ютер стріляє.
+
+// let squares = parseInt(prompt('Введіть кількість квадратів', 5))
+// let positionBoat = parseInt(Math.random()*((squares+1)-1)+1)
+// console.log(positionBoat);
+// let userShot = parseInt(prompt('Зробіть постріл від 1 до 5', 1))
+
+// if (userShot === positionBoat)document.write(`Перемога!`)
+// else if (userShot !== positionBoat && userShot >= 1 && userShot <= 5){ // від 1 до 5 але не загадане і промазане
+    
+//     let offsetByOne = ((parseInt(Math.random()*(2)+1)) === 1)
+// if (offsetByOne)
+// positionBoat = positionBoat + 1
+// else positionBoat = positionBoat - 1
+// if (positionBoat === 0)
+//     positionBoat = 1
+// else if (positionBoat === 6)
+// positionBoat = 5
+    
+//     if (positionBoat !== (userShot + 1) && positionBoat !== (userShot - 1)) { //мімо
+//         userShot = parseInt(prompt('Мімо! У вас є другий шанс'))
+//         if (userShot === positionBoat){
+//             document.write(`Перемога з другої спроби!`)
+//         } else if (userShot !== positionBoat && positionBoat === (userShot + 1) || positionBoat === (userShot - 1)) {
+//             document.write(`Спроба 2: Ви ранили човен`)
+//         } else {document.write(`Спроба 2: мімо`)}
+//     }
+
+//     else if (positionBoat === (userShot + 1) || positionBoat === (userShot - 1)) { //ранив
+//         userShot = parseInt(prompt('Ранено! У вас є другий шанс'))
+//         if (userShot === positionBoat){
+//             document.write(`Перемога з другої спроби!`)
+//         } else if (userShot !== positionBoat && positionBoat === (userShot + 1) || positionBoat === (userShot - 1)) {
+//             document.write(`Спроба 2: Ви ранили човен`)
+//         } else {document.write(`Спроба 2: мімо`)}
+//     }
+// }
+// else 
+// document.write('Ви ввели не коректне значення!')
+
+// //=========================================================================================
+// // Задача 3.2. Модифікувати попередню задачу таким чином, що кораблем керує користувач,
+// // а комп’ютер стріляє.
+
+// let squares = parseInt(prompt('Введіть кількість квадратів', 5))
+// let positionBoat = parseInt(prompt('Вкажіть розташування човна від 1 до 5', 3))
+// let userShot = parseInt(Math.random()*((squares+1)-1)+1)
+// console.log(userShot);
+
+// if (userShot === positionBoat) document.write(`Перемога!`)
+// else if (userShot !== positionBoat && userShot >= 1 && userShot <= 5) { // від 1 до 5 але не загадане і промазане
+
+//     let offsetByOne = ((parseInt(Math.random() * (2) + 1)) === 1)
+//     if (offsetByOne)
+//         positionBoat = positionBoat + 1
+//     else positionBoat = positionBoat - 1
+//     if (positionBoat === 0)
+//         positionBoat = 1
+//     else if (positionBoat === 6)
+//         positionBoat = 5
+
+//     if (positionBoat !== (userShot + 1) && positionBoat !== (userShot - 1)) { //мімо
+//         userShot = parseInt(Math.random()*((squares+1)-1)+1)
+//         console.log(userShot);
+//         if (userShot === positionBoat) {
+//             document.write(`Перемога з другої спроби!`)
+//         } else if (userShot !== positionBoat && positionBoat === (userShot + 1) || positionBoat === (userShot - 1)) {
+//             document.write(`Спроба 2: Ви ранили човен`)
+//         } else { document.write(`Спроба 2: мімо`) }
+//     }
+
+//     else if (positionBoat === (userShot + 1) || positionBoat === (userShot - 1)) { //ранив
+//         userShot = parseInt(Math.random()*((squares+1)-1)+1)
+//         console.log(userShot);
+//         if (userShot === positionBoat) {
+//             document.write(`Перемога з другої спроби!`)
+//         } else if (userShot !== positionBoat && positionBoat === (userShot + 1) || positionBoat === (userShot - 1)) {
+//             document.write(`Спроба 2: Ви ранили човен`)
+//         } else { document.write(`Спроба 2: мімо`) }
+//     }
+// }
+// else
+//     document.write('Ви ввели не коректне значення!')
+
 //=========================================================================================
 // Задача 4. Полювання. Заєць знаходиться у верхньому лівому кутку поля. Поле складається
 // з двох рядків і двох стовпців.
@@ -653,6 +731,56 @@ else
 // пастку вказуючи номер рядка і стовпця клітинки. Якщо заєць потрапляє у пастку, то
 // користувач виграв і отримав 100 балів. Якщо користувач зловить зайця за другою
 // спробою, то одержує 50 балів.
+
+// 1 2
+// 3 4
+
+let rabbit = 1
+
+// let trap = parseInt(prompt('Введіть від 1 до 4', 4))
+let trap = 4
+
+let jump = parseInt(Math.random()*(5-1)+1)
+console.log('first '+jump);
+
+if (trap === jump)
+    document.write('Ви виграли з першого разу - 100')
+
+
+
+
+
+
+
+
+else if (trap !== jump && trap >= 1 && trap <=4){
+    jump = parseInt(Math.random()*(5-1)+1)
+    console.log('second ' + jump);
+    trap = parseInt(prompt('Введіть від 1 до 4', 4))
+    
+    if (trap === jump)
+        document.write('Ви виграли з другого разу - 50')
+    else
+        document.write('Ви програли')
+}
+
+
+
+
+
+
+
+else
+    document.write('Ви ввели не коректне значення!')
+
+
+
+
+
+
+
+
+
 //=========================================================================================
 // Задача 4.1. Модифікувати попередню задачу вказуючи початкову позицію зайця
 // випадковим чином а також можливістю переміщення зайця після пострілу.
@@ -664,3 +792,5 @@ else
 // 3) якщо випадає непарне число, то кількість балів зменшується на це число;
 // 4) виграє той, у кого кількість балів більша.
 //=========================================================================================
+
+
