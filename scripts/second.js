@@ -72,25 +72,25 @@
 //   /\/\/\/\/\/\/\
 // /\/\/\/\/\/\/\/\/\
 
-// let heightTriangle = 5
-// let o = 1
-// let n = heightTriangle
-// let v = heightTriangle
-// for (let i = 0; i < heightTriangle; i++) {
-//     for (let j = 0; j < (n-1); j++) {
-//         document.write('&ensp;')
-//     }
-//     n--
-//     for (let k = 0; k < o; k++) {
-//         document.write('^')
-//     }
-//     o+=2
-//     for (let j = 0; j < (v-1); j++) {
-//         document.write('&ensp;')
-//     }
-//     v--
-//     document.write('<br>')
-// }
+let heightTriangle = parseInt(prompt('Введіть кількість рядків', 5))
+let o = 1
+let n = heightTriangle
+let v = heightTriangle
+for (let i = 0; i < heightTriangle; i++) {
+    for (let j = 0; j < (n-1); j++) {
+        document.write('&ensp;')
+    }
+    n--
+    for (let k = 0; k < o; k++) {
+        document.write('^')
+    }
+    o+=2
+    for (let j = 0; j < (v-1); j++) {
+        document.write('&ensp;')
+    }
+    v--
+    document.write('<br>')
+}
 //================????????==================7
 // 6. На складе имеется определённое количество ящиков с яблоками (в нашем примере
 //     15). Когда подъезжает машина для погрузки, попросить пользователя ввести, сколько
