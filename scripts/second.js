@@ -12,17 +12,26 @@
 //     количество ящиков больше, чем есть на складе.
 
 // let boxes = 15
-// let countTruck = 0
+// let countTruck = 1
+
+//    while (boxes > 0) {
+//         ans = parseInt(prompt(`Скільки ящиків завантажити в ${countTruck} вантажівку?\nЯщиків на складі - ${boxes}`, 1))
+
+//         document.write(`${countTruck} вантажівка повезла - ${ans} ящиків. На складі - ${boxes - ans}<br>`)
+
+//         boxes -= ans
+//         countTruck++
+//     }
+// let a
 
 // do {
-//     let truck = parseInt(prompt(`В наявності ${boxes} ящиків.\nСкільки ящиків загрузити\nв truck ${countTruck + 1}?`))
-//     if ()
-//     boxes -= truck
-// } while (boxes > 0);
+//      a = parseInt(prompt('f', 6))
+//     boxes-=a
+// }
+// while (a === 0 || a < 0 || a > boxes && )
 
-// document.write(`Залишилося - ${boxes} ящиків <br>`)
-// document.write(`Truck 1 загружено - ${truck} ящиків`)
 
+// document.write(boxes)
 //==================================8
 // 7. Написать программу, которая будет показывать на экран квадрат числа,
 //  введенного пользователем. Пользователь должен сам решать –  выйти из программы
