@@ -65,22 +65,6 @@
 
 // Задача 2. Створити функцію, яка за номером тижня повертає кількість уроків(так, як у вас було у
 // школі).
-// ==COMPLETED==
-// let num1 = 1
-// let num2 = 3
-// let num3 = 7
-// let x = 0
-
-// function numOfPairs(a, b, c) {
-//     if (a%2 === 0)
-//     x+=1
-//     if (b%2 === 0)
-//     x+=1
-//     if (c%2 === 0)
-//     x+=1
-//     return x
-// }
-// document.write(`${numOfPairs(num1, num2, num3)}`)
 
 // Задача 3. Створити окремі функції, які для 4 чисел знаходять:
 // 1)суму;
@@ -113,6 +97,22 @@
 // document.write(`мінімальне значення - ${minZnach(first, second, third, fourth)}<br>`)
 
 // Задача 4. Створити функцію, яка для 3 заданих чисел знаходить кількість парних.
+// ==COMPLETED==
+// let num1 = 1
+// let num2 = 3
+// let num3 = 7
+// let x = 0
+
+// function numOfPairs(a, b, c) {
+//     if (a%2 === 0)
+//     x+=1
+//     if (b%2 === 0)
+//     x+=1
+//     if (c%2 === 0)
+//     x+=1
+//     return x
+// }
+// document.write(`${numOfPairs(num1, num2, num3)}`)
 
 // Задача 5. Створити функції, які переводять:
 // ==COMPLETED==
