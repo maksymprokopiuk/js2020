@@ -97,8 +97,9 @@
 // document.write(`мінімальне значення - ${minZnach(first, second, third, fourth)}<br>`)
 
 // Задача 4. Створити функцію, яка для 3 заданих чисел знаходить кількість парних.
-// ==COMPLETED==
+
 // Задача 5. Створити функції, які переводять:
+// ==COMPLETED==
 // 1) Сантиметри у дюйми;
 // 2) Кілограми у фунти;
 // 3) Кілометри у милі.
@@ -138,6 +139,22 @@
 
 // Задача 7. Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи
 // до зображень передаються у функцію)
+// ==COMPLETED==
+// let pic
+// function randomImage() {
+//     pic = parseInt(Math.random()*(5-1)+1)
+//     switch (pic) {
+//         case 1: document.write(`<img src="https://img.icons8.com/ios-glyphs/240/000000/lol.png" alt="">`)
+//             break;
+//         case 2: document.write(`<img src="https://img.icons8.com/ios-glyphs/240/000000/sad.png"/>`)
+//             break;
+//         case 3: document.write(`<img src="https://img.icons8.com/ios-glyphs/240/000000/evil.png"/>`)
+//             break;
+//         case 4: document.write(`<img src="https://img.icons8.com/ios-filled/240/000000/sad-ghost.png"/>`)
+//             break;
+//     }
+// }
+// randomImage()
 
 // Задача 8. Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок 
 // та посилання, куди переходимо при кліку на зображення (тег img повине знаходитись у середині тега 
