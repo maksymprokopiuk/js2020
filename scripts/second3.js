@@ -29,6 +29,39 @@
 // season(numOfMonth)
 
 // Задача 1. Створити функцію, яка за номером місяця повертає його назву.
+// ==COMPLETED==
+// let numOfMonth = parseInt(prompt('Ввести номер місяця', 8))
+// function month(a) {
+//     switch (a) {
+//         case 1: (document.write('Січень'))
+//             break;
+//         case 2: (document.write('Лютий'))
+//             break;
+//         case 3: (document.write('Березень'))
+//             break;
+//         case 4: (document.write('Квітень'))
+//             break;
+//         case 5: (document.write('Травень'))
+//             break;
+//         case 6: (document.write('Червень'))
+//             break;
+//         case 7: (document.write('Липень'))
+//             break;
+//         case 8: (document.write('Серпень'))
+//             break;
+//         case 9: (document.write('Вересень'))
+//             break;
+//         case 10: (document.write('Жовтень'))
+//             break;
+//         case 11: (document.write('Листопад'))
+//             break;
+//         case 12: (document.write('Грудень'))
+//             break;
+//         default: (document.write('Не вірно введено значення'))
+//             break;
+//     }
+// }
+// month(numOfMonth)
 
 // Задача 2. Створити функцію, яка за номером тижня повертає кількість уроків(так, як у вас було у
 // школі).
@@ -38,6 +71,12 @@
 // 2)добуток;
 // 3)середнє арифметичне;
 // 4)мінімальне значення.
+
+let a = 1, b = 2, c = 3, d = 4
+
+function sum(a, b, c, d) {
+    
+}
 
 // Задача 4. Створити функцію, яка для 3 заданих чисел знаходить кількість парних.
 // ==COMPLETED==
