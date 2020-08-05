@@ -71,12 +71,30 @@
 // 2)добуток;
 // 3)середнє арифметичне;
 // 4)мінімальне значення.
+// ==COMPLETED==
+// let first = 1, second = 2, third = 3, fourth = 4
+// let sumOfNumber = 0
+// let dobutokOfNumber = 0
+// let serZnachOfNumber = 0
+// let minZnachOfNumber = 0
 
-let a = 1, b = 2, c = 3, d = 4
+// function sum(a, b, c, d) {
+//     return sumOfNumber = a + b + c + d
+// }
+// function dobutok(a, b, c, d) {
+//     return dobutokOfNumber = a * b * c * d
+// }
+// function serZnach(a, b, c, d) {
+//     return serZnachOfNumber = (a + b + c + d) / 4
+// }
+// function minZnach(a, b, c, d) {
+//     return minZnachOfNumber = Math.min(a, b, c, d)
+// }
 
-function sum(a, b, c, d) {
-    
-}
+// document.write(`сума - ${sum(first, second, third, fourth)}<br>`)
+// document.write(`добуток - ${dobutok(first, second, third, fourth)}<br>`)
+// document.write(`середнє значення - ${serZnach(first, second, third, fourth)}<br>`)
+// document.write(`мінімальне значення - ${minZnach(first, second, third, fourth)}<br>`)
 
 // Задача 4. Створити функцію, яка для 3 заданих чисел знаходить кількість парних.
 // ==COMPLETED==
