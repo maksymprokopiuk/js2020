@@ -159,4 +159,18 @@
 // Задача 8. Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок 
 // та посилання, куди переходимо при кліку на зображення (тег img повине знаходитись у середині тега 
 // a: <a> <img src=”шлях”> </a>
+// ==COMPLETED==
+// let title = prompt('Ввести заголовок', 'Заголовок')
+// let link = prompt('Ввести адресу посилання', 'https://www.google.com')
+// let pic = prompt('Ввести адресу зображення', 'https://picua.org/images/2020/08/05/914fc0777d12a56a39bc71a9e25e2b7f.jpg')
+
+// function banner() {
+//     document.write(`
+//     <a href="${link}" style="position: relative;">
+//     <img src="${pic}" style="position: absolute;">
+//     <h1 style="position: absolute; left: 10px; color: white;">${title}</h1>
+//     </a>
+//     `)
+// }
+// banner()
 // =======ДЗ_Функції.docx====END=====
