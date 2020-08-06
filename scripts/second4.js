@@ -341,3 +341,71 @@
 // 	document.writeln('</tr>');
 // }; document.writeln('</table>');
 
+// Задача 1. Дано послідовність платіжок протягом року. Знайти сумарну 
+// кількість грошей за:
+// у першій половині року;
+// у другій половині року;
+// за літо;
+// за ІІ квартал.
+
+// let payments = [645, 3422, 8547, 234, 1597, 98754, 84674, 847, 8746, 656, 18947, 508]
+// let firstHalfOfYear = 0
+// for (let i = 0; i < payments.length / 2; i++) {
+//         firstHalfOfYear += payments[i]
+// }
+// document.write(`перша половина - ${firstHalfOfYear}<br>`)
+// let secondHalfOfYear = 0
+// for (let i = payments.length / 2; i < payments.length; i++) {
+//     secondHalfOfYear += payments[i]
+// }
+// document.write(`друга половина - ${secondHalfOfYear}<br>`)
+// let summer = 0
+// for (let i = 5; i < 8; i++) {
+//     summer += payments[i]
+// }
+// document.write(`за літо - ${summer}<br>`)
+// let secondQuarter = 0
+// for (let i = 3; i < 6; i++) {
+//     secondQuarter += payments[i]
+// }
+// document.write(`за 2 квартал - ${secondQuarter}<br>`)
+
+// Задача 2. Дано послідовність оцінок учня. Підрахувати кількість:
+// двійок
+// кількість хороших оцінок (добре, відмінно);
+// кількість оцінок, які нижче середнього.
+
+// let succsessStudent = [1,2,3,4,5,1,2,3,4,5]
+// let howMany2 = 0
+// for (let i = 0; i < succsessStudent.length; i++) {
+//     if (succsessStudent[i] === 2) {
+//         howMany2++
+//         document.write
+//     }
+// }
+// document.write(`Кількість двійок - ${howMany2}<br>`)
+// let howManyGoodPoints = 0
+// for (let i = 0; i < succsessStudent.length; i++) {
+//     if (succsessStudent[i] === 4 || succsessStudent[i] === 5)
+//     howManyGoodPoints++
+// }
+// document.write(`Кількість хороших оцінок - ${howManyGoodPoints}<br>`)
+// let howManyLowPoints = 0
+// for (let i = 0; i < succsessStudent.length; i++) {
+//     if (succsessStudent[i] < 4)
+//     howManyLowPoints++
+// }
+// document.write(`Кількість оцінок нижче середнього - ${howManyLowPoints}<br>`)
+
+// Задача 3. Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які 
+// може собі дозволити користувач (кількість грошей задається).
+
+// let price = [100,180,120,170,130,140,150,160,190,200]
+// let goods = ['art1','art2','art3','art4','art5','art6','art7','art8','art9','art10']
+
+// let money = 130
+// document.write(`${money}<br><br>`)
+// for (let i = 0; i < price.length; i++) {
+//     if (money >= price[i])
+//     document.write(`${goods[i]} - ${price[i]} грн<br>`)
+// }
