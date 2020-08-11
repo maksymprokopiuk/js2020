@@ -481,20 +481,20 @@
 // випадковим чином значеннями від -500 до 500). Надаючи користувачу можливість вибирати
 // номери елементів (поки він не відмовиться). Знаходити сумарний виграш.
 
-let randomNum = []
+// let randomNum = []
 
-for (let i = 0; i < 10; i++) {
-    let random = Math.random()*(500 - -500) - 500
-    randomNum[i] = Number(random.toFixed())
-    // document.write(`${random}<br>`)
-}
+// for (let i = 0; i < 10; i++) {
+//     let random = Math.random()*(500 - -500) - 500
+//     randomNum[i] = Number(random.toFixed())
+//     // document.write(`${random}<br>`)
+// }
 
-let answer = true
-let score = 0
+// let answer = true
+// let score = 0
 
-while (answer) {
-    answer = parseInt(prompt('Введіть від 1 до 10'))
-    score += answer
-}
+// while (answer) {
+//     answer = parseInt(prompt('Введіть від 1 до 10'))
+//     score += answer
+// }
 
-document.write(score)
+// document.write(score)
