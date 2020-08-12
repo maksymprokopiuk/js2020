@@ -133,32 +133,45 @@ document.write(countIvan)}*/
 
 // alert(namesArray.reduce(kilk, 0))
 
-
+// *************************************************
 // 4. Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються
 // випадковим чином значеннями від -500 до 500). Надаючи користувачу можливість вибирати
 // номери елементів (поки він не відмовиться). Знаходити сумарний виграш.
 
-// random min - max
-function getRandomMinMax(min, max) {
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random()*(max - min +1)) + min
-}
-// створюємо масив
-const randomNum = []
-const cell = 10
-function createArrRandom() {
-    for (let i = 0; i < cell; i++) {
-        randomNum.push(getRandomMinMax(-500, 500))
-    }
-}
-createArrRandom()
-document.write(`${randomNum}<br>`)
+// // random min - max
+// function getRandomMinMax(min, max) {
+//     min = Math.ceil(min)
+//     max = Math.floor(max)
+//     return Math.floor(Math.random()*(max - min +1)) + min
+// }
+// // створюємо масив
+// const randomNum = []
+// const cell = 10
+// function createArrRandom() {
+//     for (let i = 0; i < cell; i++) {
+//         randomNum.push(getRandomMinMax(-500, 500))
+//     }
+// }
+// createArrRandom()
+// document.write(`${randomNum}<br>`)
 
-// const randomNum = [10,20,30,40,50,60,70,80,90,100]
+const randomNum = [10,20,30,40,50,60,70,80,90,100]
 
 let answer = true
 let score = 0
 let tries = 10
 let numberAnswer = []
+let checkAnswerUser
 
+document.write(`Random numbers - ${randomNum.join(' ')}`)
+
+
+answer = parseInt(prompt(`Введіть від 1 до 10`))
+if (answer > 0 && answer <= 10) {
+    numberAnswer.push(answer)
+}
+
+
+
+// перевірка введеного числа
+checkAnswerUser = numberAnswer.some(mark=>mark===numberAnswer)
