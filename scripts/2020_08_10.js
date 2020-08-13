@@ -155,23 +155,94 @@ document.write(countIvan)}*/
 // createArrRandom()
 // document.write(`${randomNum}<br>`)
 
-const randomNum = [10,20,30,40,50,60,70,80,90,100]
+// const randomNum = [10,20,30,40,50,60,70,80,90,100]
 
-let answer = true
-let score = 0
-let tries = 10
-let numberAnswer = []
-let checkAnswerUser
+// let answer = true
+// let score = 0
+// let tries = 10
+// let numberAnswer = []
+// let checkAnswerUser
 
-document.write(`Random numbers - ${randomNum.join(' ')}`)
-
-
-answer = parseInt(prompt(`Введіть від 1 до 10`))
-if (answer > 0 && answer <= 10) {
-    numberAnswer.push(answer)
-}
+// document.write(`Random numbers - ${randomNum.join(' ')}`)
 
 
+// answer = parseInt(prompt(`Введіть від 1 до 10`))
+// if (answer > 0 && answer <= 10) {
+//     numberAnswer.push(answer)
+// }
 
-// перевірка введеного числа
-checkAnswerUser = numberAnswer.some(mark=>mark===numberAnswer)
+
+
+// // перевірка введеного числа
+// checkAnswerUser = numberAnswer.some(mark=>mark===numberAnswer)
+
+// TESTS
+// Задача 1. Дано оцінки учня за 5 предметів у 12 бальній шкалі.  
+// Вивести номери предметів, з яких у учня трійки?
+// const grades = [7, 4, 9, 10, 5]
+// // 3 = 04 05 06 вивести
+// for (let i = 0; i < grades.length; i++) {
+//     if (grades[i] >= 4 && grades[i] <= 6) {
+//         document.write(`Номери предметів в яких трійки - ${i+1} <br>`)
+//     }
+// }
+
+// Задача 2. Користувач вводить 10 слів. 
+// Підрахувати кількість слів, у яких перша літера і остання літера однакові.
+
+// let countName = 10
+// let words = 0
+
+// for (let i = 0; i < 10; i++) {
+//     tenWords = prompt(`Введіть 10 імен \nЗалишилося ${countName}`)
+//     countName--
+//     document.write(`${tenWords}<br>`)
+//     if(getNumberLetters(tenWords)) words++
+// }
+
+// document.write(`Кількість слів, у яких перша літера і остання літера однакові - ${words}`)
+
+// function getNumberLetters(word) {
+//     let wordLowerCase = word.toLowerCase()
+//     let first = wordLowerCase[0]
+//     let last = wordLowerCase[wordLowerCase.length-1]
+//     if (first === last) return true
+// }
+
+// Задача 3. Дано послідовність чисел, які згенеровано випадковим чином. 
+// Сформувати новий масив, у якому елементи є більшими за перший елемент.
+
+
+// const numbers = []
+// function getRandomMinMax(min, max) {
+//     min = Math.ceil(min)
+//     max = Math.floor(max)
+//     return Math.floor(Math.random()*(max - min +1)) + min
+// }
+// function createArrRandom() {
+//     for (let i = 0; i < 10; i++) numbers.push(getRandomMinMax(1, 100))
+// }
+// createArrRandom()
+// let newNumbers = []
+// function arrBiggerEl(arr) {
+//     for (let i = 1; i < arr.length; i++) if (arr[i] > arr[0]) newNumbers.push(arr[i])
+// }
+// arrBiggerEl(numbers)
+// document.write(`${numbers} - Згенеровані числа<br>`)
+// document.write(`${newNumbers} - Масив, у якому елементи є більшими за перший елемент`)
+
+// Задача 4. Усі елементи введеного масиву помножити на 17. 
+// let arr = [23,54,98,60,20,41,30,97,76,86]
+// arr.forEach((x, index, array)=>{array[index]*=17})
+// document.write(arr)
+
+// Задача 5. Знайти суму елементів, які знаходяться після елемента зі значенням 78.
+
+// const array = [23,54,98,78,20,41,30,97,76,86]
+// let numElement78 = array.indexOf(78)
+// let array2 = array.slice(numElement78+1)
+// function suma(result, x, i, arr) {
+//     result += x;
+//     return result;
+// }
+// document.write(array2.reduce(suma));
