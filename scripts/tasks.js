@@ -90,3 +90,133 @@
 // let arr = Object.keys(obj)
 
 // console.log(arr);
+
+// http://wm-school.ru/js/array_exercises_1.php
+
+// 1. Клонирование массива Напишите функцию copyArr(arr), которая копирует массив не изменяя иригинал.
+
+// let vegetables = ['Капуста', 'Репа', 'Редиска', 'Морковка']
+// function arrayClone(arr) {
+//     let newArr = arr.slice()
+//     return newArr
+// }
+// let arr1 = arrayClone(vegetables)
+// document.write(arr1)
+
+// 2. Преобразование массива в строку
+// Напишите код, который преобразовывает и объединяет все элементы массива в одно строковое значение. 
+// Элементы массива будут разделены запятой. Получите результат двумя разными методами.
+
+// let vegetables = ['Капуста', 'Репа', 'Редиска', 'Морковка']
+
+// let str1 = vegetables.join()
+// let str2 = vegetables.toString()
+
+// document.writeln(str1) // "Капуста, Репа, Редиска, Морковка"
+// document.writeln(str2) // "Капуста, Репа, Редиска, Морковка"
+
+// 4. Замена регистра символов
+// Пользователь вводит строку кириллицей разного регистра. Напишите функцию, которая принимает 
+// строку в качестве аргумента и заменяет регистр каждого символа на противоположный. 
+// Например, если вводится «КаЖдЫй ОхОтНиК», то на выходе должен быть массив [кАжДыЙ оХоТнИк].
+
+// const str = prompt('Введите слово', 'КаЖдЫй ОхОтНиК');
+// function changeRegister(str) {
+//     let newStr = ''
+//     for (let i = 0; i < str.length; i++) {
+//         if (str[i] === str[i].toUpperCase()) {
+//             newStr += str[i].toLowerCase()
+//         } else {
+//             newStr += str[i].toUpperCase()
+//         }
+//     }
+//     return newStr
+// }
+// document.writeln(changeRegister(str)); // [кАжДыЙ оХоТнИк] 
+
+// 5. Удалить повторяющиеся элементы массива
+// Напишите функцию removeDuplicates(arr), которая возвращает массив, в котором удалены повторяющиеся 
+// элементы из массива arr (игнорируйте чувствительность к регистру).
+
+// var arr = ["php", "php", "css", "css", "script", "script", "html", "html", "java"];
+// function removeDuplicates(arr) {
+//     let newArr = []
+//     newArr.push(arr[0])
+//     for (let i = 1; i < arr.length; i++) {
+//         if (newArr.indexOf(arr[i]) === -1) {
+//             newArr.push(arr[i])
+//         }
+//     }
+//     return newArr
+// }
+// let result = removeDuplicates(arr)
+// document.write(result)  // [php,css,script,html,java] 
+
+// 6. Найдите високосные годы
+// Високосным годом является каждый четвертый год и века начинаются только на высокостные года, 
+// отличие високосного года от обычного заключается в появлении 366-го дня. 
+// Напишите функцию chooseYears(start, end), которая принимает в качестве аргументов диапозон лет и 
+// возвращает массив високосных лет в заданном диапазоне.
+
+// function chooseYears(start, end) {
+//     let years = []
+//     for (let i = start; i <= end; i++) {
+//         if (i%4 === 0) {
+//             years.push(i)
+//         }
+//     }
+//     return years
+// }
+// document.writeln(chooseYears(2000,2020)); // [2000,2004,2008,2012,2016]
+// *****************************************************************************
+// 7. Отобразить элементы в случайном порядоке
+// Используя метод sort перепишите предсталенный ниже код, который с помощью цикла for случайно 
+// изменяет порядок расстановки элементов массива.
+
+// function shuffle(arr) {
+//     for (var i = arr.length - 1; i > 0; i--) {
+//         var j = Math.floor(Math.random() * (i + 1));
+//         var temp = arr[i];
+//         arr[i] = arr[j];
+//         arr[j] = temp;
+//     }
+//     return arr;
+// }
+// *****************************************************************************
+// 8. Получить первые элементы массива
+// Напишите функцию getFirst(array, n), которая возвращает фрагмент массива, 
+// содержащий первые 'n' элементов массива.
+
+// var array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// function getFirst(arr, n) {
+//     let temp = []
+
+//     if (n === undefined) {
+//         temp = arr.slice(0, 1)
+//     } else temp = arr.slice(0, n)
+//     return temp
+// };
+// document.writeln(getFirst(array));    // 1
+// document.write('<br>')
+// document.writeln(getFirst(array, 4)); // 1,2,3,4
+// document.write('<br>')
+// document.writeln(getFirst(array,-3)); // 1,2,3,4,5,6 
+
+// 9. Получить последние элементы массива
+// Напишите функцию getLast(array, n), которая возвращает фрагмент массива, 
+// содержащий последние 'n' элементов массива.
+
+// var array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// function getLast(arr, n) {
+//     let temp = []
+//     if (n === undefined) {
+//         temp = arr.slice(arr.length-1)
+//     } else if (n <= arr.length){
+//         temp = arr.slice(arr.length-n)
+//     }
+//     else {temp = arr.slice()}
+//     return temp
+// };
+// document.writeln(getLast(array)+'<br>');     // 9
+// document.writeln(getLast(array, 4)+'<br>');  // 6,7,8,9
+// document.writeln(getLast(array, 12)); // 1,2,3,4,5,6,7,8,9 
