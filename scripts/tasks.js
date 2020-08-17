@@ -169,19 +169,22 @@
 // }
 // document.writeln(chooseYears(2000,2020)); // [2000,2004,2008,2012,2016]
 // *****************************************************************************
-// 7. Отобразить элементы в случайном порядоке
-// Используя метод sort перепишите предсталенный ниже код, который с помощью цикла for случайно 
-// изменяет порядок расстановки элементов массива.
+// 7. Используя метод sort перепишите предсталенный ниже код, 
+// который с помощью цикла for случайно изменяет порядок расстановки элементов массива.
 
 // function shuffle(arr) {
-//     for (var i = arr.length - 1; i > 0; i--) {
-//         var j = Math.floor(Math.random() * (i + 1));
-//         var temp = arr[i];
-//         arr[i] = arr[j];
-//         arr[j] = temp;
-//     }
-//     return arr;
-// }
+//      for (var i = arr.length - 1; i > 0; i--) {
+//          var j = Math.floor(Math.random() * (i + 1));
+//          var temp = arr[i];
+//          arr[i] = arr[j];
+//          arr[j] = temp;
+//      }
+//      return arr;
+//  }
+ 
+//  var array = [0,1,2,3,4,5,6,7,8,9];
+//  document.writeln(shuffle(array));
+ 
 
 // 8. Получить первые элементы массива
 // Напишите функцию getFirst(array, n), которая возвращает фрагмент массива, 
@@ -283,12 +286,18 @@
 
 // var arr1 = [1, 2, 'a'];
 // var arr2 = [1, 2, 3, 4, 'b'];  
-
 // function arrayDiff(arr1, arr2) {
-
-//     //  ваш код
+//      let temp = []
+//      let length = (arr1.length > arr2.length) ? arr1.length : arr2.length
+//      for (let i = 0; i < length; i++) {
+//           // document.write(`${arr1[i]} ${arr2[i]}<br>`)
+//           if (arr1[i] != arr2[i]) {
+//                if (arr1[i] != undefined) temp.push(arr1[i])
+//                if (arr2[i] != undefined) temp.push(arr2[i])
+//           }
+//      }
+//      return temp
 // }
-
 // document.writeln(arrayDiff(arr1, arr2)); // [a,3,4,b]
 
 // 15. Сортировка массива по убыванию
