@@ -497,19 +497,20 @@
 // document.writeln(generateNumbers(0, 5));  // 0,1,2,3,4
 // document.writeln(generateNumbers(-5, 4)); // -5,-4,-3,-2 
 
-// *****************************************************************************
 // 29. Массив, содержащий все целые числа между start и end
 // Напишите функцию generateRange(start, end), которая генерирует массив заданной длины len, 
 // заполненный целыми числами. Каждое последующее число в массиве должно быть больше предыдущего на единицу.
 
 // function generateRange(start, end) {
-
-// // Ваш код
-
+//      let arr = []
+//      for (let i = 0; i < end; i++) {
+//           arr.push(start - i)
+//           start+= 2
+//      }
+//      return arr
 // }
-
-// document.writeln(generateNumbers(0, 5));  // 0,1,2,3,4
-// document.writeln(generateNumbers(-5, 4)); // -5,-4,-3,-2 
+// document.write(`${generateRange(0, 5)}<br>`)
+// document.write(`${generateRange(-5, 4)}`)
 
 // *****************************************************************************
 // 30. Массив длин строковых элементов
