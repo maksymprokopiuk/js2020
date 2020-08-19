@@ -17,8 +17,59 @@
     <script src="./scripts/train.js"></script>
     <script src="./scripts/2020-08-19.js"></script>
     <title>Document</title>
+    <script>
+        function calcSum() {
+            let inp1 = document.getElementById('num1')
+            let number1 = parseFloat(inp1.value)
+
+            let inp2 = document.getElementById('num2')
+            let number2 = parseFloat(inp2.value)
+
+            const s = number1 + number2
+            
+            const resInp = document.getElementById('res')
+            resInp.value = s
+        }
+        function calcMut() {
+            let inp1 = document.getElementById('num1')
+            let number1 = parseFloat(inp1.value)
+
+            let inp2 = document.getElementById('num2')
+            let number2 = parseFloat(inp2.value)
+
+            const s = number1 * number2
+
+            const resInp2 = document.getElementById('res')
+            resInp2.value = s
+        }
+        window.onload = function () {
+            const b1 = document.getElementById('addBtn')
+            b1.onclick = calcSum
+        
+        
+            const b2 = document.getElementById('multBtn')
+            b2.onclick = calcMut
+        }
+    </script>
 </head>
 <body>
-    
+    <label>
+        Number 1
+        <input type="number" id="num1">
+    </label>
+    <br>
+    <label>
+        Number 2
+        <input type="number" id="num2">
+    </label>
+    <br>
+    <button id="addBtn">Add</button>
+    <button id="multBtn">Mult</button>
+    <br>
+    <br>
+    <label>
+        Result
+        <input type="number" id="res">
+    </label>
 </body>
 </html>
