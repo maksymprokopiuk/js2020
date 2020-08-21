@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача 4. Визначення вартості замовлення (за допомогою чекбоксів вибирати першу страву, другу і десерт).</title>
+    <script>
+        function getSumOfGroup(checkboxArr) {
+            Sum = 0;
+            for (var i = 0; i < checkboxArr.length; i++) {
+                if (checkboxArr[i].checked)
+                {
+                   Sum += +checkboxArr[i].value;
+                }
+            }
+            return Sum;
+        }
+        function getTotalSum() {
+            var firstDishesGroup = document.querySelectorAll("[name='firstdish']");
+            var totalPrice1 = getSumOfGroup(firstDishesGroup);
+            var secondDishesGroup = document.querySelectorAll("[name='seconddish']");
+            var totalPrice2 = getSumOfGroup(secondDishesGroup);
+            var liquidsGroup = document.querySelectorAll("[name='liquid']");
+            var totalPrice3 = getSumOfGroup(liquidsGroup);
+            var total = totalPrice1 + totalPrice2 + totalPrice3;
+            document.getElementById("summ").value = total + "(Перша страва-" + totalPrice1 +
+                ", Друга страва- " + totalPrice2 + ", Третя страва- " + totalPrice3 + ")";
+        }
+    </script>
+</head>
+<body>
+    <h3>Задача 4. Визначення вартості замовлення (за допомогою чекбоксів вибирати першу страву, другу і десерт).</h1>
+        Sup: 
+        <input name="firstdish" type="checkbox" id="Sup" value="20" /> <br>
+    Borsch: 
+         <input name="firstdish" type="checkbox" id="Borsch" value="25" /> <br><hr>
+    Rus:
+         <input name="seconddish" type="checkbox" id="Rus" value="15" /> <br>
+    Potato: 
+        <input name="seconddish" type="checkbox" id="Potato" value="23" /> <br><hr>
+    Tea:
+        <input name="liquid" type="checkbox" id="Tea" value="10" /> <br>\
+    Kompot:
+        <input name="liquid" type="checkbox" id="kompot" value="8" /> <br>
+    <input type="button" name="name" value="Find sum" onclick="getTotalSum()" /><br>
+
+    <label for="summ">Summ : </label>
+    <input type="text" id="summ" value="" size="52"/><br>
+
+</body>
+</html>

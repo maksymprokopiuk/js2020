@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача 1. Користувач задає рік народження. Визначити кількість років користувача</title>
+    <script>
+        function calcSum() {
+            // звідки брати: отримати значення поля і зберегти
+            let valueOfInput = parseInt(document.getElementById('yearInput').value)
+            // отримати теперішній рік
+            let nowYear = new Date().getFullYear()
+            // обчислити
+            let howOld = nowYear - valueOfInput
+            // куди зберігати: отримати значення поля і зберегти
+            let resultAdd = document.getElementById('numYearInput')
+            // вставити в поле результат
+            resultAdd.value = howOld
+        }
+        // що виконати при кліку на кнопку
+        window.onload = function () {
+            // зберігаємо адресу кнопки
+            let userClickButton = document.getElementById('btn')
+            // клік запускає функцію calcSum
+            userClickButton.onclick = calcSum
+        }
+    </script>
+</head>
+<body>
+    <label>
+        рік народження
+        <input id="yearInput" value="2000">
+    </label>
+
+    <button id="btn">=</button>
+    <label>
+        <input id="numYearInput">
+    </label>
+</body>
+</html>

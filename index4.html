@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача 2. Конвертер валют.</title>
+    <script>
+        function calcSum() {
+            // отримуємо значення
+            let userHrn = parseInt(document.getElementById('uahInput').value)
+            // курси валют
+            let currentDol = 27.62
+            let currentEur = 32.78
+            // обчислення
+            let sumDol = userHrn / currentDol
+            let sumEur = userHrn / currentEur
+            //вставити результат
+            let dolInput = document.getElementById('dollar')
+            dolInput.value = sumDol.toFixed(2)
+            let eurInput = document.getElementById('euro')
+            eurInput.value = sumEur.toFixed(2)
+
+        }
+        // при кліку на кнопку виклик функції
+        window.onload = function () {
+            let clickOnBtn = document.getElementById('btn')
+            clickOnBtn.onclick = calcSum
+        }
+    </script>
+</head>
+<body>
+    <label>
+        грн
+        <input id="uahInput" value="100">
+    </label>
+
+    <button id="btn">=</button>
+    <br>
+    <br>
+    <label>
+        $<input id="dollar">
+    </label>
+    <label>
+        €<input id="euro">
+    </label>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача. Зробити кнопку, при натисненні на яку з’являється додатковий input</title>
+    <script>
+        function addF() {
+            //1.Створюємо новий інпут
+            var m = document.createElement('input');
+            //2.Задаємо значення його властивостей
+            m.type = 'text';
+            m.value = '0';
+            //3.Додаємо елемент у потрібний батьківський елемент
+            var d = document.getElementById('MyDiv');
+            d.appendChild(m);
+            //----------------------
+            d.innerHTML += "<br>";
+        }
+    </script>
+
+</head>
+<body>
+    <input type="button" value="add" onclick="addF()" />
+    <div id="MyDiv">
+
+    </div>    
+
+</body>
+</html>

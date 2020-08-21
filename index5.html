@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача 3. Калькулятор з вибором операції (додавання, віднімання, множення, ділення).</title>
+    <script>
+        function calcSum() {
+            // отримати поле1
+            let getInput1 = parseInt(document.getElementById('number1').value)
+            // отримати поле2
+            console.log(getInput1);
+            let getInput2 = parseInt(document.getElementById('number2').value)
+
+            // отримати дію
+            let plus = document.getElementById('operation').value
+            // обчислення
+            let sum
+            switch (plus) {
+                case '+': sum = getInput1 + getInput2
+                    break;
+                    case '-': sum = getInput1 - getInput2
+                    break;
+                    case '*': sum = getInput1 * getInput2
+                    break;
+                    case '/': sum = getInput1 / getInput2
+                    break;
+            
+                default: sum = 'wrong'
+                    break;
+            }
+
+            // вставити значення
+            let pushSum = document.getElementById('number3')
+            pushSum.value = sum
+        }
+        window.onload = function () {
+            // клік по кнопці
+            let button = document.getElementById('btn')
+            button.onclick = calcSum
+        }
+    </script>
+</head>
+<body>
+    <label>
+        <input id="number1">
+    </label>
+    <br>
+    <select id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <br>
+    <label>
+        <input id="number2">
+    </label>
+    <br>
+    <button id="btn">=</button>
+    <br>
+    <label>
+        <input id="number3">
+    </label>
+</body>
+</html>
