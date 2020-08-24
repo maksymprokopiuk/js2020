@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // функція для створення таблиці
+        function createTableBody() {
+            const prodNum = parseInt(document.getElementById('prodCount').value)
+            const tableBody = document.querySelector('tbody')
+            tableBody.innerHTML = '' //очищаємо таблицю
+
+            for (let i = 0; i < prodNum; i++) {
+                // створюємо порожній рядок
+                const tr = document.createElement('tr')
+                // додаємо клітинку з номером товару
+                const td = document.createElement('td')
+                td.innerText = `Товар ${i + 1}`
+                tr.appendChild(td)
+
+                // додаємо клітинку з інпут для введення ціни
+                const td2 = document.createElement('td') //створюємо клітинку
+                const inp = document.createElement('input') //створюємо інпут
+                inp.setAttribute('type', 'number') //встановлюємо атрибут
+                td2.appendChild(inp) //вставляємо у клітинку інпут
+                tr.appendChild(td2) //вставляємо клітинку у рядок
+
+                tableBody.appendChild(tr)
+            }
+        }
+        // рівняння
+        function getTotal() {
+            const tableBody = document.querySelector('tbody')
+            // вибираємо всі інпут в таблиці
+            const inputs = tableBody.getElementsByTagName('input')
+            console.log('inputs');
+            console.log(inputs);
+            // const inputs = tableBody.querySelectorAll('input')
+            let s = 0
+            for (let i = 0; i < inputs.length; i++) {
+                const prodPrice = parseFloat(inputs[i].value)
+                s += prodPrice
+            }
+            document.getElementById('total').value = s
+        }
+        window.onload = function () {
+            document.getElementById('prodCount').onchange = createTableBody
+            document.getElementById('getTotal').onclick = getTotal
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <label>
+            Кількість товару
+            <input type="number" id="prodCount" value="0" min="0" max="100">
+        </label>
+    </div>
+    <div>
+        <table border="2px">
+            <thead>
+                <tr>
+                    <th>Назва</th>
+                    <th>Вартість</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div>
+        <button id="getTotal">
+            Знайти загальну вартість
+        </button>
+    </div>
+    <div>
+        <label>
+            Разом
+            <input type="number" id="total">
+        </label>
+    </div>
+</body>
+</html>

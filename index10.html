@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let counter = 0
+    function onDelete() {
+      const btn = this
+
+      const divId = btn.getAttribute('divId')
+
+      const taskDiv = document.getElementById(divId)
+      
+      const parentDiv = document.getElementById('tasksContainer')
+      // div.parentElement
+
+      parentDiv.removeChild(taskDiv)
+    }
+    function addTask() {
+      const whatToDo = document.getElementById('whatToDo').value
+      const whenToDo = document.getElementById('whenToDo').value
+
+      const taskDiv = document.createElement('div')
+      const span = document.createElement('span')
+      span.innerText = `${whatToDo} - ${whenToDo}`
+      taskDiv.appendChild(span)
+
+      const taskId = `task-${counter++}`
+      taskDiv.setAttribute('id', taskId)
+
+      const delBtn = document.createElement('button') //створити кнопку
+      delBtn.innerText = 'Видалити' //додали опис на кнопці
+      delBtn.setAttribute('divId', taskId) //додали атрибут divId
+      delBtn.onclick = onDelete //до кнопки прив'язали функцію
+
+      taskDiv.appendChild(delBtn) //кнопку додали у div
+
+      document.getElementById('tasksContainer').appendChild(taskDiv)
+    }
+    window.onload = function () {
+      document.getElementById('addTask').onclick = addTask
+    }
+  </script>
+</head>
+
+<body>
+  <div>
+    <label>
+      Що зробити
+      <input type="text" id="whatToDo">
+    </label>
+  </div>
+  <div>
+    <label>
+      Коли зробити
+      <input type="text" id="whenToDo">
+    </label>
+  </div>
+  <div>
+    <button id="addTask">
+      Додати
+    </button>
+  </div>
+  <div id="tasksContainer">
+
+  </div>
+</body>
+
+</html>

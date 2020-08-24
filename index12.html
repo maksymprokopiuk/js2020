@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function createTableBody() {
+      const guestNum = document.getElementById('guestCounter').value
+      const tableBody = document.querySelector('tbody')
+      tableBody.innerHTML = ''
+
+      for (let i = 0; i < guestNum; i++) {
+        const tr = document.createElement('tr')
+        const td = document.createElement('td')
+        td.innerText = i+1
+        tr.appendChild(td)
+
+        const td2 = document.createElement('td')
+        const input = document.createElement('input')
+        input.setAttribute('type', 'text')
+        input.setAttribute('class', 'nameGuest')
+        td2.appendChild(input)
+        tr.appendChild(td2)
+
+        const td3 = document.createElement('td')
+        const input2 = document.createElement('input')
+        input2.setAttribute('type', 'text')
+        input2.setAttribute('class', 'yearGuest')
+        td3.appendChild(input2)
+        tr.appendChild(td3)
+
+        for (let j = 0; j < 3; j++) {
+          const td = document.createElement('td')
+          const input = document.createElement('input')
+          input.setAttribute('type', 'checkbox')
+          input.setAttribute('class', `meal${j+1}`)
+          td.appendChild(input)
+          tr.appendChild(td)
+        }
+        tableBody.appendChild(tr)
+      }
+    }
+    function getTotal() {
+      document.getElementById('getList').innerHTML = ''
+      const getName = document.getElementsByClassName('nameGuest')
+      const getYear = document.getElementsByClassName('yearGuest')
+      const getMealMorning = document.getElementsByClassName('meal1').value = 15
+      const getMealAfternoon = document.getElementsByClassName('meal2').value = 25 
+      const getMealEvening = document.getElementsByClassName('meal3').value = 30
+      
+      const guestNum = document.getElementById('guestCounter').value
+      let getList = document.getElementById('getList')
+      let totalPrice = document.getElementById('totalPrice')
+      // console.log(guestNum);
+      let totalSumAll = 0
+      for (let i = 0; i < guestNum; i++) {
+        let div = document.createElement('div')
+        let mealMorningCheck = document.getElementsByClassName('meal1')[i].checked
+        let mealAfternoonCheck = document.getElementsByClassName('meal2')[i].checked
+        let mealEveningCheck = document.getElementsByClassName('meal3')[i].checked
+        
+        let totalmeal1 = mealMorningCheck ? getMealMorning : 0
+        let totalmeal2 = mealAfternoonCheck ? getMealAfternoon : 0
+        let totalmeal3 = mealEveningCheck ? getMealEvening : 0
+        let totalmealAll = totalmeal1 + totalmeal2 + totalmeal3
+        div.innerText = `${i+1} ${getName[i].value} ${getYear[i].value} р.н. Сніданок - ${totalmeal1} грн, Обід - ${totalmeal2} грн, Вечеря - ${totalmeal3} грн. Всього - ${totalmealAll} грн.`
+        totalSumAll += totalmealAll
+        getList.appendChild(div)
+
+        
+      }
+      document.getElementById('totalPrice').innerHTML = ''
+      let div2 = document.createElement('div')
+        div2.innerText = `Всього: ${totalSumAll} грн`
+        totalPrice.appendChild(div2)
+    }
+    window.onload = function () {
+      document.getElementById('guestCounter').onchange = createTableBody
+      document.getElementById('getTotal').onclick = getTotal
+    }
+  </script>
+</head>
+<body>
+  <h4>Форма бронювання в готелі</h4>
+  <div>Вкажіть кількість клієнтів</div>
+  <input type="number" min="1" max="20" id="guestCounter">
+  <div>
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>П/П</th>
+                <th>ПІБ</th>
+                <th>Рік народження</th>
+                <th>Сніданок</th>
+                <th>Обід</th>
+                <th>Вечеря</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<div>
+  <button id="getTotal">Загальна вартість</button>
+  <div id="getList">
+    
+  </div>
+  <div id="totalPrice"></div>
+</div>
+
+</body>
+</html>
