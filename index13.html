@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function getSort() {
+      let removeAtrNone = document.getElementsByClassName('employee')
+      
+      let minSalary = parseFloat(document.getElementById('minValueOfSalary').value)
+      let maxSalary = parseFloat(document.getElementById('maxValueOfSalary').value)
+      
+      let employees = document.getElementsByClassName('employee')
+      
+
+
+      for (let i = 1; i < employees.length; i++) {
+
+        let lastChild = parseFloat(employees[i].lastElementChild.innerText)
+        if (!(lastChild <= maxSalary && lastChild >= minSalary)) {
+          // console.log(employees[i]);
+          employees[i].setAttribute("style", "display: none;")
+        }
+      } 
+      
+    }
+    window.onload = function () {
+      document.getElementById('findEmployee').onclick = getSort
+    }
+  </script>
+</head>
+<body>
+  <div><h5>Фільтр за розмірами заробітної плати</h5></div>
+  <div>Розмір заробітної плати:</div>
+  <div>Мінімальне значення: <input type="number" id="minValueOfSalary" value="3000"></div>
+  <div>Максимальне значення: <input type="number" id="maxValueOfSalary" value="7000"></div>
+  <div><button id="findEmployee">Знайти працівників</button></div>
+  <table border="1px">
+    <thead>
+      <tr  class="employee">
+        <th>ПІБ</th>
+        <th>Заробітна плата</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="employee" style="display: visible;">
+        <th>Ivanov I. I.</th>
+        <th>5700</th>
+      </tr>
+      <tr  class="employee" style="display: visible;">
+        <th>Petrov I. I.</th>
+        <th>5800</th>
+      </tr>
+      <tr  class="employee" style="display: visible;">
+        <th>Samson I. I.</th>
+        <th>2000</th>
+      </tr>
+      <tr  class="employee" style="display: visible;">
+        <th>Kovalev I. I.</th>
+        <th>9000</th>
+      </tr>
+      <tr  class="employee" style="display: visible;">
+        <th>Nvanov I. I.</th>
+        <th>6000</th>
+      </tr>
+      <tr  class="employee" style="display: visible;">
+        <th>Vvanov I. I.</th>
+        <th>5000</th>
+      </tr>
+      <tr  class="employee" style="display: visible;">
+        <th>Svanov I. I.</th>
+        <th>15800</th>
+      </tr>
+      <tr  class="employee" style="display: visible;">
+        <th>Avanov I. I.</th>
+        <th>800</th>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
