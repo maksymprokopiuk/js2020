@@ -7,23 +7,18 @@
   <script>
     function getSort() {
       let removeAtrNone = document.getElementsByClassName('employee')
-      
       let minSalary = parseFloat(document.getElementById('minValueOfSalary').value)
       let maxSalary = parseFloat(document.getElementById('maxValueOfSalary').value)
-      
       let employees = document.getElementsByClassName('employee')
-      
-
 
       for (let i = 1; i < employees.length; i++) {
-
         let lastChild = parseFloat(employees[i].lastElementChild.innerText)
         if (!(lastChild <= maxSalary && lastChild >= minSalary)) {
-          // console.log(employees[i]);
           employees[i].setAttribute("style", "display: none;")
+        } else {
+          employees[i].setAttribute("style", "display: visible;")
         }
-      } 
-      
+      }
     }
     window.onload = function () {
       document.getElementById('findEmployee').onclick = getSort
