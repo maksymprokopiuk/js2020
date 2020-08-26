@@ -1,11 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script>
+    function createTable() {
+      const countYear = document.getElementById('countYear').value
+      const tableBody = document.getElementById('tbody1')
+      tableBody.innerHTML = ''
+
+      for (let i = 0; i < countYear; i++) {
+        const tr = document.createElement('tr')
+        const td = document.createElement('td')
+        const input = document.createElement('input')
+        input.setAttribute('type', 'number')
+        input.setAttribute('class', 'numberYear')
+        input.value = 2000 + i
+
+        td.appendChild(input)
+        tr.appendChild(td)
+
+        const tr2 = document.createElement('tr')
+        const td2 = document.createElement('td')
+        const input2 = document.createElement('input')
+        input2.setAttribute('type', 'number')
+        input2.setAttribute('class', 'numberProfit')
+        input2.value = 20000 * (i + 2)
+
+        td2.appendChild(input2)
+        tr.appendChild(td2)
+
+        tableBody.appendChild(tr)
+      }
+    }
+    function createTable2() {
+      const countEmployee = document.getElementById('countEmployee').value
+      const tableBody2 = document.getElementById('tbody2')
+      tableBody2.innerHTML = ''
+
+      for (let i = 0; i < countEmployee; i++) {
+        const tr = document.createElement('tr')
+        const td = document.createElement('td')
+        const input = document.createElement('input')
+        input.setAttribute('type', 'text')
+        input.setAttribute('class', 'textName')
+        input.value = 'Ivanov' + (i + 1)
+
+        td.appendChild(input)
+        tr.appendChild(td)
+
+        const tr2 = document.createElement('tr')
+        const td2 = document.createElement('td')
+        const input2 = document.createElement('input')
+        input2.setAttribute('type', 'number')
+        input2.setAttribute('class', 'numberSalary')
+        input2.value = 5000 * (i + 2)
+
+        td2.appendChild(input2)
+        tr.appendChild(td2)
+
+        tableBody2.appendChild(tr)
+      }
+    }
+    function getTotal() {
+      const countYear = document.getElementById('countYear').value
+      const countEmployee = document.getElementById('countEmployee').value
+      
+      let arrSumProfit = document.getElementsByClassName('numberProfit')
+      let arrSumSalary = document.getElementsByClassName('numberSalary')
+      let sumProfit = 0
+      let sumSalary = 0
+      for (let i = 0; i < countYear; i++) {
+        sumProfit += parseFloat(arrSumProfit[i].value)
+      }
+      for (let i = 0; i < countEmployee; i++) {
+        sumSalary += parseFloat(arrSumSalary[i].value)
+      }
+      totalProfit.value = sumProfit
+      let sumTaxes = sumProfit * (privilege.checked ? 5 - 2 : 5) / 100
+      totalTaxes.value = sumTaxes
+      let sumMoney = sumTaxes + sumSalary
+      totalMoney.value = sumMoney
+    }
+    window.onload = function () {
+      document.getElementById('countYear').onchange = createTable
+      document.getElementById('countEmployee').onchange = createTable2
+      document.getElementById('totalCounts').onclick = getTotal
+    }
+  </script>
 </head>
+
 <body>
-  
+  <h4>Звіт підприємницької діяльності</h4>
+  <div>
+    Кількість років:
+    <input type="number" id="countYear" min="0" max="20">
+  </div>
+  <br>
+  <table border="1px" style="border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Рік</th>
+        <th>Розмір прибутку</th>
+      </tr>
+    </thead>
+    <tbody id="tbody1">
+    </tbody>
+  </table>
+  <div>
+    <p>Податок 5%</p>
+  </div>
+  <div>Чи є податкова пільга (2%) <input type="checkbox" id="privilege"></div>
+  <br>
+  ------------------------------------------------------------
+  <br>
+  <div>
+    Кількість працівників:
+    <input type="number" id="countEmployee" min="0" max="10">
+  </div>
+  <br>
+  <table border="1px" style="border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>ПІБ</th>
+        <th>Заробітна плата</th>
+      </tr>
+    </thead>
+    <tbody id="tbody2">
+    </tbody>
+  </table>
+  ------------------------------------------------------------
+  <br>
+  <button id="totalCounts">Обчислити</button>
+  <div>
+    Загальний прибуток: <input type="number" id="totalProfit">
+    <br>
+    Загальна кількість виплачених податків: <input type="number" id="totalTaxes">
+    <br>
+    Сумарна кількість виплачених коштів: <input type="number" id="totalMoney">
+  </div>
 </body>
+
 </html>
