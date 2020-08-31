@@ -23,7 +23,7 @@ class Range {
         const input = document.createElement('input')
         input.setAttribute('type', 'number')
         label.appendChild(input)
-        this.numberInput = input
+        this.numberInput = input //зберегли інпут як ід
         div.appendChild(label)
         container.appendChild(div)
         div = document.createElement('div')
@@ -36,11 +36,11 @@ class Range {
         container.appendChild(this.messageDiv)
     }
 }
-// window.onload = function () {
-//     let r1 = new Range(1, 10)
-//     r1.render('container')
-// }
 window.onload = function () {
-    let r2 = new Range(10, 50)
-    r2.render('cont2')
+    let r1 = new Range(1, 10)
+    r1.render('container')
 }
+// window.onload = function () {
+//     let r2 = new Range(10, 50)
+//     r2.render('cont2')
+// }

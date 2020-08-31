@@ -13,6 +13,11 @@ class InputTable {
     getPricesArrey() {
         return this.addresses.map(row => parseFloat(row.inpValueAddr.value))
     }
+    //доробити
+    getTitlesArray() {       
+    }
+    getObjectsArray() {
+    }
     // створення та вставлення таблиці
     render(containerId) {
         // зберігаємо id діва в який треба втавити таблицю
