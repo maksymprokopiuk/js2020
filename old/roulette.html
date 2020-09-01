@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        class Roulette {
+            constructor(roulette_scores) {
+                if (!roulette_scores) {
+                    roulette_scores = this.getRandomRouletteScores()
+                }
+                this.roulette_scores = roulette_scores
+            }
+            //----- Генерує випадковим чином масив з 10 елементів
+            getRandomRouletteScores() {
+                const scores_arr = []
+                for (let i = 0; i < 10; i++) {
+                    scores_arr.push(Math.floor(-100 + Math.random() * (201)))
+                    // console.log(scores_arr);
+                }
+                return scores_arr
+            }
+            //------ Випадково вибирає якийсь елемент масиву
+            getRandomScore() {
+                const randIndex = Math.floor(Math.random() * this.roulette_scores.length)
+                return this.roulette_scores[randIndex]
+            }
+            //--- Функція, яка створює розмітку таблиці з елементами
+            getTable() {
+                const table = document.createElement('table')
+                const tr = document.createElement('tr')
+                for (let i = 0; i < this.roulette_scores.length; i++) {
+                    const td = document.createElement('td')
+                    td.innerText = this.roulette_scores[i]
+                    tr.appendChild(td)
+                }
+                table.appendChild(tr)
+                return table
+            }
+            //--- Функція для кнопки (onclick)            
+            onGoClick = () => {
+                this.res_span.innerText = this.getRandomScore()
+            }
+            //======= Генерує розмітку усього об"єкта
+            render(containerId) {
+                // ---  Шукаємо за ід наш контейнер
+                const container = document.getElementById(containerId)
+                //----- Create table
+                const table = this.getTable()
+                container.appendChild(table)
+                //--------- create button
+                const btn = document.createElement("button")
+                btn.innerText = "Go"
+                // btn.onclick=this.onGoClick.bind(this)            
+                btn.onclick = this.onGoClick
+                container.appendChild(btn)
+                //--- aDD DIV WITH RESULTS
+                const div = document.createElement('div')
+                div.innerText = "Ваші результати : "
+                this.res_span = document.createElement('span')
+                div.appendChild(this.res_span)
+                container.appendChild(div)
+            }
+        }
+        //-------------
+        window.onload = function () {
+            const roulette = new Roulette() //Автоматично викликається конструтор
+            roulette.render('game')
+        }
+
+    </script>
+    <style>
+        td {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="game">
+
+    </div>
+</body>
+
+</html>
