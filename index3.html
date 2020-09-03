@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Створити продуктовий магазин (назва, ціна, кількість)
+        //Функ.можливості
+        //Фільтрація за ціною
+        //Фільтрація за назвою
+        //Фільтрація за кількістю
+        //Зберігати дані у локал.стор.
+        //Завантажити дані з локал.стор.
+        class Store {
+            constructor(storeTitle) {
+                this.storeTitle = storeTitle
+                this.loadData()
+            }
+            saveData() {
+                localStorage.setItem(this.storeTitle, JSON.stringify(this.products))
+            }
+            loadData() {
+                if (localStorage.getItem(this.storeTitle) !== null) //Перевіряємо чи є продукти у сторі
+                    this.products = JSON.parse(localStorage.getItem(this.storeTitle)) //завантажуємо із стора
+                else this.products = [] //список продуктів порожній
+            }
+            addProduct(prodTitle, prodPrice, prodCount) {
+                this.products.push(
+                    {
+                        title: prodTitle,
+                        price: prodPrice,
+                        count: prodCount
+                    }
+                )
+            }
+            filterByPrice(searchPrice) {
+                return this.products.filter(prod => prod.price === searchPrice)
+            }
+            filterByTitle(serachTitle) {
+                return this.products.filter(prod => prod.title === serachTitle)
+            }
+            onAdd() {
+                const prodTitle = this.inpTitle.value
+                const prodPrice = parseFloat(this.inpPrice.value)
+                const prodCount = parseInt(this.inpCount.value)
+                this.addProduct(prodTitle, prodPrice, prodCount)
+                this.saveData()
+                this.render()
+            }
+            createinputForm() {
+                let div = document.createElement('div')
+                let label = document.createElement('label')
+                label.innerText = 'Title'
+                this.inpTitle = document.createElement('input')
+                label.appendChild(this.inpTitle)
+                div.appendChild(label)
+                label = document.createElement('label')
+                label.innerText = 'Price'
+                this.inpPrice = document.createElement('input')
+                label.appendChild(this.inpPrice)
+                div.appendChild(label)
+                label = document.createElement('label')
+                label.innerText = 'Count'
+                this.inpCount = document.createElement('input')
+                label.appendChild(this.inpCount)
+                div.appendChild(label)
+                const btn = document.createElement('button')
+                btn.innerText = 'Add'
+                btn.onclick = this.onAdd.bind(this)
+                div.appendChild(btn)
+                return div
+            }
+            getProductsTable(productsList) {
+                const table = document.createElement('table')
+                let tr = document.createElement('tr')
+                let th = document.createElement('th')
+                th.innerText = 'title'
+                tr.appendChild(th)
+                th = document.createElement('th')
+                th.innerText = 'price'
+                tr.appendChild(th)
+                th = document.createElement('th')
+                th.innerText = 'count'
+                tr.appendChild(th)
+                table.appendChild(tr)
+                for (let i = 0; i < productsList.length; i++) {
+                    tr = document.createElement('tr')
+                    let td = document.createElement('td')
+                    td.innerText = productsList[i].title
+                    tr.appendChild(td)
+                    td = document.createElement('td')
+                    td.innerText = productsList[i].price
+                    tr.appendChild(td)
+                    td = document.createElement('td')
+                    td.innerText = productsList[i].count
+                    tr.appendChild(td)
+                    table.appendChild(tr)
+                }
+                return table
+            }
+            render(containerId) {
+                let container
+                if (containerId!==undefined) {
+                    container = document.getElementById(containerId)
+                    this.container=container
+                }
+                else
+                    container = this.container
+                container.innerHTML=''
+                let inpForm = this.createinputForm()
+                container.appendChild(inpForm)
+                const tbl = this.getProductsTable(this.products)
+                container.appendChild(tbl)
+            }
+        }
+        window.onload = function () {
+            let store = new Store('my store')
+            store.render('container')
+        }
+        // localStorage.setItem('a',17)
+        // let products=[
+        //     {
+        //         title:"Tv",
+        //         price:"5000",
+        //         count:"10"
+        //     },
+        //     {
+        //         title:"Notebook",
+        //         price:"12000",
+        //         count:"27"
+        //     },
+        //     {
+        //         title:"phone",
+        //         price:"7000",
+        //         count:"100"
+        //     },
+        //     {
+        //         title:"mouse",
+        //         price:"200",
+        //         count:"67"
+        //     },
+        // ]
+        // localStorage.setItem('products',JSON.stringify(products))
+        // let products = JSON.parse(localStorage.getItem('products'))
+        // console.log(products);
+        // // products.splice(2,1)
+        // let el=products.find(prod=>prod.title==='phone')
+        // if(el) console.log(el);
+        // let ind=products.findIndex(prod=>prod.title==='phone22')
+        // console.log(ind);
+        //----- Вивести ті, що дешевші за 7000
+        // let pr2=products.filter(product=>parseFloat(product.price)<7000)
+        // console.log(pr2);
+        // //Вивести ті, загальна вартість яких є більшою за 10000
+        // let pr3=products.filter(product=>parseFloat(product.price)*parseFloat(product.count)>10000)
+        // console.log(pr3);
+        //Упорядкувати елементи за зростанням цін
+        // let pr4=products.sort((prod1,prod2)=>prod1.price-prod2.price)
+        // console.log(pr4);
+    </script>
+</head>
+<body>
+    <div id="container">
+    </div>
+</body>
+</html>

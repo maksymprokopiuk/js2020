@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //створити продуктовий магазин (назва, ціна, кількість)
+        // функц можливості
+        // фільтр за ціною
+        // фільтр за назвою
+        // фільтр за кількістю
+        // зберігати дані в локалсторидж і завантажувати
+        
+        class Store {
+            constructor(storTitle){
+                //куди зберегти?
+                this.storTitle=storTitle
+                this.loadData()
+            }
+            // фнкц для збер даних
+            saveData(){
+                localStorage.setItem(this.storTitle, JSON.stringify(this.products))
+            }
+            loadData(){
+                //треба перевірити чи є таке значення (існує) бо буде null
+                if(localStorage.getItem(this.storTitle))
+                this.products=JSON.parse(localStorage.getItem(this.storTitle))
+                else this.products=[]
+            }
+            //метод додавання нового товару
+            addProduct(prodTitle, prodPrice, prodCount){
+                this.products.push(
+                    {
+                        title: prodTitle,
+                        price: prodPrice,
+                        count: prodCount
+                    }
+                    )
+            }
+            filterByPrice(price){ //(функ фільтрації)
+                return this.products.filter(prod=>prod.price===price)
+            }
+            filterByTitle(title){
+                return this.products.filter(prod=>prod.title===title)
+            }
+            onAdd(){
+                const prodTitle = this.inpTitle.value
+                const prodPrice = parseFloat(this.inpPrice.value)
+                const prodCount = parseFloat(this.inpCount.value)
+                this.addProduct(prodTitle, prodPrice, prodCount)
+
+            }
+            //створення елементів
+            createInputForm(){
+                let div = document.createElement('div')
+                let label = document.createElement('label')
+                label.innerText='Title'
+                this.inpTitle = document.createElement('input')
+                label.appendChild(this.inpTitle)
+                div.appendChild(label)
+
+                label = document.createElement('label')
+                label.innerText='Price'
+                this.inpPrice = document.createElement('input')
+                label.appendChild(this.inpPrice)
+                div.appendChild(label)
+
+                label = document.createElement('label')
+                label.innerText='Count'
+                this.inpCount = document.createElement('input')
+                label.appendChild(this.inpCount)
+                div.appendChild(label)
+
+                const btn = document.createElement('button')
+                btn.innerText='Add'
+                btn.onclick=this.onAdd.bind(this)
+                div.appendChild(btn)
+                return div
+            }
+            getProductsTable(productsList){
+                //довільна табличка
+                let table = document.createElement('table')
+                let tr = document.createElement('tr')
+                let th = document.createElement('th')
+                th.innerText='Title'
+                tr.appendChild(th)
+
+                th = document.createElement('th')
+                th.innerText='Price'
+                tr.appendChild(th)
+
+                th = document.createElement('th')
+                th.innerText='Count'
+                tr.appendChild(th)
+
+                table.appendChild(tr)
+
+                //========
+                for (let i = 0; i < productsList.length; i++) {
+                    tr=document.createElement('tr')
+                    let td = document.createElement('td')
+                    td.innerText=productsList[i].title
+                    tr.appendChild(td)
+
+                    
+                    td = document.createElement('td')
+                    td.innerText=productsList[i].price
+                    tr.appendChild(td)
+
+                    td = document.createElement('td')
+                    td.innerText=productsList[i].count
+                    tr.appendChild(td)
+
+                    table.appendChild(tr)
+                }
+                return table
+            }
+            render(containerId){
+                const container = document.getElementById('containerId')
+                let inpForm = this.createInputForm()
+                container.appendChild(inpForm)
+                const tbl = this.getProductsTable(this.products)
+                container.appendChild(tbl)
+
+            }
+        }
+        window.onabort = function(){
+            let store = new Store ('My Store')
+            store.render('container')
+        }
+    </script>
+    <div id="container"></div>
+</body>
+</html>
