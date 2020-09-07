@@ -51,10 +51,21 @@
                 this.render()
             }
             //
-
+            
             sortTitle() {
-                // return this.products.sort((prod1,prod2)=>prod1.title-prod2.title)
-                return window.location.reload()
+                return this.products.sort(function compare(a, b) {
+                const bandA = a.title.toUpperCase();
+                const bandB = b.title.toUpperCase();
+
+                let comparison = 0;
+                if (bandA > bandB) {
+                    comparison = 1;
+                } else if (bandA < bandB) {
+                    comparison = -1;
+                }
+                return comparison;
+            })
+
             }
             sortPrice() {
                 return this.products.sort((prod1,prod2)=>prod1.price-prod2.price)
