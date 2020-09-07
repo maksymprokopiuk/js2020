@@ -26,6 +26,7 @@
                 else this.products = [] //список продуктів порожній
             }
             addProduct(prodTitle, prodPrice, prodCount) {
+                if (prodTitle && prodPrice && prodCount) {
                 this.products.push(
                     {
                         title: prodTitle,
@@ -33,6 +34,7 @@
                         count: prodCount
                     }
                 )
+                }
             }
             filterByPrice(searchPrice) {
                 return this.products.filter(prod => prod.price === searchPrice)
@@ -51,7 +53,8 @@
             //
 
             sortTitle() {
-                return this.products.sort((prod1,prod2)=>prod1.title-prod2.title)
+                // return this.products.sort((prod1,prod2)=>prod1.title-prod2.title)
+                return window.location.reload()
             }
             sortPrice() {
                 return this.products.sort((prod1,prod2)=>prod1.price-prod2.price)
@@ -167,50 +170,9 @@
             let store = new Store('my store')
             store.render('container')
         }
-        // localStorage.setItem('a',17)
-        // let products=[
-        //     {
-        //         title:"Tv",
-        //         price:"5000",
-        //         count:"10"
-        //     },
-        //     {
-        //         title:"Notebook",
-        //         price:"12000",
-        //         count:"27"
-        //     },
-        //     {
-        //         title:"phone",
-        //         price:"7000",
-        //         count:"100"
-        //     },
-        //     {
-        //         title:"mouse",
-        //         price:"200",
-        //         count:"67"
-        //     },
-        // ]
-        // localStorage.setItem('products',JSON.stringify(products))
-        // let products = JSON.parse(localStorage.getItem('products'))
-        // console.log(products);
-        // // products.splice(2,1)
-        // let el=products.find(prod=>prod.title==='phone')
-        // if(el) console.log(el);
-        // let ind=products.findIndex(prod=>prod.title==='phone22')
-        // console.log(ind);
-        //----- Вивести ті, що дешевші за 7000
-        // let pr2=products.filter(product=>parseFloat(product.price)<7000)
-        // console.log(pr2);
-        // //Вивести ті, загальна вартість яких є більшою за 10000
-        // let pr3=products.filter(product=>parseFloat(product.price)*parseFloat(product.count)>10000)
-        // console.log(pr3);
-        //Упорядкувати елементи за зростанням цін
-        // let pr4=products.sort((prod1,prod2)=>prod1.price-prod2.price)
-        // console.log(pr4);
     </script>
 </head>
 <body>
-    <div id="container">
-    </div>
+    <div id="container"></div>
 </body>
 </html>
