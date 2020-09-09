@@ -1,0 +1,42 @@
+<!-- Приклад. Простий приклад розробки класів нащадків -->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        class Parent {
+            constructor(a, b) {
+                this.A = a;
+                this.B = b;
+            }
+            toString() {
+                return `a= ${this.A}, b= ${this.B} `;
+            }
+        }
+        //-------------------
+        class Child extends Parent {
+            constructor(a, b, c) //Просимо, що треба предку, потім що треба власне цьому класу
+            {
+                //this = {}
+                //super(a,b); //Виклик конструктора предка
+                super(...arguments); //Виклик конструктора предка
+                //this = {A:11,B:22}
+                this.C = c; //Створення власних полів
+                //this = { A: 11, B: 22,C:33 }
+            }
+            toString() {
+                return `${super.toString()} c=${this.C}`;
+            }
+        }
+        //-----------
+        var child = new Child(11, 22, 33);
+        document.write(child.toString());
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

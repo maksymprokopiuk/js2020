@@ -1,0 +1,73 @@
+<!-- 
+Приклад 2. Створити клас Employee
+Властивості:
+    ID
+    ПІБ
+    Заробітна плата
+Методи:
+    Визначення ЗП за рік
+    ToString
+
+На основі цього класу створити клас МЕНЕДЖЕР
+Властивості:
+    ID
+    ПІБ
+    Заробітна плата
+    Номер відділу, у якому керує
+Методи:
+    Визначення ЗП за рік
+    ToString
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    class Employee {
+        constructor(id = "-", name = "unknown", salary = 3200) {
+            Object.defineProperty(this, "ID", { value: id });
+            this.Name = name;
+            Object.defineProperty(this, "Salary", { //1. Опис захищеного поля
+                get: function () {
+                    return salary;
+                },
+                set: function (value) {
+                    if (value >= 0) {
+                        salary = value;
+                    }
+                    else
+                        throw new Error("errr");
+                }
+            })
+            this.Salary = salary //2. Перевірка переданого значення на коректність
+        }
+        getSeleryPerYear() {
+            return this.Salary * 12;
+        }
+        toString() {
+            return `${this.Name} - ${this.getSeleryPerYear()}`;
+        }
+    }
+    //---------------------------
+    class Manager extends Employee {
+        constructor(id = "-", name = "unknown", salary = 6400, department = "-") {
+            super(id, name, salary); // Виклик конструктора предка
+            // super(...arguments); //аналогічний виклик
+            Object.defineProperty(this, "Department", { value: department });
+        }
+        toString() {
+            return super.toString() + "-" + this.Department;
+        }
+    }
+    //----------------
+    //===================================
+    var manager = new Manager("1221", "Ivan", 50000, "HR");
+    document.write(manager);
+</script>
+<body>
+    
+</body>
+</html>

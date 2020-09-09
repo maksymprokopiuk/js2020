@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ігри</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        button {
+            width: 100px;
+        }
+    </style>
+    <script>
+        class Engineer {
+            constructor(count_mines, size) {
+                this.count_mines = count_mines
+                this.size = size
+            }
+            getRandomMinesPositions() {
+                var positions = []
+                for (let i = 0; i < this.size; i++) {
+                    var positions1 = []
+                    for (let j = 0; j < this.size; j++) {
+                        positions1.push(0)
+                    }
+                    positions.push(positions1)
+                }
+                for (let i = 0; i < this.count_mines; i++) {
+                    do {
+                        var x = 0 + Math.floor(Math.random() * this.size)
+                        var y = 0 + Math.floor(Math.random() * this.size)
+                    } while (positions[x][y] != 0)
+                    positions[x][y] = 9
+                }
+                return positions
+            }
+            cellClick() {
+                var td = this
+                if (td.getAttribute('isMine') == 9) {
+                    for (var i = 0; i < td.getAttribute('size'); i++) {
+                        for (var j = 0; j < td.getAttribute('size'); j++) {
+                            var td1 = document.getElementById('table').rows[i].cells[j]
+                            if (td1.getAttribute('isMine') == 0) {
+                                td1.style.background = 'green'
+                            } else {
+                                td1.style.background = 'red'
+                                td1.innerText = '*'
+                            }
+                        }
+                    }
+                    alert('Ви програли')
+                } else {
+                    td.style.background = 'green'
+                }
+            }
+            render(containersID) {
+                this.minesPositions = this.getRandomMinesPositions()
+                var container = document.getElementById(containersID)
+                container.innerHTML = ''
+                this.tbl = document.createElement('table')
+                this.tbl.border = '2px solid black'
+                for (let i = 0; i < this.size; i++) {
+                    var tr = document.createElement('tr')
+                    for (let j = 0; j < this.size; j++) {
+                        var td = document.createElement('td')
+                        td.width = '20px'
+                        td.height = '20px'
+                        td.style.textAlign = 'center'
+                        td.setAttribute('isMine', this.minesPositions[i][j])
+                        td.setAttribute('size', this.size)
+                        td.setAttribute('x', i)
+                        td.setAttribute('y', j)
+                        td.onclick = this.cellClick
+                        tr.appendChild(td)
+                    }
+                    this.tbl.appendChild(tr)
+                }
+                container.appendChild(this.tbl)
+            }
+        }
+        function engineer() {
+            let engineer = new Engineer(10, 5)
+            engineer.render('place_game')
+        }
+        class Place_magic {
+            constructor(...positions) {
+                this.positions = positions
+                this.bals = 0
+                this.course = 0
+            }
+            next() {
+                var r = Math.floor(Math.random() * this.positions.length)
+                this.bals = this.bals + this.positions[r]
+                var p = document.getElementById('p')
+                p.innerText =
+                    'Кількість бaлів нa ході - ' +
+                    this.positions[r] +
+                    '\nЗагальна кількість балів - ' +
+                    this.bals
+                this.course = this.course + 1
+                var p1 = document.createElement('p')
+                p1.innerText =
+                    'Хід №' +
+                    this.course +
+                    '\nКількість бaлів нa ході - ' +
+                    this.positions[r] +
+                    '\nЗагальна кількість балів - ' +
+                    this.bals
+                var div = document.getElementById('div')
+                div.appendChild(p1)
+            }
+            render(containersID) {
+                var container = document.getElementById(containersID)
+                container.innerHTML = ''
+                var hr = document.createElement('hr')
+                container.appendChild(hr)
+                var button = document.createElement('button')
+                button.innerText = 'Наступний хід'
+                button.style.width = '120px'
+                button.onclick = this.next.bind(this)
+                container.appendChild(button)
+                var p = document.createElement('p')
+                p.id = 'p'
+                p.innerText =
+                    'Кількість бaлів нa ході - 0\nЗагальна кількість балів - 0'
+                container.appendChild(p)
+                var hr = document.createElement('hr')
+                container.appendChild(hr)
+                var div = document.createElement('div')
+                div.id = 'div'
+                container.appendChild(div)
+            }
+        }
+        function place_magic() {
+            var place_magic = new Place_magic(100, -200, 300, -400, 500)
+            place_magic.render('place_game')
+        }
+        class Bull_and_cows {
+            constructor() {
+                this.numbers = this.getRandomNumber()
+            }
+            getRandomNumber() {
+                let numbers = []
+                for (let i = 0; i < 4; i++) {
+                    numbers.push(String(Math.floor(Math.random() * 10)))
+                }
+                return numbers
+            }
+            check() {
+                // let values=[]
+                // for (let i = 0; i < 4; i++) {
+                // values.push(this.inputs[i].value)
+                // }
+                let values = this.inputs.map(el => el.value)
+                var bulls = values.reduce(
+                    (prev, el, i) => (el == this.numbers[i] ? prev + 1 : prev),
+                    0
+                )
+                var cows = values.reduce(
+                    (prev, el, i) =>
+                        el != this.numbers[i] && this.numbers.includes(el)
+                            ? prev + 1
+                            : prev,
+                    0
+                )
+                var p = document.createElement('p')
+                p.innerText = `${values.join('-')} : Бики - ${bulls} Коров ${cows}`
+                this.results.appendChild(p)
+                if (bulls == 4) {
+                    alert('Ви виграли')
+                }
+            }
+            createInput() {
+                var input = document.createElement('input')
+                input.type = 'number'
+                input.setAttribute('min', '0')
+                input.setAttribute('max', '9')
+                return input
+            }
+            render(containersID) {
+                var container = document.getElementById(containersID)
+                container.innerHTML = ''
+                var hr = document.createElement('hr')
+                container.appendChild(hr)
+                this.inputs = []
+                for (let i = 0; i < 4; i++) {
+                    let inp = this.createInput()
+                    container.appendChild(inp)
+                    this.inputs.push(inp)
+                }
+                var btn = document.createElement('button')
+                btn.innerText = 'Перевірити'
+                btn.onclick = this.check.bind(this)
+                container.appendChild(btn)
+                var hr = document.createElement('hr')
+                container.appendChild(hr)
+                this.results = document.createElement('div')
+                container.appendChild(this.results)
+            }
+        }
+        function bull_and_cows() {
+            var bull_and_cows = new Bull_and_cows()
+            bull_and_cows.render('place_game')
+        }
+        window.onload = function () {
+            document.getElementById('engineer').onclick = engineer
+            document.getElementById('place_magic').onclick = place_magic
+            document.getElementById('bull_and_cows').onclick = bull_and_cows
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Ігри</h1>
+        <hr />
+    </header>
+    <main>
+        <nav>
+            <button id="engineer">Сапер</button>
+            <button id="place_magic">Поле чудес</button>
+            <button id="bull_and_cows">
+                Бики і корови
+            </button>
+        </nav>
+        <div id="place_game"></div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="./PensionerChecker.js"></script> -->
+    <!-- <script src="./ColoredPensionerChecker.js"></script> -->
+    <script>
+        //==============================
+        class PensionerChecker {
+            constructor(pensionAge) {
+                Object.defineProperty(this, 'PensionAge', {
+                    value: pensionAge,
+                    writable: false
+                })
+            }
+            onClick() {
+                const age = parseInt(this.inpAge.value)
+                if (age >= this.PensionAge)
+                    this.resSpan.innerText = 'Пенсіонер'
+                else
+                    this.resSpan.innerText = 'Іди працювати'
+            }
+            render() {
+                const mainDiv = document.createElement('div')
+                const lbl = document.createElement('label')
+                lbl.innerText = 'Введіть вік: '
+                this.inpAge = document.createElement('input')
+                this.inpAge.type = 'number'
+                lbl.appendChild(this.inpAge)
+                mainDiv.appendChild(lbl)
+                this.btn = document.createElement('button')
+                this.btn.innerText = 'Перевірити'
+                this.btn.onclick = this.onClick.bind(this)
+                mainDiv.appendChild(this.btn)
+                const div = document.createElement('div')
+                div.innerText = 'Результат перевірки: '
+                this.resSpan = document.createElement('span')
+                div.appendChild(this.resSpan)
+                mainDiv.appendChild(div)
+                return mainDiv
+            }
+        }
+        //==============================
+        class ColoredPensionerChecker extends PensionerChecker {
+            constructor(pensionAge, colorPensioner = 'green', colorNotPensioner = 'red') {
+                super(pensionAge)
+                this.colorPensioner = colorPensioner
+                this.colorNotPensioner = colorNotPensioner
+            }
+            onClick() {
+                super.onClick()
+                const age = parseInt(this.inpAge.value)
+                if (age >= this.PensionAge)
+                    this.resSpan.style.backgroundColor = this.colorPensioner
+                else
+                    this.resSpan.style.backgroundColor = this.colorNotPensioner
+            }
+            render() {
+                const mainDiv = super.render()
+                this.btn.onclick = this.onClick.bind(this)
+                return mainDiv
+            }
+        }
+        //==============================
+        window.onload = function () {
+            // const pensionerChecker= new PensionerChecker(65)
+            //
+            // document.getElementById('container').appendChild(pensionerChecker.render())
+            const pensionerChecker = new ColoredPensionerChecker(65)
+
+            document.getElementById('container').appendChild(pensionerChecker.render())
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container">
+    </div>
+</body>
+
+</html>

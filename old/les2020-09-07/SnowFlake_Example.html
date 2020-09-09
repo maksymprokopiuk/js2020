@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+        class SnowFlake {
+            constructor(imgPath, min = 10, max = 500) {
+                this.min = min;
+                this.max = max;
+                this.imgPath = imgPath
+                this.setInitParams();
+            }
+            getRandomNum(min, max) {
+                return Math.floor(
+                    min + Math.random() * (max - min + 1)
+                );
+            }
+            setInitParams = () => {
+                this.left = this.getRandomNum(this.min, this.max);
+                this.top = this.getRandomNum(10, 400);
+                this.interval = this.getRandomNum(50, 100)
+                this.width = this.getRandomNum(5, 30)
+            };
+            move = () => {
+                this.top += 3;
+                if (this.top > 500) this.setInitParams();
+                this.left += this.getRandomNum(-10, 10);
+                if (this.left > this.max) this.left = this.max;
+                if (this.left < this.min) this.left = this.min;
+                this.width += this.getRandomNum(-10, 10);
+                if (this.width > 30) this.width = 30;
+                if (this.width < 5) this.width = 5;
+
+                this.setNewPosition();
+            };
+            setNewPosition = () => {
+                this.img.style.top = this.top + "px";
+                this.img.style.left = this.left + "px";
+                this.img.style.width = this.width + "px";
+            };
+            startMove = () => {
+                setInterval(this.move, this.interval);
+            };
+            render() {
+                this.img = document.createElement("img");
+                this.img.setAttribute(
+                    "src",
+                    this.imgPath
+                );
+                this.img.style.position = "absolute";
+
+                this.setNewPosition();
+                return this.img;
+            }
+        }
+        //-------------
+        window.onload = function () {
+            for (let i = 0; i < 50; i++) {
+                const sn = new SnowFlake("https://cdn4.vectorstock.com/i/1000x1000/52/58/transparent-snowflakevector-5465258.jpg", 1, 1000);
+                document.body.appendChild(sn.render());
+                sn.startMove();
+            }
+        };
+    </script>
+</head>
+
+<body></body>
+
+</html>
