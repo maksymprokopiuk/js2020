@@ -1,0 +1,140 @@
+<!-- <!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        class CrazyButton {
+            constructor(left = 100, top = 100, width = 40, height = 40, speed = 1000) //Що треба знати
+            // при створенні об"єкта
+ {
+
+            //--- Опис властивостей --- this={}
+            this.Left = Math.floor(left);
+            this.Top = Math.floor(top);
+            this.Width = Math.floor(width);
+            this.Height = Math.floor(height);
+            this.Speed = Math.floor(speed);
+        }
+        //----- інші методи ------
+        move()
+        {
+            var shiftX = Math.floor(-20 + Math.random() * 40);
+            var shiftY = Math.floor(-20 + Math.random() * 40);
+            this.Left += shiftX;
+            this.Top += shiftY;
+            this.button.style.left = this.Left + "px";
+            this.button.style.top = this.Top + "px";
+        }
+        render(containerID)
+        {
+            if (containerID)
+                var container = document.getElementById(containerID);
+            else
+                var container = document.body;
+            this.button = document.createElement("button");
+            this.button.innerText = "-00-";
+            this.button.style.position = "absolute";
+            this.button.style.width = this.Width + "px";
+            this.button.style.height = this.Height + "px";
+            this.button.style.left = this.Left + "px";
+            this.button.style.top = this.Top + "px";
+            this.button.owner = this;
+            container.appendChild(this.button);
+            this.timer = setInterval(this.move.bind(this), this.Speed);
+        }
+ }
+        //----------------------
+        class ColoredCrazyButton extends CrazyButton {
+            constructor(left = 100, top = 100, width = 40, height = 40, speed = 1000, colors
+                = ["red", "green", "blue"]) //Що треба знати при створенні об"єкта
+            {
+                super(...arguments); //Виклик консруктора предка this={}
+                this.Colors = colors;
+                this.timerForColor = setInterval(() => this.button.style.background =
+                    this.Colors[Math.floor(Math.random() * this.Colors.length)], 300);
+            }
+        }
+        class Sheperd extends ColoredCrazyButton {
+            sheepsCall() {
+                for (let i = 0; i < this.Sheeps.length; i++) {
+                    this.Sheeps[i].button.dispatchEvent(new CustomEvent("sheepCall", {
+                        'detail': { 'left': parseInt(this.Left), 'top': parseInt(this.Top) }
+                    }));
+                    //alert(t);
+                }
+            }
+            sheepCall(e) {
+                //alert(e.target + " - " + e.detail.left + " - " + e.detail.top);
+                e.target.owner.Left = e.detail.left;
+                e.target.owner.Top = e.detail.top;
+            }
+            render(containerID, ...sheeps) {
+                super.render(containerID);
+                this.Sheeps = sheeps;
+                for (let i = 0; i < sheeps.length; i++) {
+                    sheeps[i].button.addEventListener("sheepCall", this.sheepCall);
+                }
+                this.timer3 = setInterval(this.sheepsCall.bind(this), 3000);
+            }
+        }
+        window.onload = function () {
+            var btn = new CrazyButton(Math.random() * window.innerWidth, Math.random() *
+                window.innerWidth);
+            btn.render();
+            var btn1 = new CrazyButton(Math.random() * window.innerWidth, Math.random() *
+                window.innerWidth);
+            btn1.render();
+            //var btn2 = new ColoredCrazyButton();
+            //btn2.render();
+            var sp = new Sheperd(200, 200);
+            sp.render("", btn, btn1);
+
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="ccc" style="border:solid 2px"></canvas> //елемент, у якому здійснюємо графічні побудови
+    <script>
+        var b = false; //Змінна, яка містить true/false (прапорець – малювати/не_малювати).
+        var x;
+        var y;
+        ccc.onmousedown = function (e) {
+            b = true; //Увімкнути режим малювання
+            x = e.clientX; //Отримати клієнтські координати миші
+            y = e.clientY;
+        }
+        ccc.onmouseup = function (e) {
+            b = false; //Відімкнути режим малювання
+        }
+        ccc.onmousemove = function (e) {
+            if (b) {
+                //var pos = document.getElementById("ccc").getBoundingClientRect();
+                var pos = this.getBoundingClientRect(); //Одержуємо інформацію про положення елемента
+                var cx = document.querySelector("canvas").getContext("2d");
+                cx.beginPath();
+                cx.moveTo(x - pos.left, y - pos.top); //Малюємо лінію від попередньої точки до поточної
+                x = e.clientX;
+                y = e.clientY;
+                cx.lineTo(x - pos.left, y - pos.top);
+                cx.stroke();
+            }
+        }
+        </script>
+</body >
+</html >

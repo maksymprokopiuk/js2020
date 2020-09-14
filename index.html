@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./script.js"></script>
+    <script>
+        // window.onload = function () {
+        //     let body = document.querySelector('body') // отримуємо та зберігаємо елемент боді
+        //     // body.onclick = (e) => console.log(e.target.tagName); // importand! 
+        //     body.onclick = (e) => console.log(e.target); // importand! 
+        //     console.log(body);
+        // }
+    </script>
+</head>
+
+<body>
+    <div id="ddd">
+        <button id="btn1">Нажми меня</button>
+        <button id="btn2">2</button>
+    </div>
+<script>
+    const body = document.querySelector('body')
+    body.addEventListener('click', myFunc)
+    // btn1.addEventListener('click', myFunc)
+    // btn2.addEventListener('click', myFunc)
+    function myFunc(event) {
+        console.log(event.target);
+    }
+</script>
+</body>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Buttons</title>
+    <script>
+        class ActiveButtons {
+            constructor(buttonsTitles) {
+                this.buttonsTitles = buttonsTitles
+            }
+            click(e) {
+                if (e.target.tagName === 'BUTTON') {
+                    if (this.activeButton) this.activeButton.style.backgroundColor = 'grey'
+                    this.activeButton = e.target
+                    this.activeButton.style.backgroundColor = 'red'
+                }
+            }
+            render(containerId) {
+                const container = document.getElementById(containerId)
+                this.buttonsTitles.forEach(title => {
+                    const btn = document.createElement('button')
+                    btn.style.backgroundColor = 'grey'
+                    btn.innerText = title
+                    container.appendChild(btn)
+                });
+                container.onclick = this.click.bind(this)
+            }
+        }
+        window.onload = function () {
+            const btns = new ActiveButtons(['one', 'two', 'three'])
+            btns.render('container')
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+    </div>
+</body>
+</html>
