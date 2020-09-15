@@ -1,39 +1,41 @@
-// let numbersBlock = true
-// let symbolsBlock = true
-// let specialSymbolsBlock = true
-
 class Calculator {
+    constructor(num1, sym1, num2, symb) {
+        this.num1 = num1
+        this.sym1 = sym1
+        this.num2 = num2
+        this.symb = symb
+    }
     render(containerId) {
         let container = document.getElementById(containerId)
         // span
-        this.span = document.createElement('span')
-        this.span.setAttribute('id', 'display')
-        this.span.innerText = '0'
-        container.appendChild(this.span)
+        let span = document.createElement('span')
+        span.setAttribute('id', 'display')
+        span.innerText = '0'
+        container.appendChild(span)
         // numbers block
         let div = document.createElement('div')
-        div.setAttribute('id', 'numbers')
+        // div.setAttribute('id', 'numbers')
         for (let i = 0; i < 10; i++) {
             let button = document.createElement('button')
-            button.setAttribute('class', 'activeNunber')
+            // button.setAttribute('class', 'activeNunber')
             button.innerText = i
             div.appendChild(button)
         }
         container.appendChild(div)
         // symbols block
         div = document.createElement('div')
-        div.setAttribute('id', 'symbols')
-        let symb = ['+', '-', '*', '/']
-        for (let j = 0; j < symb.length; j++) {
+        // div.setAttribute('id', 'symbols')
+        // let symb = ['+', '-', '*', '/']
+        for (let j = 0; j < this.symb.length; j++) {
             let button = document.createElement('button')
-            button.setAttribute('class', 'activeSymbol')
-            button.innerText = symb[j]
+            button.setAttribute('class', 'symbol')
+            button.innerText = this.symb[j]
             div.appendChild(button)
         }
         container.appendChild(div)
         // special symbols block
         div = document.createElement('div')
-        div.setAttribute('id', 'specialSymbols')
+        // div.setAttribute('id', 'specialSymbols')
         let specSymb = ['=', 'C']
         let idspecSymb = ['total', 'cancel']
         for (let k = 0; k < specSymb.length; k++) {
@@ -45,39 +47,18 @@ class Calculator {
         container.appendChild(div)
     }
     listinerButtons(e) {
-        let n1 = 0
-        let display = document.getElementById('display')
-
-        // numbers
-        if (e.target.tagName === 'BUTTON') {
-            // console.log(e.target.innerText);
-            if (n1 === 0 || n1 === 'sum') {
-                n1 = parseFloat(e.target.innerText)
-                
-                
-            }
-            else {
-                n1 += parseFloat(e.target.innerText)
-            }
-            // n1 = display.innerText
-            console.log(n1);
-        }
-        // symbols
-        // sum
-        if (e.target.innerText === '=') {
-            console.log(display.innerText);
-            display.innerText = 'sum'
-        }
-        // cancel
-        if (e.target.innerText === 'C') {
-            display.innerText = '0'
-        }
+        console.log(this.num1);
+        // if (e.target.tagName === 'BUTTON') {
+        //     console.log(e.target.innerText);
+            
+        // }
+        
     }
 }
 
-let calc
+// let calc
 window.onload = function() {
-    calc = new Calculator
+    let calc = new Calculator(0, '', 0, ['+', '-', '*', '/'])
     calc.render('container')
     let body = document.querySelector('body')
     body.addEventListener('click', calc.listinerButtons)
