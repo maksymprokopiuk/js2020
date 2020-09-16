@@ -1,9 +1,7 @@
 class Calculator {
-    constructor(num1, sym1, num2, symb) {
-        this.num1 = num1
-        this.sym1 = sym1
-        this.num2 = num2
+    constructor(symb) {
         this.symb = symb
+        this.num1 = 0
     }
     render(containerId) {
         let container = document.getElementById(containerId)
@@ -47,18 +45,13 @@ class Calculator {
         container.appendChild(div)
     }
     listinerButtons(e) {
-        console.log(this.num1);
-        // if (e.target.tagName === 'BUTTON') {
-        //     console.log(e.target.innerText);
-            
-        // }
         
     }
 }
 
-// let calc
+let calc
 window.onload = function() {
-    let calc = new Calculator(0, '', 0, ['+', '-', '*', '/'])
+    calc = new Calculator(['+', '-', '*', '/'])
     calc.render('container')
     let body = document.querySelector('body')
     body.addEventListener('click', calc.listinerButtons)
