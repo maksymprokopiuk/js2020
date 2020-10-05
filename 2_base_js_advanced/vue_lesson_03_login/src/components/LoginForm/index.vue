@@ -81,7 +81,7 @@
 </script>
 <style lang="css" scoped>
 .message {
-    color: yellow
+    color: yellowgreen;
 }
 .message-ok{
     color: blue;
