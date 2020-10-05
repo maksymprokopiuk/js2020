@@ -4,8 +4,8 @@
   </div>
 </template>
 <script>
-import LoginForm from "./components/LoginForm";
-import myUserList from "./settings";
+import LoginForm from "@/components/LoginForm";
+import myUserList from "@/settings";
 // import { myMessage,  myMessage2} from "./settings";
 export default {
   name: 'App',
