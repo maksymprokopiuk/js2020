@@ -5,16 +5,17 @@
             <todo-item v-for="taskItem in tasksList" :key="taskItem.id"
                 :task="taskItem.task"
                 :time="taskItem.time"
-                :status="taskItem.status"
-            />
+                :status='taskItem.status'
+                @postponed="onPostponed(taskItem.id)"
+             />
         </div>
     </div>
 </template>
 
 <script>
-import TodoList from "./TodoItem";
+import TodoItem from "./TodoItem";
     export default {
-        name: 'TodoList',
+        name:"TodoList",
 
         components: {
             TodoItem,
@@ -23,16 +24,23 @@ import TodoList from "./TodoItem";
         props: {
             tasksList: {
                 type: Array,
-                default: ()=> []
+                default: ()=>[]
             },
-            title: {
-                type: String,
-                default: 'no title'
-            },
+            title:{
+                type:String,
+                default:'no title'
+            }
+        },
+
+        methods: {
+            onPostponed(id) {
+                const task=this.tasksList.find(item=>item.id===id)
+                task.status='POSTPONED'
+            }
         },
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>
