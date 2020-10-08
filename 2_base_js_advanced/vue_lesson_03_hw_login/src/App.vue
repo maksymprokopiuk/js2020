@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <login
+    :imgSmile="require('@/assets/smile.png')"
     :usersCreds="userData"
     />
   </div>
