@@ -2,6 +2,7 @@
   <div id="app">
     <list
     :myList="myList"
+    :myObject="obj"
     />
   </div>
 </template>
@@ -37,7 +38,12 @@ export default {
           name: 'News 2',
           link: 'https://news.vuejs.org'
         },
-      ]
+      ],
+      obj: {
+        id: 1,
+        name: 'Vasja',
+        link: 'https://vasja.org'
+      },
     }
   },
 }
