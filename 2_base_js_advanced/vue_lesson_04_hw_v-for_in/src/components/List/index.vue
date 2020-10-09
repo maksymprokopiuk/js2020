@@ -24,7 +24,6 @@
             <option v-for="el in myList" :key="el.name" >{{el.name}}</option>
             <!-- дописати про вибраний пункт по замовчуванні!!! -->
         </select>
-        <div>{{ index }}</div>
         <hr>
         <ul>
             <!-- для об'єкта -->
@@ -56,11 +55,6 @@
                 type: Object,
                 default: ()=>{}
             },
-        },
-        data() {
-            return {
-                selection: 3
-            }
         },
     }
 </script>
