@@ -3,21 +3,24 @@
         <div>
             <input type="text" v-model="inputMeal" placeholder="Add some meal" >
             <button
-            @click="addMeal(inputMeal)"
-            :disabled="!isDataValid"
+                @click="addMeal(inputMeal)"
+                :disabled="!isDataValid"
             >Add</button>
         </div>
         <div class="menus">
             <menu-1 class="menu"
                 :menuList1="menuList"
-                @postponed="onPostponed"
+                :titleMenu1="titleMenu1"
+                @done="onDone"
             />
             <menu-2 class="menu"
                 :menuList2="menuList2"
-                @postponed2="onPostponed2"
+                :titleMenu2="titleMenu2"
+                @done2="onDone2"
             />
             <menu-3 class="menu"
                 :menuList3="menuList3"
+                :titleMenu3="titleMenu3"
             />
         </div>
     </div>
@@ -39,10 +42,14 @@
 
         data() {
             return {
-                menuList: ['Голубці', 'Вареники', 'Котлети', 'Борщ'],
+                // menuList: ['Голубці', 'Вареники', 'Котлети', 'Борщ'],
+                menuList: [],
                 menuList2: [],
                 menuList3: [],
                 inputMeal: null,
+                titleMenu1: 'Ordered',
+                titleMenu2: 'Cooked',
+                titleMenu3: 'History',
             }
         },
 
@@ -57,11 +64,11 @@
                 this.menuList.push(val)
                 this.inputMeal = ''
             },
-            onPostponed(index) {
+            onDone(index) {
                 this.menuList2.push(this.menuList[index])
                 this.menuList.splice(index, 1)
             },
-            onPostponed2(index) {
+            onDone2(index) {
                 this.menuList3.unshift(this.menuList2[index])
                 this.menuList2.splice(index, 1)
             },

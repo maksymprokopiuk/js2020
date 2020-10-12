@@ -25,4 +25,8 @@ export default {
   body, ::placeholder {
     font-family: 'Roboto', sans-serif;
   }
+  span {
+    font-size: 13px;
+    color: gray;
+  }
 </style>
