@@ -35,11 +35,11 @@
 </script>
 
 <style scoped>
-    /* .product-list {
-        width: 70%;
+    .product-list {
+        width: 100%;
         height: auto;
         background: rgb(141, 216, 200);
         display: flex;
         flex-wrap: wrap;
-    } */
+    }
 </style>

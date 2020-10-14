@@ -2,7 +2,7 @@
     <div>
         <div class="header-store">
             <label>
-                <input type="text" v-model="searchText">
+                <input type="text" v-model="searchText" placeholder="search">
             </label>
 
         </div>

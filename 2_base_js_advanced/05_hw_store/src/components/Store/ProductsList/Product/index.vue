@@ -31,7 +31,7 @@
 
 <style scoped>
     .product {
-        width: 150px;
+        width: 145px;
         height: 200px;
         border: 1px solid #000;
         margin: 5px;
@@ -40,5 +40,6 @@
     .product img {
         max-width: 100px;
         max-height: 150px;
+        padding: 5px 0 0 0;
     }
 </style>
