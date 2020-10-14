@@ -13,7 +13,7 @@
 <style scoped>
     .filter-tab {
         width: 30%;
-        height: 100%;
-        background: #84B48E;
+        height: auto;
+        background: rgb(192, 159, 214);
     }
 </style>

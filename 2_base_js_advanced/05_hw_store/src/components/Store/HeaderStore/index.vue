@@ -1,31 +1,54 @@
 <template>
-    <div class="header-store">
-        <div class="container">
-            <div>
-                <a v-bind:href="linkLogo">
-                    <img v-bind:src="headerLogo" alt="Logo">
-                </a>
-            </div>
-            <div>
-                <input type="text" placeholder="Filter">
-            </div>
+    <div>
+        <div class="header-store">
+            <label>
+                <input type="text" v-model="searchText">
+            </label>
+
         </div>
+        <!-- <products-list v-for="item in list" :key="item.id"
+            :img="item.img"
+            :title="item.name"
+            :price="item.price"
+        /> -->
+        <products-list
+            :productsList="list"
+        />
+
     </div>
 </template>
 
 <script>
+    import ProductsList from "@/components/Store/ProductsList/";
+
     export default {
         name: 'HeaderStore',
 
+        components: {
+            ProductsList,
+        },
+
         props: {
-            linkLogo: {
-                type: String,
-                default: '#'
+            productsList: {
+                type: Array,
+                default: ()=>[]
             },
-            headerLogo: {
-                type: String,
-                default: require('@/assets/images/logo.png')
+        },
+        data() {
+            return {
+                searchText: null,
+            }
+        },
+        computed: {
+            list() {                
+                if(!this.searchText) {
+                    return this.productsList
+                } else {
+                    const text=this.searchText.toLowerCase()
+                    return this.productsList.filter(item=>item.name.toLowerCase().includes(text))
+                }
             },
+
         },
     }
 </script>
@@ -33,16 +56,8 @@
 <style scoped>
     .header-store {
         width: 100%;
-        height: auto;
-        background: #B3D9E1;
-    }
-    .container {
-        display: flex;
-        justify-content: space-between;
-        /* flex-direction: row; */
-        align-items:center;
-    }
-    .container img {
-        width: 80px;
+        height: 70px;
+        background: rgb(122, 101, 101);
+        margin: 0 0 10px 0;
     }
 </style>

@@ -1,16 +1,24 @@
 <template>
-    <div class="products-list">
-            <div class="product" v-for="item in productsList" :key="item.id">
-                <img v-bind:src="item.img" v-bind:alt="item.name">
-                <div>{{ item.name }}</div>
-                <div>{{ item.price }} ₴</div>
-            </div>
+    <div>
+        <div class="product-list">
+            <product v-for="item in productsList" :key="item.id"
+                :img="item.img"
+                :title="item.name"
+                :price="item.price"
+            />
+        </div>
     </div>
 </template>
 
 <script>
+    import Product from "@/components/Store/ProductsList/Product";
+
     export default {
-        name: 'ProductsList',
+        name: 'ProductList',
+
+        components: {
+            Product,
+        },
 
         props: {
             productsList: {
@@ -18,28 +26,20 @@
                 default: ()=>[]
             },
         },
+        data() {
+            return {
+                
+            }
+        },
     }
 </script>
 
 <style scoped>
-    .products-list {
+    /* .product-list {
         width: 70%;
-        height: 100%;
-        background: #D7B9B9;
+        height: auto;
+        background: rgb(141, 216, 200);
         display: flex;
-        justify-content: space-around;
         flex-wrap: wrap;
-    }
-    .product {
-        list-style: none;
-        border: 1px solid #000;
-        width: 200px;
-        height: 250px;
-        text-align: center;
-        background: #fff;
-    }
-    .product img {
-        max-width: 150px;
-        max-height: 150px;
-    }
+    } */
 </style>
