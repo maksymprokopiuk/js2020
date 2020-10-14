@@ -33,7 +33,9 @@
     .product {
         width: 145px;
         height: 200px;
-        border: 1px solid #000;
+        /* border: 1px solid #000; */
+        border-radius: 5px;
+        background: #fff;
         margin: 5px;
         text-align: center;
     }

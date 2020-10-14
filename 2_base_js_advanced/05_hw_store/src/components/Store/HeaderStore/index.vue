@@ -4,13 +4,7 @@
             <label>
                 <input type="text" v-model="searchText" placeholder="search">
             </label>
-
         </div>
-        <!-- <products-list v-for="item in list" :key="item.id"
-            :img="item.img"
-            :title="item.name"
-            :price="item.price"
-        /> -->
         <products-list
             :productsList="list"
         />
@@ -56,8 +50,9 @@
 <style scoped>
     .header-store {
         width: 100%;
-        height: 70px;
+        height: auto;
         background: rgb(122, 101, 101);
         margin: 0 0 10px 0;
+        padding: 5px;
     }
 </style>

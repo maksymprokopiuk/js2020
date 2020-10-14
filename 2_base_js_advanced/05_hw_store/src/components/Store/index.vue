@@ -2,7 +2,7 @@
     <div>
         <header-store :productsList="productsList"/>
         <div class="container">
-            <filter-tab/>
+            <!-- <filter-tab/> -->
             <products-list/>
         </div>
     </div>
@@ -11,7 +11,7 @@
 <script>
     import productsList from "@/products";
     import HeaderStore from "./HeaderStore";
-    import FilterTab from "./FilterTab";
+    // import FilterTab from "./FilterTab";
     import ProductsList from "@/components/Store/ProductsList";
 
     export default {
@@ -19,7 +19,7 @@
         
         components: {
             HeaderStore,
-            FilterTab,
+            // FilterTab,
             ProductsList,
         },
         data() {
