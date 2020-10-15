@@ -9,6 +9,7 @@
             :title="item.title"
             :price="item.price"
             />
+            <product/>
         </div>
     </div>
 </template>
