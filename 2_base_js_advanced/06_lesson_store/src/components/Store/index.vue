@@ -1,7 +1,8 @@
 <template>
     <div>
         <header-section
-            @title-filter='setTextFilterData'
+            :products-in-cart="productsInCart"
+            @title-filter="setTextFilterData"
         />
         <div class="container">
             <filter-section class="filter-section"/>
@@ -32,14 +33,16 @@
             return {
                 products: Products,
                 filter: {
-                    textrFilter: null,
-                }
+                    textFilter: null,
+                },
+                productsInCart: 0,
             }
         },
 
         computed: {
             filteredProducts() {
                 if (this.isFilterEmpty) return this.products
+
                 return this.products.filter(item=>
                     (!this.filter.textFilter||item.title.toLowerCase().includes(this.filter.textFilter))
                 ) 
@@ -53,17 +56,23 @@
             setTextFilterData(searchText) {
                 this.filter={
                     ...this.filter,
-                    textrFilter: searchText.toLowerCase()
+                    textFilter: searchText.toLowerCase()
                 }
-            }
+            },
+            // setFilter(newFilter) {
+            //     this.filter={
+            //         ...this.filter,
+            //         ...newFilter
+            //     }
+            // }
         },
     }
 </script>
 
 <style scoped>
     .container {
-        display: grid;
-        grid-template-areas: 
-        ".filter-section .product-list";
+        display: flex;
+        /* grid-template-areas:  */
+        /* ".filter-section .product-list"; */
     }
 </style>

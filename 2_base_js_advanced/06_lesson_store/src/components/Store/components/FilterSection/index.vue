@@ -36,6 +36,7 @@
 <style scoped>
     .filter-section {
         width: 200px;
+        /* height: auto; */
         background-color: bisque;
     }
     .price input {
