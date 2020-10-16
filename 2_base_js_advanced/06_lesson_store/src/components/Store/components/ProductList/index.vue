@@ -37,6 +37,5 @@
     .products-list {
         display: flex;
         flex-wrap: wrap;
-        background-color: rgb(218, 218, 218);
     }
 </style>
