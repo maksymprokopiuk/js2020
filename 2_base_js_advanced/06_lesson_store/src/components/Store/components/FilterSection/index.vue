@@ -20,8 +20,9 @@
         <div>
             Категорія
             <div>
-                <select>
-                    <option></option>
+                <select v-model="category">
+                    <option v-for="cat in categoriesList" :key="cat.id"
+                        :value="cat.id">{{cat.title}}</option>
                 </select>
             </div>
         </div>
@@ -37,10 +38,10 @@
                 type: Array,
                 default: ()=>[]
             },
-            // categoriesList: {
-            //     type: Array,
-            //     default: ()=>[]
-            // },
+            categoriesList: {
+                type: Array,
+                default: ()=>[]
+            },
         },
 
         data() {
@@ -48,7 +49,7 @@
                 minPrice: null,
                 maxPrice: null,
                 year: null,
-                // category: null,
+                category: null,
             }
         },
 
@@ -66,6 +67,11 @@
             year(newValue) {
                 this.$emit('filter-changed', {
                     prodYear: newValue || null
+                })
+            },
+            category(newValue) {
+                this.$emit('filter-changed', {
+                    category: newValue || null
                 })
             },
         },
