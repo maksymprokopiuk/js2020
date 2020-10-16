@@ -79,20 +79,20 @@ export default [
         price: 11299,
         img: 'https://i2.rozetka.ua/goods/1757073/apple_iphone_7_32gb_rose_gold_images_1757073228.jpg',
     },
-    {
+    // {
         // id: 11,
         // title: '11',
         // category: '',
         // year: null,
         // price: null,
         // img: 'https://i2.rozetka.ua/goods/1757073/apple_iphone_7_32gb_rose_gold_images_1757073228.jpg',
-    },
-    {
+    // },
+    // {
         // id: 12,
         // title: '12',
         // category: '',
         // year: null,
         // price: null,
         // img: 'https://i2.rozetka.ua/goods/1757073/apple_iphone_7_32gb_rose_gold_images_1757073228.jpg',
-    },
+    // },
 ]

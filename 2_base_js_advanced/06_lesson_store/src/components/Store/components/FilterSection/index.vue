@@ -80,13 +80,8 @@
 
 <style scoped>
     .filter-section {
-        min-width: 120px;
-        width: 300px;
+        flex: 0 0 130px;
         background-color: bisque;
-    }
-    .filter-section div {
-        display: block;
-        margin-bottom: 20px;
     }
     .price input {
         width: 50px;

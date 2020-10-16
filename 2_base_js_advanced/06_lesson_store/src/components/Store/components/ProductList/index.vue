@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="product-list">
         <div v-if="!products">No items</div>
-        <div v-if="products" class="container">
+        <div v-if="products" class="products-list">
             <product v-for="item in products" :key="item.id"
                 :img="item.img"
                 :title="item.title"
@@ -31,9 +31,12 @@
 </script>
 
 <style scoped>
-    .container {
+    .product-list {
+        flex: 1 1 auto;
+    }
+    .products-list {
         display: flex;
         flex-wrap: wrap;
-        /* justify-content:space-around; */
+        background-color: rgb(218, 218, 218);
     }
 </style>

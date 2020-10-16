@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="header-section">
         <div>
             <input type="text" v-model="searchText" placeholder="Product title">
         </div>
@@ -35,7 +35,7 @@
 </script>
 
 <style scoped>
-    .container {
+    .header-section {
         display: flex;
         justify-content: space-between;
         align-items: center;

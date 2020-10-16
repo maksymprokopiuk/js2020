@@ -5,12 +5,12 @@
             @title-filter="setTextFilterData"
         />
         <div class="container">
-            <filter-section class="filter-section"
+            <filter-section
                 :years-list="yearsList"
                 :categories-list="categoriesList"
                 @filter-changed="setFilter"
             />
-            <product-list class="product-list"
+            <product-list
                 :products="filteredProducts"
             />
         </div>
@@ -115,7 +115,7 @@
 <style scoped>
     .container {
         display: flex;
-        /* grid-template-areas:  */
-        /* ".filter-section .product-list"; */
+        height: 100%;
     }
+    
 </style>
