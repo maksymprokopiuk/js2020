@@ -3,16 +3,17 @@
         <div>
             Ціна
             <div class="price">
-            <input type="number" placeholder="min">
+            <input type="number" min="0" v-model="minPrice" placeholder="min">
             -
-            <input type="number" placeholder="max">
+            <input type="number" min="0" v-model="maxPrice" placeholder="max">
             </div>
         </div>
         <div>
             Рік
             <div>
-                <select>
-                    <option>2020</option>
+                <select v-model="year">
+                    <option v-for="item in yearsList" :key="item"
+                        :value="item">{{item}}</option>
                 </select>
             </div>
         </div>
@@ -30,14 +31,56 @@
 <script>
     export default {
         name: 'FilterSection',
+
+        props: {
+            yearsList: {
+                type: Array,
+                default: ()=>[]
+            },
+            // categoriesList: {
+            //     type: Array,
+            //     default: ()=>[]
+            // },
+        },
+
+        data() {
+            return {
+                minPrice: null,
+                maxPrice: null,
+                year: null,
+                // category: null,
+            }
+        },
+
+        watch: {
+            minPrice(newValue) {
+                this.$emit('filter-changed', {
+                    minPrice: newValue || null
+                })
+            },
+            maxPrice(newValue) {
+                this.$emit('filter-changed', {
+                    maxPrice: newValue || null
+                })
+            },
+            year(newValue) {
+                this.$emit('filter-changed', {
+                    prodYear: newValue || null
+                })
+            },
+        },
     }
 </script>
 
 <style scoped>
     .filter-section {
-        width: 200px;
-        /* height: auto; */
+        min-width: 120px;
+        width: 300px;
         background-color: bisque;
+    }
+    .filter-section div {
+        display: block;
+        margin-bottom: 20px;
     }
     .price input {
         width: 50px;

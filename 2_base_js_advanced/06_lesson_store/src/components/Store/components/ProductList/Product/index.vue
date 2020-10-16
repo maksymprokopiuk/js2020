@@ -44,7 +44,7 @@
 <style scoped>
     .product-card {
         border-radius: 5px;
-        width: 200px;
+        width: 170px;
         height: 300px;
         text-align: center;
         margin: 5px;
