@@ -37,24 +37,24 @@
         data() {
             return {
                 products: Products,
-                categoriesList: [
-                    {
-                        id:'',
-                        title:'Усі категорії'
-                    },
-                    {
-                        id:'phone',
-                        title:'Телефон'
-                    },
-                    {
-                        id:'laptop',
-                        title:'Ноутбук'
-                    },
-                    {
-                        id:'portable-gadjet',
-                        title:'Гаджет'
-                    },
-                ],
+                // categoriesList: [
+                //     {
+                //         id:'',
+                //         title:'Усі категорії'
+                //     },
+                //     {
+                //         id:'phone',
+                //         title:'Телефон'
+                //     },
+                //     {
+                //         id:'laptop',
+                //         title:'Ноутбук'
+                //     },
+                //     {
+                //         id:'portable-gadjet',
+                //         title:'Гаджет'
+                //     },
+                // ],
                 filter: {
                     textFilter: null,
                     minPrice: null,
@@ -77,6 +77,16 @@
                 arr.sort()
                 return arr
             },
+            categoriesList() {
+                const arr = []
+                arr[0]='Усі категорії'
+                this.filteredProducts.forEach(element => {
+                    if (!arr.includes(element.category))
+                        arr.push(element.category)
+                })
+                arr.sort()
+                return arr
+            },
             filteredProducts() {
                 if (this.isFilterEmpty) return this.products
 
@@ -85,7 +95,7 @@
                     (this.filter.minPrice===null||item.price>=this.filter.minPrice) &&
                     (this.filter.maxPrice===null||item.price<=this.filter.maxPrice) &&
                     ((this.filter.prodYear===null||this.filter.prodYear==='Усі роки')||item.year==this.filter.prodYear) &&
-                    (this.filter.category===null||item.category===this.filter.category)
+                    ((this.filter.category===null||this.filter.category==='Усі категорії')||item.category===this.filter.category)
                 ) 
             },
             isFilterEmpty() {

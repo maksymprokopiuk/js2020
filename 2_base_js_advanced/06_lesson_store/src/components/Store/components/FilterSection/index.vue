@@ -20,9 +20,13 @@
         <div>
             Категорія
             <div>
-                <select v-model="category">
+                <!-- <select v-model="category">
                     <option v-for="cat in categoriesList" :key="cat.id"
                         :value="cat.id">{{cat.title}}</option>
+                </select> -->
+                <select v-model="category">
+                    <option v-for="cat in categoriesList" :key="cat"
+                        :value="cat">{{cat}}</option>
                 </select>
             </div>
         </div>
@@ -49,7 +53,8 @@
                 minPrice: null,
                 maxPrice: null,
                 year: 'Усі роки',
-                category: '',
+                // category: '',
+                category: 'Усі категорії',
             }
         },
 
