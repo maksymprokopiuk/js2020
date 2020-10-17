@@ -6,6 +6,7 @@
                 :img="item.img"
                 :title="item.title"
                 :price="item.price"
+                @add-to-cart="$emit('add-to-cart')"
             />
         </div>
     </div>

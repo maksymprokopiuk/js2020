@@ -12,6 +12,7 @@
             />
             <product-list
                 :products="filteredProducts"
+                @add-to-cart="onAddToCart"  
             />
         </div>
     </div>
@@ -107,6 +108,9 @@
                     ...this.filter,
                     ...newFilter
                 }
+            },
+            onAddToCart() {
+                this.productsInCart++
             }
         },
     }

@@ -3,7 +3,7 @@
         <div class="image"
         v-bind:style="{ backgroundImage: 'url(' + img + ')' }"
         >
-            <button>Add</button>
+            <button @click="$emit('add-to-cart')">Add</button>
             <!-- <button @click="onCounterCart">Add</button> -->
         </div>
         <div class="text">{{title}}</div>
