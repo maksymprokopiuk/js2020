@@ -69,6 +69,7 @@
         computed: {
             yearsList() {
                 const arr = []
+                arr[0]='Усі роки'
                 this.filteredProducts.forEach(element => {
                     if (!arr.includes(element.year))
                         arr.push(element.year)
@@ -83,7 +84,7 @@
                     (!this.filter.textFilter||item.title.toLowerCase().includes(this.filter.textFilter)) &&
                     (this.filter.minPrice===null||item.price>=this.filter.minPrice) &&
                     (this.filter.maxPrice===null||item.price<=this.filter.maxPrice) &&
-                    (this.filter.prodYear===null||item.year==this.filter.prodYear) &&
+                    ((this.filter.prodYear===null||this.filter.prodYear==='Усі роки')||item.year==this.filter.prodYear) &&
                     (this.filter.category===null||item.category===this.filter.category)
                 ) 
             },

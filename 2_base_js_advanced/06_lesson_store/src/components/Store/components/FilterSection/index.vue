@@ -48,7 +48,7 @@
             return {
                 minPrice: null,
                 maxPrice: null,
-                year: null,
+                year: 'Усі роки',
                 category: '',
             }
         },
