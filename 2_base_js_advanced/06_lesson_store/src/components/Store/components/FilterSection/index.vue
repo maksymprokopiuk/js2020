@@ -49,7 +49,7 @@
                 minPrice: null,
                 maxPrice: null,
                 year: null,
-                category: null,
+                category: '',
             }
         },
 
