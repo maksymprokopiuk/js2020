@@ -1,8 +1,8 @@
 <template>
     <div>
-        <ul>
+        <ul v-if="items[0]">
             <li v-for="(item) in items" :key="item.id">
-                {{item.checked}}
+                {{item.id}} {{item.name}} {{item.surname}}
             </li>
         </ul>
     </div>

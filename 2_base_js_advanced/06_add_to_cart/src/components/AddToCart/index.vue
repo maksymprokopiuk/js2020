@@ -1,7 +1,7 @@
 <template>
     <div>
         <header-component
-            :items="productsArr"
+            :items="checkedList"
         />
         <nav-component/>
         <list-component
@@ -39,6 +39,9 @@
         computed: {
             products() {
                 return this.productsArr
+            },
+            checkedList() {
+                return this.productsArr.filter(item=>item.checked)
             }
         },
     }
