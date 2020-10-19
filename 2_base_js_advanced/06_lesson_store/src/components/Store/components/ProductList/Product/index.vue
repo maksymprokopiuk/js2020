@@ -7,8 +7,8 @@
             <!-- <button @click="onCounterCart">Add</button> -->
         </div>
         <div class="text">{{title}}</div>
-        <div class="text">{{price}}</div>
-        <div class="text">{{priceDol}}</div>
+        <div class="text">{{price}}₴</div>
+        <div class="text">${{priceDol}}</div>
         
     </div>
 </template>
