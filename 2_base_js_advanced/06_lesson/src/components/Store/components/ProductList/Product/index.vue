@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <img class="img" :src="img">
+        <img class="img" :src='img'>
         <div class="text">
             {{title}}
         </div>

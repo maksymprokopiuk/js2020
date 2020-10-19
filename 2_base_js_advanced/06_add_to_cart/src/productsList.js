@@ -1,0 +1,42 @@
+export default [
+    {
+        id: 1,
+        name: 'Ivan',
+        surname: 'Ivanov',
+        phone: '0501234567',
+        email: 'simple@mail.com',
+        checked: false,
+    },
+    {
+        id: 2,
+        name: 'Ivan2',
+        surname: 'Ivanov2',
+        phone: '+280501234567',
+        email: 'simple2@mail.com',
+        checked: false,
+    },
+    {
+        id: 3,
+        name: 'Ivan3',
+        surname: 'Ivanov3',
+        phone: '+380501234567',
+        email: 'simple3@mail.com',
+        checked: false,
+    },
+    {
+        id: 4,
+        name: 'Ivan4',
+        surname: 'Ivanov4',
+        phone: '+480501234567',
+        email: 'simple4@mail.com',
+        checked: false,
+    },
+    {
+        id: 5,
+        name: 'Ivan5',
+        surname: 'Ivanov5',
+        phone: '+580501234567',
+        email: 'simple5@mail.com',
+        checked: true,
+    },
+]
