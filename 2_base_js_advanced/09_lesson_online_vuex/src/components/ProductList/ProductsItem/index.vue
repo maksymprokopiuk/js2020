@@ -1,47 +1,62 @@
 <template>
-    <div class="container">
-        <img :src="image" :alt="title">
-        <div>{{title}}</div>
-        <div>{{price}}</div>
-        <button @click="onAdd">Add</button>
-    </div>
+  <div class="container">
+    <img :src="image" alt="product" />
+    <div>{{ title }}</div>
+    <div>{{ price }}</div>
+    <button @click="onAdd">Add</button>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: 'ProductsItem',
+//Крок 3. Піключаємо mapActions
+import { mapActions } from 'vuex'
 
-        props: {
-            id: {
-                type: [String, Number],
-                require
-            },
-            image: {
-                type: String,
-                default: require('@/assets/no_image.png')
-            },
-            title: {
-                type: String,
-                default: 'no title'
-            },
-            price: {
-                type: [String, Number],
-                default: 'no price'
-            }
-        },
+export default {
+  name: 'ProductTitle',
 
-        methods: {
-            onAdd() {
-                
-            }
-        },
-    }
+  props: {
+    id: {
+      type: [String, Number],
+      require,
+    },
+    image: {
+      type: String,
+      default: require('@/assets/images/no-image.jpg'),
+    },
+    title: {
+      type: String,
+      default: 'no title',
+    },
+    price: {
+      type: [Number, String],
+      default: 0,
+    },
+  },
+
+  methods: {
+    //Крок 4. Підключаємо необхідну функцію-action
+    ...mapActions(['addToCart']),
+
+    onAdd() {
+      //Крок 5. Використовуємо  функцію-action
+      this.addToCart(this.id)
+    },
+  },
+}
 </script>
 
-<style scoped>
+<style lang="css" scoped>
 .container {
-    width: 200px;
-    height: 300px;
-    border-radius: 5px;
+  width: 120px;
+  height: 200px;
+  border-radius: 5px;
+  border: 2px solid green;
+  padding: 10px;
+  text-align: center;
+}
+.container img {
+  width: 100px;
+  max-height: 85px;
+  margin: auto;
 }
 </style>

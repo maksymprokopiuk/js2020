@@ -1,4 +1,4 @@
-# 09_lesson_online_vuex
+# test-vuex
 
 ## Project setup
 ```
