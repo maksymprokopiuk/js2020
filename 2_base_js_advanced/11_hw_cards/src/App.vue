@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="section columns is-mobile">
-      <nav-section class="column is-one-third"/>
+      <nav-section class="column is-one-third"
+        :wordsList="list"
+      />
       <cards-list-section class="column"/>
     </div>
   </div>
@@ -63,4 +65,7 @@ export default {
 </script>
 
 <style>
+body, ::placeholder {
+    font-family: 'Roboto', sans-serif;
+  }
 </style>
