@@ -1,6 +1,6 @@
 <template>
     <div class="cards-list-section">
-        CardsListSection
+        <div>Choose the card</div>
     </div>
 </template>
 
