@@ -31,7 +31,7 @@
     /* width: 180px; */
     padding: 0 12px;
 }
-.white {
+/* .white {
     background-color: #fff;
-}
+} */
 </style>
