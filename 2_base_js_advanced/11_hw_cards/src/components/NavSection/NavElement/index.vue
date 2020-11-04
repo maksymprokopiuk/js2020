@@ -1,7 +1,8 @@
 <template>
-  <div class="nav-element" :class="getClass" @click="activate">
+  <div class="nav-element" :id="'element-' + id" :class="getClass" @click="activate">
     <strong>{{ title }}</strong>
-    {{this.isActivated}}
+    <br>{{isActivated}}
+    <br>{{id}}
   </div>
 </template>
 
@@ -19,6 +20,10 @@ export default {
     title: {
       type: String,
       default: "no title",
+    },
+    id: {
+      type: [String, Number],
+      default: "no id",
     },
   },
 
@@ -43,14 +48,17 @@ export default {
 .nav-element {
   border: 1px solid #000;
   border-radius: 4px;
-  margin: 12px 0;
+  margin: 12px;
   cursor: pointer;
   text-align: center;
   text-transform: uppercase;
-  padding: 40px 0;
+  padding: 40px 20px;
   font-size: 1.5rem;
 }
 .white {
   background-color: #fff;
+}
+.black {
+  background-color: #000;
 }
 </style>

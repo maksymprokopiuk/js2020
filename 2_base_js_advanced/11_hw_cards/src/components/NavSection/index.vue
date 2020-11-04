@@ -3,6 +3,7 @@
         <nav-element v-for="word in wordsList"
             :key="word.id"
             :title="word.word"
+            :id="word.id"
         />
     </div>
 </template>
@@ -28,10 +29,6 @@
 <style scoped>
 .nav-section {
     background-color: rgb(82, 197, 243);
-    /* width: 180px; */
-    padding: 0 12px;
+    /* padding: 0 12px; */
 }
-/* .white {
-    background-color: #fff;
-} */
 </style>
