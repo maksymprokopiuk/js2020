@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <app-routes/>
+    <master-page/>
   </div>
 </template>
 
 <script>
-import AppRoutes from './components/AppRoutes'
+import MasterPage from './components/MasterPage'
 
 export default {
   name: 'App',
   components: {
-    AppRoutes
+    MasterPage
   }
 }
 </script>

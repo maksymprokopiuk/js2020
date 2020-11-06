@@ -1,12 +1,12 @@
 <template>
     <div>
-        AppRoutes
+        MasterPage
     </div>
 </template>
 
 <script>
     export default {
-        name: 'AppRoutes'
+        name: 'MasterPage'
     }
 </script>
 
