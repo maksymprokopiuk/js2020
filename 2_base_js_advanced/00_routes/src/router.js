@@ -2,7 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 // Імпортуємо компоненти сторінки
 import Home from "@/pages/Home";
-import Product from "@/pages/Product";
+import Products from "@/pages/Products";
+import About from "@/pages/About";
 
 // Підключаємо модуль до Vue
 Vue.use(VueRouter);
@@ -15,9 +16,14 @@ const routes = [
         component: Home
     },
     {
-        path: '/product',
-        name: 'product',
-        component: Product
+        path: '/products',
+        name: 'products',
+        component: Products
+    },
+    {
+        path: '/about',
+        name: 'about',
+        component: About
     },
 ];
 
