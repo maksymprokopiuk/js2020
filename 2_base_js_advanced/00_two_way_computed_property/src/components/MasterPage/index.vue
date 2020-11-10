@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <button @click="goHome">Home</button>
         <button @click="goCart">Cart</button>
         <router-view/>
@@ -22,5 +22,7 @@
 </script>
 
 <style scoped>
-
+.container {
+    margin: 15px;
+}
 </style>
