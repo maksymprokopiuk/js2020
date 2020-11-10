@@ -1,11 +1,8 @@
 <template>
   <div>
-    <div class="section">
-      <div class="card">
-        <div class="card-content">
-          <b-button @click="getNextDog" expanded>Get dog</b-button>
-        </div>
-        <div class="card-image">
+    <div class="container">
+      <div class="section">
+        <div class="box" @click="getNextDog">
           <img :src="getDogUrl" alt="dog" />
         </div>
       </div>
@@ -34,7 +31,8 @@ export default {
 </script>
 
 <style scoped>
-.card-image {
+.box {
   text-align: center;
+  cursor: pointer;
 }
 </style>
