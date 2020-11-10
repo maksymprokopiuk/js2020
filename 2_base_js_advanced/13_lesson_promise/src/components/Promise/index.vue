@@ -1,30 +1,40 @@
 <template>
-    <div>
-        <button @click="getNextDog">Get dog</button>
-        <img :src="getDogUrl" alt="dog">
+  <div>
+    <div class="section">
+      <div class="card">
+        <div class="card-content">
+          <b-button @click="getNextDog" expanded>Get dog</b-button>
+        </div>
+        <div class="card-image">
+          <img :src="getDogUrl" alt="dog" />
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-    import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
-    export default {
-        name: 'Promise',
+export default {
+  name: "Promise",
 
-        computed: {
-            ...mapGetters(['getDogUrl']),
-        },
+  computed: {
+    ...mapGetters(["getDogUrl"]),
+  },
 
-        methods: {
-            ...mapActions(['getDogImage']),
-            
-            getNextDog() {
-                this.getDogImage()
-            },
-        },
-    }
+  methods: {
+    ...mapActions(["getDogImage"]),
+
+    getNextDog() {
+      this.getDogImage();
+    },
+  },
+};
 </script>
 
 <style scoped>
-
+.card-image {
+  text-align: center;
+}
 </style>
