@@ -14,7 +14,7 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  name: "Promise",
+  name: "Dog",
 
   computed: {
     ...mapGetters(["getDogUrl"]),

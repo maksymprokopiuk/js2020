@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <promise/>
+    <master-page/>
   </div>
 </template>
 
 <script>
-import Promise from './components/Promise'
+import MasterPage from './components/MasterPage'
 
 export default {
   name: 'App',
   components: {
-    Promise
+    MasterPage
   }
 }
 </script>
