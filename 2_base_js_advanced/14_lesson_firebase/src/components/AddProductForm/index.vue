@@ -58,9 +58,12 @@ export default {
       //Крок 5. Використовуємо1 функцію-action
       if (!this.productId)
         this.addProduct({
-          title,
-          price,
-          image,
+          self:this, 
+          productData:{
+                        title,
+                        price,
+                        image
+                      }
         })
       else
         this.updateProduct({

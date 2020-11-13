@@ -9,26 +9,29 @@ const store = new Vuex.Store({
     testNum: 0,
     //Список продуктів   ( Читання: Крок 1 - описали дані
     productsListData: [
-      {
-        id: 1,
-        image:
-          "https://inkluzia.com.ua/content/images/25/ovochiid-94952233231829_small11.jpg",
-        title: "Tomato",
-        price: 37,
-      },
-      {
-        id: 2,
-        image:
-          "https://static9.depositphotos.com/1628352/1107/i/450/depositphotos_11071200-stock-photo-cabbage.jpg",
-        title: "Cabbage",
-        price: 16,
-      },
+      // {
+      //   id: 1,
+      //   image:
+      //     "https://inkluzia.com.ua/content/images/25/ovochiid-94952233231829_small11.jpg",
+      //   title: "Tomato",
+      //   price: 37,
+      // },
+      // {
+      //   id: 2,
+      //   image:
+      //     "https://static9.depositphotos.com/1628352/1107/i/450/depositphotos_11071200-stock-photo-cabbage.jpg",
+      //   title: "Cabbage",
+      //   price: 16,
+      // },
     ],
     //Корзина (список ід)
     cart: [],
     url: null,
   },
   mutations: {
+    setProductsListData(state, data) {
+      state.productsListData = [...data];
+    },
     setDogImage(state, url) {
       state.url = url;
     },
@@ -80,6 +83,24 @@ const store = new Vuex.Store({
     },
   },
   actions: {
+    loadData({ commit }, self) {
+      const db = self.$firebase.firestore();
+      db.collection("productsListData")
+        .get()
+        .then((snap) => {
+          const productsListData = [];
+          snap.forEach((doc) => {
+            productsListData.push({ id: doc.id, ...doc.data() });
+          });
+          commit("setProductsListData", productsListData);
+        });
+    },
+    clearData() {
+      this.curtrentProductId = null;
+      this.title = null;
+      this.price = null;
+    },
+
     getDogImage({ commit }) {
       fetch("https://dog.ceo/api/breeds/image/random")
         .then((response) => {
@@ -89,11 +110,9 @@ const store = new Vuex.Store({
           if (data.status !== "success") throw new Error("Failed");
           return data.message;
         })
-
         .then((url) => {
           commit("setDogImage", url);
         })
-
         .catch((er) => console.log(er));
     },
 
@@ -109,8 +128,26 @@ const store = new Vuex.Store({
       commit("decreaseProductsCountInCart", id);
     },
 
-    addProduct({ commit }, productData) {
-      commit("addProductToList", productData);
+    addProduct({ dispatch }, { self, productData }) {
+      // commit("addProductToList", productData);
+
+      const db = self.$firebase.firestore();
+
+      // Change a document in collection
+      db.collection("productsListData")
+        .doc()
+        .set({
+          title: productData.title,
+          price: productData.price,
+          image: productData.image,
+        })
+        .then(function() {
+          console.log("Document successfully written!");
+          dispatch("loadData", self);
+        })
+        .catch(function(error) {
+          console.error("Error writing document: ", error);
+        });
     },
 
     removeFromStore({ commit }, productId) {

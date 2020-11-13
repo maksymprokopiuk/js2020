@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Cart from '@/components/Cart'
+import MyTest from '@/components/MyTest'
 import ProductsList from '@/components/ProductList'
 import AddProductForm from '@/components/AddProductForm'
 
@@ -21,6 +22,13 @@ export const routes = [
     linkTitle: 'Cart',
     isVisible: true,
     component: Cart,
+  },
+  {
+    path: '/my-test',
+    name: 'my-test',
+    linkTitle: 'My test',
+    isVisible: true,
+    component: MyTest,
   },
   {
     path: '/product-form/new',

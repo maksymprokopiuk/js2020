@@ -17,6 +17,7 @@
 
 <script>
 import { routes } from '@/router'
+import { mapActions } from 'vuex'
 export default {
   name: 'Shop',
 
@@ -33,11 +34,16 @@ export default {
   },
 
   methods: {
+    ...mapActions(['loadData']),
     getPath(route) {
       if (route.path === '/product-form/:product_id') {
         return '/product-form/new'
       } else return route.path
     },
+  },
+
+  mounted () {
+    this.loadData(this)
   },
 }
 </script>
