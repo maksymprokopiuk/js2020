@@ -27,6 +27,10 @@ export default {
       this.getDogImage();
     },
   },
+
+  mounted () {
+    this.getNextDog();
+  },
 };
 </script>
 
