@@ -3,9 +3,9 @@
     <div class="section">
       <div class="container">
         <div class="buttons">
-          <b-button @click="goHome">Home</b-button>
-          <b-button @click="goDog">Dog</b-button>
-          <b-button @click="goElephant">Elephant</b-button>
+          <b-button v-for="link in routes" :key="link.name"
+            @click="goLink(link)"
+          >{{ link.name }}</b-button>
         </div>
       </div>
     </div>
@@ -14,20 +14,22 @@
 </template>
 
 <script>
+import { routes } from "@/router";
+
 export default {
   name: "MasterPage",
 
+  data() {
+    return {
+      routes,
+    }
+  },
+
   methods: {
-            goHome() {
-                return this.$router.push({name: 'home'})
-            },
-            goDog() {
-                return this.$router.push({name: 'dog'})
-            },
-            goElephant() {
-                return this.$router.push({name: 'elephant'})
-            },
-        },
+    goLink(link) {
+      return this.$router.push({name: link.name})
+    },
+  },
 };
 </script>
 
