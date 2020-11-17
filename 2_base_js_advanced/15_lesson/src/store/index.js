@@ -1,0 +1,257 @@
+import Vue from "vue";
+import Vuex from "vuex";
+import { uuid } from "uuidv4";
+import { categiries } from "./settings";
+import firebase from "firebase";
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+  state: {
+    testNum: 0,
+    //Список продуктів   ( Читання: Крок 1 - описали дані
+    productsListData: [
+      // {
+      //   id: 1,
+      //   image:
+      //     "https://inkluzia.com.ua/content/images/25/ovochiid-94952233231829_small11.jpg",
+      //   title: "Tomato",
+      //   price: 37,
+      // },
+      // {
+      //   id: 2,
+      //   image:
+      //     "https://static9.depositphotos.com/1628352/1107/i/450/depositphotos_11071200-stock-photo-cabbage.jpg",
+      //   title: "Cabbage",
+      //   price: 16,
+      // },
+    ],
+    //Корзина (список ід)
+    cart: [],
+    url: null,
+    category: null,
+  },
+  mutations: {
+    setProductsListData(state, data) {
+      state.productsListData = [...data];
+    },
+    setDogImage(state, url) {
+      state.url = url;
+    },
+
+    setTestNum(state, data) {
+      state.testNum = data;
+    },
+    //Зміна Крок 2. Створюємо функцію-мутацію, яка має право змінювати дані у state
+    addProductToCart(state, id) {
+      const product = state.cart.find((item) => item.id === id);
+      if (product) product.count++;
+      else
+        state.cart.push({
+          id,
+          count: 1,
+        });
+    },
+
+    addProductToList(state, data) {
+      state.productsListData.push({
+        id: uuid(),
+        ...data,
+      });
+    },
+
+    decreaseProductsCountInCart(state, id) {
+      const product = state.cart.find((item) => item.id === id);
+      product.count--;
+      if (product.count === 0) {
+        state.cart = state.cart.filter((item) => item.id !== id);
+      }
+    },
+
+    removeFromStore(state, id) {
+      state.cart = state.cart.filter((item) => item.id !== id);
+    },
+
+    deleteProduct(state, id) {
+      state.productsListData = state.productsListData.filter(
+        (item) => item.id !== id
+      );
+    },
+
+    updateProduct(state, productData) {
+      const productIndex = state.productsListData.findIndex(
+        (item) => item.id == productData.id
+      );
+      state.productsListData[productIndex] = productData;
+    },
+    setCategory(state, category) {
+      state.category = category;
+    },
+  },
+  actions: {
+    setCategory({ commit }, category) {
+      commit("setCategory", category);
+    },
+    loadData({ commit }) {
+      const db = firebase.firestore();
+      db.collection("productsListData")
+        .get()
+        .then((snap) => {
+          const productsListData = [];
+          snap.forEach((doc) => {
+            productsListData.push({ id: doc.id, ...doc.data() });
+          });
+          commit("setProductsListData", productsListData);
+        });
+    },
+    clearData() {
+      this.curtrentProductId = null;
+      this.title = null;
+      this.price = null;
+    },
+
+    getDogImage({ commit }) {
+      fetch("https://dog.ceo/api/breeds/image/random")
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          if (data.status !== "success") throw new Error("Failed");
+          return data.message;
+        })
+        .then((url) => {
+          commit("setDogImage", url);
+        })
+        .catch((er) => console.log(er));
+    },
+
+    setTestNum({ commit }, data) {
+      commit("setTestNum", data);
+    },
+    //Зміна Крок 1. Створюємо функцію-action, яку будемо викликати у компоненті, де потрібно ініціювати зміну стора
+    addToCart({ commit }, id) {
+      commit("addProductToCart", id);
+    },
+
+    decreaseProductsCountInCart({ commit }, id) {
+      commit("decreaseProductsCountInCart", id);
+    },
+
+    addProduct({ dispatch }, { productData }) {
+      // commit("addProductToList", productData);
+      const db = firebase.firestore();
+      // Change a document in collection
+      db.collection("productsListData")
+        .doc()
+        .set({
+          title: productData.title,
+          price: productData.price,
+          image: productData.image,
+          category: productData.category,
+        })
+        .then(function() {
+          console.log("Document successfully written!");
+          dispatch("loadData");
+        })
+        .catch(function(error) {
+          console.error("Error writing document: ", error);
+        });
+    },
+
+    removeFromStore({ commit }, productId) {
+      commit("removeFromStore", productId);
+    },
+
+    deleteProduct({ dispatch }, productId) {
+      // commit("addProductToList", productData);
+
+      const db = firebase.firestore();
+      // Change a document in collection
+      db.collection("productsListData")
+        .doc(productId)
+        .delete()
+        .then(function() {
+          console.log("Document successfully written!");
+          dispatch("loadData");
+        })
+        .catch(function(error) {
+          console.error("Error writing document: ", error);
+        });
+    },
+
+    updateProduct({ dispatch }, { productData }) {
+      // commit("addProductToList", productData);
+
+      const db = firebase.firestore();
+      // Change a document in collection
+      db.collection("productsListData")
+        .doc(productData.id)
+        .set({
+          title: productData.title,
+          price: productData.price,
+          image: productData.image,
+          category: productData.category,
+        })
+        .then(function() {
+          console.log("Document successfully written!");
+          dispatch("loadData");
+        })
+        .catch(function(error) {
+          console.error("Error writing document: ", error);
+        });
+    },
+  },
+
+  //Зчитуємо дані зі стора (state)
+  getters: {
+    getCategoriesList: () => categiries,
+
+    getDogUrl: (state) => state.url,
+
+    getTestNum: (state) => state.testNum,
+    // Читання Крок 2) Створюємо функцію, яка повертає потрібні дані
+    getProductsListData: (state) => {
+      if (state.category)
+        return state.productsListData.filter(
+          (product) => product.category === state.category
+        );
+      return state.productsListData;
+    },
+
+    getCartLength: (state) =>
+      state.cart.reduce((sum, item) => sum + item.count, 0),
+
+    getProductsFromCart: (state) => {
+      const arr = [];
+      state.productsListData.forEach((product) => {
+        const productObj = state.cart.find((item) => item.id == product.id);
+        if (productObj) {
+          arr.push({
+            ...product,
+            count: productObj.count,
+          });
+        }
+      });
+      return arr;
+    },
+
+    getTotaPrice: (state) => {
+      return state.cart.reduce((sum, item) => {
+        const product = state.productsListData.find(
+          (elem) => elem.id === item.id
+        );
+        return sum + product.price * item.count;
+      }, 0);
+    },
+
+    getProductById: (state) => (id) => {
+      return state.productsListData.find((item) => item.id == id);
+    },
+
+    // getterName: (state)=> (вхідні_параметри)=>{
+    //   return результати_пошуку
+    // }
+  },
+});
+
+export default store;
