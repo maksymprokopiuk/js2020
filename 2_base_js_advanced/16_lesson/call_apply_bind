@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const ob1 = {
+            a: 1,
+            b: 2,
+            show: function (c, d) {
+                console.log(`a=${this.a}, b=${this.b} c=${c} d=${d}`)
+            }
+        }
+        const ob2 = {
+            a: 10,
+            b: 20,
+            c: 66
+        }
+        ob1.show(3, 4)
+        // ob2.show=ob1.show
+        //this, c,   d
+        //ob1.show.call( ob2,  30, 40)
+        // ob1.show.apply(ob2, [30, 40])
+        function f() {
+            // ob1.show.call(ob2, q, c)
+            ob1.show.apply(ob2, arguments)
+        }
+        f(77, 88)
+        console.log(ob2)
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
