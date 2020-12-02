@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h2>In store <%= products.length %></h2>
+    <ul>
+      <%for(product of products){%>
+        <li>
+          <%= `${product.title} - ${product.price}` %>
+          <% if(product.price>1000) {%>
+            -супер акція
+          <% } %>
+        </li>
+        <%}%>
+    </ul>
+  </body>
+</html>
