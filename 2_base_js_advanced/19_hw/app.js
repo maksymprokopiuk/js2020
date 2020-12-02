@@ -19,7 +19,7 @@ app.get("/goals",
     }
 );
 
-// 2 обробка статичних файлів
+// 3 обробка параметрів запитів
 app.use(express.static(__dirname + "/public"));
 
 app.get('/:name', function (req, res, next) {
