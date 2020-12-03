@@ -1,13 +1,93 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Roboto', sans-serif;
 }
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+h1 {
+  text-align: center;
+  margin: 10px;
+}
+h3 {
+  text-align: center;
 }
 header {
-  background-color: yellow;
+  /* border: 1px solid rgba(255, 255, 0, 0.5); */
+  /* background-color: rgba(255, 255, 0, 0.5); */
+  text-align: center;
 }
+.logo{
+  display: inline-block;
+  /* border: 1px solid #000; */
+}
+.header-links {
+  display: flex;
+  justify-content: space-around;
+}
+.header-links a {
+  display: block;
+  padding: 25px;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+/* CARD-MOVIE */
+.card-movie {
+  width: 300px;
+  height: 490px;
+  border: 1px solid #000;
+  margin: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+.image-movie {
+  /* border: 1px solid red; */
+  /* margin: 5px 10px; */
+  height: 90%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+/* CARD-MOVIE END */
+/* PAGE-MOVIE */
+.container-movie {
+  text-align: center;
+  margin: 20px 0;
+}
+.image-movie-card {
+  display: inline-block;
+  width: 80%;
+  height: 900px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.title-original {
+  color: rgba(70, 66, 66, 0.5);
+}
+.slogan {
+  margin: 20px 0 0 0;
+}
+.genres {
+  font-style: italic;
+}
+.description {
+  text-align: justify;
+  margin: 10px;
+}
+/* PAGE-MOVIE END */
 footer {
+  /* border: 1px solid tomato; */
   background-color: tomato;
+}
+.footer-section {
+  text-align: center;
+  padding: 50px;
 }

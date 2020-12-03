@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/zero.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <%-include("header.ejs")%>
+
+  <h1>Список фільмів</h1>
+
+  <div class="container">
+    <%for (movie of moviesList) {%>
+      <div class="card-movie">
+        <a href="/movies/<%=movie.id%>">
+          <div class="image-movie" style="background-image: url(<%=movie.img%>);"></div>
+          <div class="title-movie"><strong><%=movie.title%></strong></div>
+          <div class="year-movie"><%=movie.year%></div>
+          <div class="genres-movie"><%=movie.genres%></div>
+        </a>
+      </div>
+    <%}%>
+  </div>
+
+
+  <%-include("footer.ejs")%>
+</body>
+
+</html>

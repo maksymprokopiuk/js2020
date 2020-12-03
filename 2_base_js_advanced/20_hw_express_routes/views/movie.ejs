@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/zero.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <%-include("header.ejs")%>
+
+  <div class="container-movie">
+    <div class="image-movie-card" style="background-image: url(<%=moviesList[id].img%>);"></div>
+    <h1 class="title-movie">
+      <strong><%=moviesList[id].title%> (<%=moviesList[id].year%>)</strong>
+    </h1>
+    <h3 class="title-original"><%=moviesList[id].titleOriginal%></h3>
+    <h3 class="slogan"><%=moviesList[id].slogan%></h3>
+    <h4 class="genres"><%=moviesList[id].genres%></h4>
+    <div class="description">
+      <p><%=moviesList[id].description%></p>
+    </div>
+  </div>
+
+  <%-include("footer.ejs")%>
+</body>
+
+</html>
