@@ -11,7 +11,19 @@
 <body>
   <%-include("header.ejs")%>
 
-  <h1>Cinemas</h1>
+  <h1>Кінотеатри міста</h1>
+
+  <div class="container">
+    <%for (cinema of cinemasList) {%>
+      <div class="card-cinema">
+        <a href="<%=cinema.site%>">
+          <div class="image-cinema" style="background-image: url(<%=cinema.img%>);"></div>
+          <div class="title-cinema"><strong><%=cinema.title%></strong></div>
+          <div class="year-cinema"><%=cinema.address%></div>
+        </a>
+      </div>
+    <%}%>
+  </div>
 
   <%-include("footer.ejs")%>
 </body>
