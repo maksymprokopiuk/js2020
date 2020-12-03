@@ -13,9 +13,12 @@ h1 {
 h3 {
   text-align: center;
 }
+.text {
+  font-size: 20px;
+}
 header {
   /* border: 1px solid rgba(255, 255, 0, 0.5); */
-  /* background-color: rgba(255, 255, 0, 0.5); */
+  background-color: rgba(255, 255, 0, 0.05);
   text-align: center;
 }
 .logo{
@@ -31,6 +34,9 @@ header {
   padding: 25px;
   text-decoration: none;
   font-size: 1.8rem;
+}
+.container-home {
+  margin: 20px;
 }
 .container {
   display: flex;
@@ -85,7 +91,7 @@ header {
 /* PAGE-MOVIE END */
 footer {
   /* border: 1px solid tomato; */
-  background-color: tomato;
+  background-color: rgba(255, 99, 71, 0.05);
 }
 .footer-section {
   text-align: center;
