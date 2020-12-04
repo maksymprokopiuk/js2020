@@ -18,7 +18,13 @@
     </h1>
     <h3 class="title-original"><%=moviesList[id].titleOriginal%></h3>
     <h3 class="slogan"><%=moviesList[id].slogan%></h3>
-    <h4 class="genres"><%=moviesList[id].genres%></h4>
+    
+    <h4 class="genres">
+      <%for(let i = 0; i < moviesList[id].genres.length; i++) {%>
+        <span><%=moviesList[id].genres[i]%></span>
+      <%}%>
+    </h4>
+    
     <div class="description">
       <p><%=moviesList[id].description%></p>
     </div>

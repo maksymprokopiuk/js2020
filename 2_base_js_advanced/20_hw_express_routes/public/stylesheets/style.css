@@ -103,6 +103,7 @@ header {
 }
 .genres {
   font-style: italic;
+  color: rgba(0, 0, 0, 0.5);
 }
 .description {
   text-align: justify;

@@ -20,7 +20,11 @@
           <div class="image-movie" style="background-image: url(<%=movie.img%>);"></div>
           <div class="title-movie"><strong><%=movie.title%></strong></div>
           <div class="year-movie"><%=movie.year%></div>
-          <div class="genres-movie"><%=movie.genres%></div>
+          <div class="genres-movie">
+            <%for(let i = 0; i < movie.genres.length; i++) {%>
+              <span><%=movie.genres[i]%></span>
+            <%}%>
+          </div>
         </a>
       </div>
     <%}%>
