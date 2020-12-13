@@ -1,0 +1,17 @@
+Promise!
+
+v-bind - почитати!
+
+slots https://vuejs.org/v2/guide/components-slots.html
+Buefy
+https://buefy.org/documentation/start/
+https://buefy.org/documentation/layout/
+https://bulma.io/documentation/layout/hero/ 
+https://bulma.io/documentation/elements/title/
+routes
+
+блочна структура
+https://bulma.io/documentation/columns/options/#multiline
+
+встановлення Vuex
+https://vuex.vuejs.org/ru/installation.html

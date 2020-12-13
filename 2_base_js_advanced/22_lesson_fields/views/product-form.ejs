@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1 class="my"><%= title %></h1>
+    <form action="/products/data" enctype="multipart/form-data" method="post">
+      <label>
+          Product title
+          <input type="text" name="pTitle">
+      </label>
+      <br>
+      <label>
+          Price
+           <input type="number" name="pPrice">
+      </label>
+      <br>
+      <label>
+        User foto 
+        <input type="file" name="uFoto" multiple>
+      </label>
+
+      <br>
+      <input type="submit" value="Надіслати">
+  </form>
+  
+  </body>
+</html>
