@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <a href="/">Go home</a>
+    <p><strong>Задача.</strong> Розробити програму з такими функціональними можливостями (використати router та роботу з формами):<br><br>Обробка статичних маршрутів:</p>
+    <table border="1" width="100%" cellpadding="15">
+      <tr>
+        <td>"/"</td>
+        <td class="done">Вітання користувача (повертаємо index.html) Сторінка містить посилання на маршрути:</td>
+      </tr>
+    </table>
+    <p>Користувачі:</p>
+    <table border="1" width="100%" cellpadding="15">
+      <tr>
+        <td>/users/</td>
+        <td class="done">Виведення усіх користувачів</td>
+      </tr>
+      <tr>
+        <td>/users/add</td>
+        <td>Додавання (виводиться форма:ім’я, вік, улюблені фільми (передавати у вигляді масиву), фото користувача (завантажувати на сервер)</td>
+      </tr>
+      <tr>
+        <td>/users/remove/:id</td>
+        <td>видалення користувача за заданим id</td>
+      </tr>
+      <tr>
+        <td>/users/:id</td>
+        <td class="done">виведення інформації про користувача із заданим id</td>
+      </tr>
+    </table>
+    <p>Соціальні групи:</p>
+    <table border="1" width="100%" cellpadding="15">
+      <tr>
+        <td>/groups/</td>
+        <td>Виведення усіх груп</td>
+      </tr>
+      <tr>
+        <td>/groups/add</td>
+        <td>Додавання групи (назва групи, перелік учасників-користувачів)</td>
+      </tr>
+      <tr>
+        <td>/groups/remove/:id</td>
+        <td>видалення групи за заданим id</td>
+      </tr>
+      <tr>
+        <td>/groups/:id</td>
+        <td>виведення інформації про групу із заданим id</td>
+      </tr>
+    </table>
+    <p class="done">about.html  містить текст завдання (this page)</p>
+  </body>
+</html>

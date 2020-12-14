@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <a href="/">Go home</a>
+  <a href="/users">All users</a>
+  <h1><%= title %></h1>
+  
+  <form action="/users/data" enctype="multipart/form-data" method="post">
+    
+    <label>Name <input type="text" name="userName"></label>
+    <br><br>
+    
+    <label>Years old <input type="number" name="userYearsOld"></label>
+    <br><br>
+    
+    <label>Favourite movies <input type="text" name="userFavMov"></label>
+    <br><br>
+
+    <label>User pfoto <input type="file" name="userPhoto" multiple></label>
+    <br><br>
+    
+    <input type="submit" value="Надіслати">
+  
+  </form>
+</body>
+
+</html>

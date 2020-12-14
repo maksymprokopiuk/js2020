@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href="/">Go home</a>
+    <a href="/users">All users</a>
+    <h1><%= usersList[id].name %></h1>
+    
+    <table border="1">
+      <tr>
+        <td>Ім'я</td>
+        <td><%= usersList[id].name %></td>
+      </tr>
+      <tr>
+        <td>Вік</td>
+        <td><%= usersList[id].yearsOld %></td>
+      </tr>
+      <tr>
+        <td>Улюблені фільми</td>
+        <td><%= usersList[id].favouriteMovies %></td>
+      </tr>
+      <tr>
+        <td>Фото</td>
+        <td><img src=<%=usersList[id].photo%>></td>
+      </tr>
+    </table>
+  </body>
+</html>

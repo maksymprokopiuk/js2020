@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <a href="/">Go home</a>
+  <br>
+  <br>
+  <table>
+    <%for (user of usersList) {%>
+      <tr>
+        <td><%= user.id %></td>
+        <td><a href="users/<%=user.id%>"><%= user.name %></a></td>
+        <td>del</td>
+      </tr>
+      <%}%>
+  </table>
+</body>
+
+</html>
