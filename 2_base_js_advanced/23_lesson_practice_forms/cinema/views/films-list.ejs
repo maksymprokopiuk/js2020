@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h2>Films number : <%=filmsCount%></h2>
+    <%for (film of filmsList){%>
+      <a href="/films/<%=film.id%>">
+      <div class="films-container">
+        <div><%=film.title%></div>
+        <div><%=film.year%></div>
+        <div><%=film.genre%></div>
+        <div>
+          <img src="/uploads/<%=film.imageSrc%>" alt="" class="image-icon">
+        </div>
+      </div>
+    </a>
+    <%}%>
+  </body>
+</html>
