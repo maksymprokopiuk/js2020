@@ -3,15 +3,19 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #1e1e1e;
   color: #bbbbbb;
+  /* border: 1px solid #bbbbbb; */
 }
 
 a {
   color: #00B7FF;
 }
 
+/* .header-section {
+  border: 1px solid #bbbbbb;
+} */
 .header-section ul {
   display: flex;
-  justify-content: start;
+  justify-content: space-around;
   list-style-type: none;
   padding: 0;
 }
