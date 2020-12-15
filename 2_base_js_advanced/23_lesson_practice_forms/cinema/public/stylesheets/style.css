@@ -7,11 +7,32 @@ a {
   color: #00B7FF;
 }
 
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.header-section ul {
+  display: flex;
+  justify-content: start;
+  list-style-type: none;
+}
+
+.header-section li {
+  margin: 0 15px;
+  font-size: 25px;
+}
+
+.header-section a {
+  text-decoration: none;
+}
+
 .image-icon {
-  width: 70px;
+  width: 100px;
+  max-height: 200px;
 }
 
 .films-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }

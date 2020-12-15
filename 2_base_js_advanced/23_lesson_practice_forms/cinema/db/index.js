@@ -1,7 +1,7 @@
 const fs = require("fs");
 const db = (dbPath) => ({
   load: function () {
-    const data = require(dbPath);
+    const data = JSON.parse(fs.readFileSync(dbPath));
     return data;
   },
   save: function (data) {
@@ -16,6 +16,11 @@ const db = (dbPath) => ({
     // });
     fs.writeFileSync(dbPath, JSON.stringify(data));
   },
+  getItemById: function (id) {
+    const data = this.load()
+    const item = data.find((item) => item.id === id)
+    return item    
+  },
   addItem: function (item) {
     const data = this.load();
     data.push(item);
@@ -23,7 +28,7 @@ const db = (dbPath) => ({
   },
   delItem: function (itemId) {
     const data = this.load();
-    let res = data.filter((item) => item.id !== itemId);
+    let res = data.filter((item) => item.id !== itemId); // change !=
     this.save(res);
   },
   updateItem: function (item) {

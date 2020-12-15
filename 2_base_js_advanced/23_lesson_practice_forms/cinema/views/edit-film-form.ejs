@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('header'); %>
+    <h1 class="my"><%= title %></h1>
+    <form action="/films/update/<%=film.id%>" enctype="multipart/form-data" method="post">
+      <!-- <input type="hidden" name="id" value="<%=film.id%>"> -->
+
+      <label>
+          Film title
+          <input type="text" name="title" value="<%=film.title%>">
+      </label>
+      <br>
+      <label>
+        Film production year
+        <input type="text" name="year" value="<%=film.year%>">
+      </label>
+      <br>
+      <label>
+        Film genre
+        <select name="genre" value="<%=film.genre%>">
+          <option value="Science fiction">Science fiction</option>
+          <option value="Cartoon">Cartoon</option>
+          <option value="Soup">Soup</option>
+          <option value="Triller">Triller</option>
+        </select>
+      </label>
+      <br> 
+      <label>
+        Poster 
+        <input type="file" name="poster" multiple>
+      </label>
+
+      <br>
+      <input type="submit" value="Надіслати">
+  </form>
+  
+  </body>
+</html>

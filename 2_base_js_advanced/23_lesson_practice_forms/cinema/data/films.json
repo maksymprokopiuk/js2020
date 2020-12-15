@@ -1,8 +1,9 @@
 [
     {
-        "id": "1",
-        "title": "Matrix 4",
-        "year": 2021,
-        "genre": "scify"
+        "id": "fc20564e-246e-45fc-8b54-d05608c721e6",
+        "title": "Бетмен: Початок",
+        "year": "2005",
+        "genre": "Comics",
+        "poster": "bat.jpg"
     }
 ]

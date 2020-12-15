@@ -5,19 +5,21 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <%- include('header'); %>
     <h1><%= title %></h1>
-    <h2>Films number : <%=filmsCount%></h2>
-    <%for (film of filmsList){%>
-      <a href="/films/<%=film.id%>">
+    <h2>Films number : <%= filmsCount %></h2>
+
+    <%for(film of filmsList){ %>
+      
       <div class="films-container">
-        <div><%=film.title%></div>
+        <a href="/films/<%=film.id%>"><div><%=film.title%></div></a>
         <div><%=film.year%></div>
         <div><%=film.genre%></div>
-        <div>
-          <img src="/uploads/<%=film.imageSrc%>" alt="" class="image-icon">
-        </div>
+        <div><img src="/uploads/<%=film.poster%>" alt="" class="image-icon"></div>
+        <a href="/films/delete/<%=film.id%>"><button>X</button></a>
       </div>
-    </a>
+    
     <%}%>
+    
   </body>
 </html>

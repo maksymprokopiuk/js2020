@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(function (req, res, next) {
   req.data_path = path.join(__dirname, "data");
   req.db_handler_path = path.join(__dirname, "db");
+  req.uploaded_images_path = path.join(__dirname, "public/uploads");
   req.films_db = films_db;
   next();
 });
