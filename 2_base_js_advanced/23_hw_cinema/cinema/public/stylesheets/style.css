@@ -8,6 +8,19 @@ a {
 }
 
 .header-section {
-  background-color: rgba(255, 99, 71, 0.5);
-  border: 1px solid #000;
+  /* background-color: rgba(255, 99, 71, 0.5); */
+  /* border: 1px solid #000; */
+}
+.header-section ul {
+  display: flex;
+  justify-content: start;
+  list-style-type: none;
+  padding: 0;
+}
+.header-section li {
+  margin: 0 10px 0 0;
+}
+.header-section a {
+  text-decoration: none;
+  font-size: 1.5em;
 }
