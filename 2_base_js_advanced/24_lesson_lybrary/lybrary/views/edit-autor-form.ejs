@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('components/header') %>
+    <h1 class="my"><%= title %></h1>
+    <form action="/autors/update/<%=autor.id%>" enctype="multipart/form-data" method="post">
+      <!-- <input type="hidden" name="id" value="<%=autor.id%>"> -->
+
+      <label>Autor name <input type="text" name="name" value="<%=autor.name%>"></label>
+      <br>
+      <label>Surname <input type="text" name="surname" value="<%=autor.surname%>"></label>
+      <br>
+      <input type="submit" value="Надіслати">
+      <br>
+      <label>Img <input type="file" name="img" multiple></label>
+  </form>
+  
+  </body>
+</html>

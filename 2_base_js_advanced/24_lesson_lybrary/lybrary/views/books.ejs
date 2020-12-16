@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('components/header') %>
+    <h1><%= title %></h1>
+    <a href="books/new">Add a new book</a>
+    <h2>books number : <%= booksCount %></h2>
+
+    <%for(book of booksList){ %>
+      
+      <div class="autors-container">
+        <a href="/books/<%=book.id%>">
+           <div><%=book.title%></div>
+        </a>
+        <div><%=book.year%></div>
+        <div><%=book.genre%></div>
+        <div><img src="/uploads/<%=book.img%>" alt="" class="image-icon"></div>
+        <a href="/books/delete/<%=book.id%>">
+          <button>X</button>
+        </a>
+      </div>
+    
+    <%}%>
+    
+  </body>
+</html>
