@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('components/header') %>
+    <h1 class="my"><%= title %></h1>
+    <form action="/cinemas/update/<%=cinema.id%>" enctype="multipart/form-data" method="post">
+      <!-- <input type="hidden" name="id" value="<%=cinema.id%>"> -->
+
+      <label>Cinema title <input type="text" name="title" value="<%=cinema.title%>"></label>
+      <br>
+      <label>Since year <input type="text" name="year" value="<%=cinema.year%>"></label>
+      <br>
+      <label>Cinema address <input type="text" name="address" value="<%=cinema.address%>"></label>
+      <br>
+      <img src="/uploads/<%=cinema.img%>" alt="" class="image-icon">
+      <br>
+      <label>Photo <input type="file" name="img" multiple></label>
+
+      <br>
+      <input type="submit" value="Надіслати">
+  </form>
+  
+  </body>
+</html>
