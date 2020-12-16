@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cinemas_db = require('./db')(path.join(__dirname, 'data/cinemas.json'))
 
 var indexRouter = require('./routes/index');
 var moviesRouter = require('./routes/movies');
@@ -19,6 +20,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function (req, res, next) {
+  req.data_path = path.join(__dirname, 'data')
+  req.db_handler_path = path.join(__dirname, 'db')
+  req.uploaded_images_path = path.join(__dirname, 'public/uploads')
+  req.cinemas_db = cinemas_db
+  next()
+})
 
 app.use('/', indexRouter);
 app.use('/movies', moviesRouter);

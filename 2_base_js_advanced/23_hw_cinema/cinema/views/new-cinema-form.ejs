@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <%- include('components/header') %>
+    <h1 class="my"><%= title %></h1>
+    <form action="/cinemas/data" enctype="multipart/form-data" method="post">
+      <label>Cinema title <input type="text" name="title"></label>
+      <br>
+      <label>Since year <input type="number" name="year"></label>
+      <br>
+      <label>Cinema address <input type="text" name="address"></label>
+      <br>
+      <label>Photo <input type="file" name="img" multiple></label>
+      <br>
+      <input type="submit" value="Надіслати">
+    </form>
+</body>
+
+</html>

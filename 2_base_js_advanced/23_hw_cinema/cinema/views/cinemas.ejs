@@ -7,6 +7,20 @@
   <body>
     <%- include('components/header') %>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <a href="cinemas/new">Add a new cinema</a>
+    <h2>Cinemas number : <%= cinemasCount %></h2>
+
+    <%for(cinema of cinemasList){ %>
+      
+      <div class="cinemas-container">
+        <div><img src="/uploads/<%=cinema.img%>" alt="" class="image-icon"></div>
+        <a href="/cinemas/<%=cinema.id%>"><div><%=cinema.title%></div></a>
+        <div><%=cinema.year%></div>
+        <div><%=cinema.address%></div>
+        <a href="/cinemas/delete/<%=cinema.id%>"><button>X</button></a>
+      </div>
+    
+    <%}%>
+    
   </body>
 </html>

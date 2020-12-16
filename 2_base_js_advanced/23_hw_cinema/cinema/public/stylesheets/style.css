@@ -10,6 +10,11 @@ a {
   color: #00B7FF;
 }
 
+.row {
+  display: flex;
+  width: 100%;
+}
+
 /* .header-section {
   border: 1px solid #bbbbbb;
 } */
@@ -25,4 +30,19 @@ a {
 .header-section a {
   text-decoration: none;
   font-size: 1.5em;
+}
+
+.image-icon {
+  width: 200px;
+  max-height: 200px;
+}
+
+.cinemas-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* border: 1px solid rgb(255, 254, 254); */
+  align-items: center;
+}
+.cinemas-container a {
+  margin: 0 0 0 10px;
 }
