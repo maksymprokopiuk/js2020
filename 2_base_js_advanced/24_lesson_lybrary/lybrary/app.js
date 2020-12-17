@@ -3,11 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const autors_db = require('./db')(path.join(__dirname, 'data/autors.json'))
+const authors_db = require('./db')(path.join(__dirname, 'data/authors.json'))
 const books_db = require('./db')(path.join(__dirname, 'data/books.json'))
 
 var indexRouter = require('./routes/index');
-var autorsRouter = require('./routes/autors');
+var authorsRouter = require('./routes/authors');
 var booksRouter = require('./routes/books');
 
 var app = express();
@@ -26,13 +26,13 @@ app.use(function (req, res, next) {
   req.data_path = path.join(__dirname, 'data')
   req.db_handler_path = path.join(__dirname, 'db')
   req.uploaded_images_path = path.join(__dirname, 'public/uploads')
-  req.autors_db = autors_db
+  req.authors_db = authors_db
   req.books_db = books_db
   next()
 })
 
 app.use('/', indexRouter);
-app.use('/autors', autorsRouter);
+app.use('/authors', authorsRouter);
 app.use('/books', booksRouter);
 
 // catch 404 and forward to error handler

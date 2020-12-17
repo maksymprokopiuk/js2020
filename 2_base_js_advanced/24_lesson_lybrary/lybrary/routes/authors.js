@@ -4,30 +4,30 @@ formidable = require('formidable') // модуль для роботи з фор
 const { v4: uuidv4 } = require('uuid') // модуль для генерації унікальних id
 
 // перехід на сторінку з формою для додавання кінотеатру
-// /autors/new
+// /authors/new
 router.get("/new", function (req, res, next) {
-  res.render("new-autor-form", {
-    title: "Add a new autor",
+  res.render("new-author-form", {
+    title: "Add a new author",
   });
 });
 
 // редагування
 router.get("/:id", function (req, res, next) {
-  const autor = req.autors_db.getItemById(req.params.id);
-  res.render("edit-autor-form", {
-    title: "Edit autor",
-    autor,
+  const author = req.authors_db.getItemById(req.params.id);
+  res.render("edit-author-form", {
+    title: "Edit author",
+    author,
   });
 });
 
-//* /autors - весь список кінотеатрів
+//* /authors - весь список кінотеатрів
 router.get('/', function(req, res, next) {
-  const autorsList = req.autors_db.load() // завантажуємо кінотеатри з JSON файлу (./autor/data/autors.json)
+  const authorsList = req.authors_db.load() // завантажуємо кінотеатри з JSON файлу (./author/data/authors.json)
   //* метод load() описаний в db/index.js
-  res.render('autors', {
-    title: 'autors',
-    autorsCount: autorsList.length,
-    autorsList
+  res.render('authors', {
+    title: 'authors',
+    authorsCount: authorsList.length,
+    authorsList
   });
 });
 
@@ -42,13 +42,13 @@ router.post("/data", function (req, res, next) {
       return;
     }
 
-    req.autors_db.addItem({
+    req.authors_db.addItem({
       id: uuidv4(),
       name: fields.name,
       surname: fields.surname,
       img: files.img.name,
     });
-    res.redirect("/autors");
+    res.redirect("/authors");
   });
 
   // Для події почату завантаження файлу (задаємо де збергти)
@@ -68,13 +68,13 @@ router.post("/update/:id", function (req, res, next) {
       return;
     }
 
-    req.autors_db.updateItem({
+    req.authors_db.updateItem({
       id: req.params.id,
       name: fields.name,
       surname: fields.surname,
       img: files.img.name,
     });
-    res.redirect("/autors");
+    res.redirect("/authors");
   });
 
   // Для події почату завантаження файлу (задаємо де збергти)
@@ -85,8 +85,8 @@ router.post("/update/:id", function (req, res, next) {
 
 router.get("/delete/:id", function (req, res, next) {
   // console.log("delete----" + req.params.id);
-  req.autors_db.delItem(req.params.id);
-  res.redirect("/autors");
+  req.authors_db.delItem(req.params.id);
+  res.redirect("/authors");
 });
 
 module.exports = router;

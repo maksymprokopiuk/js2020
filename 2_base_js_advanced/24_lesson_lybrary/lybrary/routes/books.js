@@ -6,21 +6,21 @@ const { v4: uuidv4 } = require('uuid') // модуль для генерації
 // перехід на сторінку з формою для додавання кінотеатру
 // /books/new
 router.get("/new", function (req, res, next) {
-  const autorsList = req.autors_db.load()
+  const authorsList = req.authors_db.load()
   res.render("new-book-form", {
     title: "Add a new book",
-    autorsList
+    authorsList
   });
 });
 
 // редагування
 router.get("/:id", function (req, res, next) {
   const book = req.books_db.getItemById(req.params.id);
-  const autorsList = req.autors_db.load()
+  const authorsList = req.authors_db.load()
   res.render("edit-book-form", {
     title: "Edit book",
     book,
-    autorsList
+    authorsList
   });
 });
 
@@ -66,7 +66,7 @@ router.post("/update/:id", function (req, res, next) {
   var form = new formidable.IncomingForm();
   form.uploadDir = req.uploaded_images_path;
 
-  // const autorsList = req.autors_db.load()
+  // const authorsList = req.authors_db.load()
 
   form.parse(req, (err, fields, files) => {
     if (err) {

@@ -7,12 +7,12 @@
   <body>
     <%- include('components/header') %>
     <h1 class="my"><%= title %></h1>
-    <form action="/autors/update/<%=autor.id%>" enctype="multipart/form-data" method="post">
-      <!-- <input type="hidden" name="id" value="<%=autor.id%>"> -->
+    <form action="/authors/update/<%=author.id%>" enctype="multipart/form-data" method="post">
+      <!-- <input type="hidden" name="id" value="<%=author.id%>"> -->
 
-      <label>Autor name <input type="text" name="name" value="<%=autor.name%>"></label>
+      <label>author name <input type="text" name="name" value="<%=author.name%>"></label>
       <br>
-      <label>Surname <input type="text" name="surname" value="<%=autor.surname%>"></label>
+      <label>Surname <input type="text" name="surname" value="<%=author.surname%>"></label>
       <br>
       <input type="submit" value="Надіслати">
       <br>
