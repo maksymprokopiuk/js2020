@@ -13,8 +13,18 @@ router.get("/new", function (req, res, next) {
   });
 });
 
-// редагування
+// книга
 router.get("/:id", function (req, res, next) {
+  const book = req.books_db.getItemById(req.params.id);
+  const authorsList = req.authors_db.load()
+  res.render("book", {
+    title: "Book",
+    book,
+    authorsList
+  });
+});
+// редагування
+router.get("/edit/:id", function (req, res, next) {
   const book = req.books_db.getItemById(req.params.id);
   const authorsList = req.authors_db.load()
   res.render("edit-book-form", {
@@ -29,7 +39,7 @@ router.get('/', function(req, res, next) {
   const booksList = req.books_db.load() // завантажуємо кінотеатри з JSON файлу (./book/data/books.json)
   //* метод load() описаний в db/index.js
   res.render('books', {
-    title: 'books',
+    title: 'Books',
     booksCount: booksList.length,
     booksList
   });
@@ -49,7 +59,9 @@ router.post("/data", function (req, res, next) {
       id: uuidv4(),
       title: fields.title,
       year: fields.year,
+      author: fields.author,
       genre: fields.genre,
+      description: fields.description,
       img: files.img.name,
     });
     res.redirect("/books");
@@ -78,7 +90,9 @@ router.post("/update/:id", function (req, res, next) {
       id: req.params.id,
       title: fields.title,
       year: fields.year,
+      author: fields.author,
       genre: fields.genre,
+      description: fields.description,
       img: files.img && files.img.name,
     });
     res.redirect("/books");

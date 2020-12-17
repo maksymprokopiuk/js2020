@@ -19,14 +19,24 @@
       </label>
       <br>
       <label>
-        book genre
-        <select name="genre" >
+        Book author
+        <select name="author" >
           <%for(author of authorsList){ %>
             <option value="<%=author.surname%>"><%=author.surname%></option>
           <%}%>
         </select>
       </label>
       <br> 
+      <label>
+        Genre 
+        <input type="text" name="genre">
+      </label>
+      <br> 
+      <label>
+        Description 
+        <textarea name="description" cols="50" rows="10"></textarea>
+      </label>
+      <br>
       <label>
         Img 
         <input type="file" name="img" multiple>

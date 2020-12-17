@@ -12,16 +12,14 @@
 
     <%for(book of booksList){ %>
       
-      <div class="authors-container">
-        <a href="/books/<%=book.id%>">
-           <div><%=book.title%></div>
-        </a>
+      <div class="books-container">
+        <div><img src="/uploads/<%=book.img%>" alt="" class="image-icon-books"></div>
+        <a href="/books/<%=book.id%>"><div><%=book.title%></div></a>
         <div><%=book.year%></div>
+        <div><%=book.author%></div>
         <div><%=book.genre%></div>
-        <div><img src="/uploads/<%=book.img%>" alt="" class="image-icon"></div>
-        <a href="/books/delete/<%=book.id%>">
-          <button>X</button>
-        </a>
+        <a href="/books/edit/<%=book.id%>">edit</a>
+        <a href="/books/delete/<%=book.id%>">X</a>
       </div>
     
     <%}%>

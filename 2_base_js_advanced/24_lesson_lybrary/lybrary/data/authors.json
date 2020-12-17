@@ -1,1 +1,14 @@
-[{"id":"881aee29-92f4-4fcf-bb94-8cc6e2c11379","name":"Ча́рльз Ма́йкл «Чак»","surname":"Палагнюк","img":"250px-Palahniukmic.jpg"},{"id":"9ad42563-4881-4885-af2c-62ee70e39b04","name":"Ден","surname":"Браун","img":"200px-Dan_Brown_bookjacket_cropped.jpg"}]
+[
+    {
+        "id": "881aee29-92f4-4fcf-bb94-8cc6e2c11379",
+        "name": "Ча́рльз Ма́йкл «Чак»",
+        "surname": "Палагнюк",
+        "img": "250px-Palahniukmic.jpg"
+    },
+    {
+        "id": "9ad42563-4881-4885-af2c-62ee70e39b04",
+        "name": "Ден",
+        "surname": "Браун",
+        "img": "200px-Dan_Brown_bookjacket_cropped.jpg"
+    }
+]

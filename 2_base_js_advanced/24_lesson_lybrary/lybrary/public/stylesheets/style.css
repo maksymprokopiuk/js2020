@@ -32,17 +32,30 @@ a {
   font-size: 1.5em;
 }
 
-.image-icon {
+.image-icon-authors {
   width: 200px;
   max-height: 200px;
+}
+.image-icon-books {
+  width: 100px;
+  min-height: 100px;
 }
 
 .authors-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  /* border: 1px solid rgb(255, 254, 254); */
+  align-items: center;
+}
+.books-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   /* border: 1px solid rgb(255, 254, 254); */
   align-items: center;
 }
 .authors-container a {
+  margin: 0 0 0 10px;
+}
+.books-container a {
   margin: 0 0 0 10px;
 }

@@ -13,9 +13,9 @@
     <%for(author of authorsList){ %>
       
       <div class="authors-container">
-        <a href="/authors/<%=author.id%>"><div><%=author.name%></div></a>
-        <div><%=author.surname%></div>
-        <div><img src="/uploads/<%=author.img%>" alt="" class="image-icon"></div>
+        <div><img src="/uploads/<%=author.img%>" alt="" class="image-icon-authors"></div>
+        <a href="/authors/<%=author.id%>"><div><%=author.name%> <%=author.surname%></div></a>
+        <!-- <div><%=author.surname%></div> -->
         <a href="/authors/delete/<%=author.id%>"><button>X</button></a>
       </div>
     <%}%>
