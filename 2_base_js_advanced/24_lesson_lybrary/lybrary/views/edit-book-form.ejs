@@ -6,13 +6,11 @@
   </head>
   <body>
     <%- include('components/header') %>
-    <h1 class="my"><%= title %></h1>
+    <h1><%= title %></h1>
     <form action="/books/update/<%=book.id%>" enctype="multipart/form-data" method="post">
       <!-- <input type="hidden" name="id" value="<%=book.id%>"> -->
 
-      <label>
-          book title
-          <input type="text" name="title" value="<%=book.title%>">
+      <label>Book title<input type="text" name="title" value="<%=book.title%>">
       </label>
       <br>
       <label>

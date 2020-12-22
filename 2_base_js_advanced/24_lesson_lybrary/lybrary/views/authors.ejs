@@ -8,15 +8,15 @@
     <%- include('components/header') %>
     <h1><%= title %></h1>
     <a href="authors/new">Add a new author</a>
-    <h2>authors number : <%= authorsCount %></h2>
+    <h2>Authors number : <%= authorsCount %></h2>
 
     <%for(author of authorsList){ %>
       
       <div class="authors-container">
         <div><img src="/uploads/<%=author.img%>" alt="" class="image-icon-authors"></div>
         <a href="/authors/<%=author.id%>"><div><%=author.name%> <%=author.surname%></div></a>
-        <!-- <div><%=author.surname%></div> -->
-        <a href="/authors/delete/<%=author.id%>"><button>X</button></a>
+        <a href="/authors/edit/<%=author.id%>">Edit</a>
+        <a href="/authors/delete/<%=author.id%>">X</a>
       </div>
     <%}%>
     

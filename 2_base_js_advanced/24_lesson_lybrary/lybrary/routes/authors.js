@@ -11,8 +11,16 @@ router.get("/new", function (req, res, next) {
   });
 });
 
-// редагування
+// аутор
 router.get("/:id", function (req, res, next) {
+  const author = req.authors_db.getItemById(req.params.id);
+  res.render("author", {
+    title: "Author",
+    author,
+  });
+});
+// редагування
+router.get("/edit/:id", function (req, res, next) {
   const author = req.authors_db.getItemById(req.params.id);
   res.render("edit-author-form", {
     title: "Edit author",
@@ -25,7 +33,7 @@ router.get('/', function(req, res, next) {
   const authorsList = req.authors_db.load() // завантажуємо кінотеатри з JSON файлу (./author/data/authors.json)
   //* метод load() описаний в db/index.js
   res.render('authors', {
-    title: 'authors',
+    title: 'Authors',
     authorsCount: authorsList.length,
     authorsList
   });
@@ -46,6 +54,7 @@ router.post("/data", function (req, res, next) {
       id: uuidv4(),
       name: fields.name,
       surname: fields.surname,
+      bio: fields.bio,
       img: files.img.name,
     });
     res.redirect("/authors");
@@ -72,6 +81,7 @@ router.post("/update/:id", function (req, res, next) {
       id: req.params.id,
       name: fields.name,
       surname: fields.surname,
+      bio: fields.bio,
       img: files.img.name,
     });
     res.redirect("/authors");

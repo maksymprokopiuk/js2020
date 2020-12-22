@@ -33,12 +33,20 @@ a {
 }
 
 .image-icon-authors {
-  width: 200px;
+  max-width: 200px;
   max-height: 200px;
 }
 .image-icon-books {
   width: 100px;
   min-height: 100px;
+}
+.image-icon-book {
+  max-width: 200px;
+  max-height: 200px;
+}
+.image-icon-author {
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .authors-container {
@@ -58,4 +66,9 @@ a {
 }
 .books-container a {
   margin: 0 0 0 10px;
+}
+
+/* index.html */
+.center {
+  text-align: center;
 }

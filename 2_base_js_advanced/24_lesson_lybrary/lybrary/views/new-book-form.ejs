@@ -6,42 +6,25 @@
   </head>
   <body>
     <%- include('components/header') %>
-    <h1 class="my"><%= title %></h1>
+    <h1><%= title %></h1>
     <form action="/books/data" enctype="multipart/form-data" method="post">
-      <label>
-          book title
-          <input type="text" name="title">
-      </label>
+      <label>Book title <input type="text" name="title"></label>
       <br>
-      <label>
-        book production year
-        <input type="text" name="year">
-      </label>
+      <label>Book production year <input type="text" name="year"></label>
       <br>
-      <label>
-        Book author
-        <select name="author" >
+      <label>Book author 
+        <select name="author">
           <%for(author of authorsList){ %>
             <option value="<%=author.surname%>"><%=author.surname%></option>
           <%}%>
         </select>
       </label>
       <br> 
-      <label>
-        Genre 
-        <input type="text" name="genre">
-      </label>
+      <label>Genre <input type="text" name="genre"></label>
       <br> 
-      <label>
-        Description 
-        <textarea name="description" cols="50" rows="10"></textarea>
-      </label>
+      <label>Description <textarea name="description" cols="50" rows="10"></textarea></label>
       <br>
-      <label>
-        Img 
-        <input type="file" name="img" multiple>
-      </label>
-
+      <label>Img <input type="file" name="img" multiple></label>
       <br>
       <input type="submit" value="Надіслати">
   </form>

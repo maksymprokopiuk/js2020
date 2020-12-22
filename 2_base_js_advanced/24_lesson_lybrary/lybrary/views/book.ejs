@@ -6,11 +6,11 @@
   </head>
   <body>
     <%- include('components/header') %>
-    <h1 class="my"><%= title %></h1>
-    <h2><%=book.genre%></h2>
+    <h1><%= title %></h1>
+    <h4><%=book.genre%></h4>
     <h2><%=book.title%></h2>
     <h2>author: <%=book.author%></h2>
-    <div><img src="/uploads/<%=book.img%>" alt="" class="image-icon-books"></div>
+    <div><img src="/uploads/<%=book.img%>" alt="" class="image-icon-book"></div>
     <h3>Description</h3>
     <p><%=book.description%></p>
   </body>

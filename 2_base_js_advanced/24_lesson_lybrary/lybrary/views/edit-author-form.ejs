@@ -6,13 +6,17 @@
   </head>
   <body>
     <%- include('components/header') %>
-    <h1 class="my"><%= title %></h1>
+    <h1><%= title %></h1>
     <form action="/authors/update/<%=author.id%>" enctype="multipart/form-data" method="post">
       <!-- <input type="hidden" name="id" value="<%=author.id%>"> -->
 
-      <label>author name <input type="text" name="name" value="<%=author.name%>"></label>
+      <label>Author name <input type="text" name="name" value="<%=author.name%>"></label>
       <br>
       <label>Surname <input type="text" name="surname" value="<%=author.surname%>"></label>
+      <br>
+      <label>Bio <textarea name="bio" cols="50" rows="10"><%=author.bio%></textarea></label>
+      <br>
+      <div><img src="/uploads/<%=author.img%>" alt="" class="image-icon-author"></div>
       <br>
       <label>Img <input type="file" name="img" multiple></label>
       <br>

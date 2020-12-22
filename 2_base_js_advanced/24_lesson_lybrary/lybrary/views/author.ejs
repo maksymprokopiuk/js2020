@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('components/header') %>
+    <h1><%= title %></h1>
+    <h2>Name: <%=author.name%></h2>
+    <h2>Surname: <%=author.surname%></h2>
+    
+    <div><img src="/uploads/<%=author.img%>" alt="" class="image-icon-author"></div>
+    <h3>Biography</h3>
+    <p><%=author.bio%></p>
+  </body>
+</html>

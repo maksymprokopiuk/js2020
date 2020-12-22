@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>
-    <%= title %>
-  </title>
+  <title><%= title %></title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-
 <body>
   <%- include('components/header') %>
-    <h1 class="my"><%= title %></h1>
+    <h1><%= title %></h1>
     <form action="/authors/data" enctype="multipart/form-data" method="post">
-      <label>author name <input type="text" name="name"></label>
+      <label>Author name <input type="text" name="name"></label>
       <br>
       <label>Surname <input type="text" name="surname"></label>
       <br>
-      <label>
-        Img 
-        <input type="file" name="img" multiple>
-      </label>
+      <label>Biography <textarea name="bio" cols="50" rows="10"></textarea></label>
+      <br>
+      <label>Img <input type="file" name="img" multiple></label>
       <br>
       <input type="submit" value="Надіслати">
     </form>
