@@ -19,45 +19,6 @@ const movieScheme = new Schema({
 // 4 створення моделі
 const Movie = mongoose.model('Movie', movieScheme)
 
-router.get('/', function(req, res, next) {
-    Movie.find({}, function(err, docs){
-    // mongoose.disconnect();
-    if(err) return res.status(500).json({err:{msg:"Fetch failed!"}})
-    res.render('index', {
-      title: 'Movies page',
-      page: 'movies/movies',
-      movies: docs,
-    });
-  });
-});
-
-// пошук
-router.get('/search', function(req, res, next){
-  // Movie.find({title:{$regex:req.query.search}}, function(err, docs){
-  Movie.find({title:{$regex:req.query.search, $options: 'i'}}, function(err, docs){
-    // console.log('docs=================================');
-    // console.log(docs);
-    // console.log('req.query.search------------------------------------');
-    // console.log(req.query.search);
-
-    if(err) return res.status(500).json({err:{msg:"Search is failed!"}})
-    
-    res.render('index', {
-      title: 'Search page',
-      page: 'movies/movies',
-      movies: docs,
-    });
-  })
-})
-
-// перехід на сторінку з формою додовання фільму
-router.get('/add', function(req, res, next) {
-  res.render('index', {
-    title: 'Add movie page',
-    page: 'movies/add-movie',
-  });
-});
-
 // збереження доданої інформації
 router.get('/save', function(req, res, next){
   // 5 створення документа
@@ -77,6 +38,26 @@ router.get('/save', function(req, res, next){
   })
 })
 
+router.get('/', function(req, res, next) {
+    Movie.find({}, function(err, docs){
+    // mongoose.disconnect();
+    if(err) return res.status(500).json({err:{msg:"Fetch failed!"}})
+    res.render('index', {
+      title: 'Movies page',
+      page: 'movies/movies',
+      movies: docs,
+    });
+  });
+});
+
+// перехід на сторінку з формою додовання фільму
+router.get('/add', function(req, res, next) {
+  res.render('index', {
+    title: 'Add movie page',
+    page: 'movies/add-movie',
+  });
+});
+
 // видалення доданої інформації
 router.get('/delete/:id', function(req, res, next){
   Movie.findByIdAndDelete({_id:req.params.id}, function(err, doc){
@@ -84,6 +65,25 @@ router.get('/delete/:id', function(req, res, next){
     if(err) return res.status(500).json({err:{msg:'Deleting failed!'}})
 
     res.redirect('/movies')
+  })
+})
+
+// пошук
+router.get('/search', function(req, res, next){
+  // Movie.find({title:{$regex:req.query.search}}, function(err, docs){
+  Movie.find({title:{$regex:req.query.search, $options: 'i'}}, function(err, docs){
+    // console.log('docs=================================');
+    // console.log(docs);
+    // console.log('req.query.search------------------------------------');
+    // console.log(req.query.search);
+
+    if(err) return res.status(500).json({err:{msg:"Search is failed!"}})
+    
+    res.render('index', {
+      title: 'Search page',
+      page: 'movies/movies',
+      movies: docs,
+    });
   })
 })
 
