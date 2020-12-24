@@ -1,5 +1,4 @@
 body {
-  /* padding: 50px; */
   font-family: 'Roboto', sans-serif;
   background-color: #1e1e1e;
   color: #cccccc;
@@ -11,11 +10,9 @@ a {
 
 /* movie-cardHome */
 .movie-cardHome {
-  /* border: 1px solid white; */
   text-align: center;
 }
 .movie-cardHome-container {
-  /* border: 1px solid red; */
   width: 440px;
   display: inline-block;
   padding: 10px;
@@ -46,7 +43,6 @@ a {
 
 /* movie-cards-list */
 .movie-cards-list {
-  /* border: 1px solid red; */
   display: flex;
   justify-content:center;
   flex-wrap: wrap;
@@ -96,19 +92,17 @@ a {
   overflow: hidden;
 }
 /* movie-cards-list END */
+
 /* add-movie-form */
 .add-movie-form {
-  /* border: 1px solid yellow; */
   margin: 10px;
 }
 .add-movie-form span {
-  /* border: 1px solid yellow; */
   width: 120px;
   display: inline-block;
   margin: 0 0 10px 10px;
 }
 .add-movie-form .btn {
-  /* text-align: center; */
   margin: 10px 0 10px 10px;
 }
 /* add-movie-form END */

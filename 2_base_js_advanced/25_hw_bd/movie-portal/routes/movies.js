@@ -72,13 +72,7 @@ router.get('/delete/:id', function(req, res, next){
 router.get('/search', function(req, res, next){
   // Movie.find({title:{$regex:req.query.search}}, function(err, docs){
   Movie.find({title:{$regex:req.query.search, $options: 'i'}}, function(err, docs){
-    // console.log('docs=================================');
-    // console.log(docs);
-    // console.log('req.query.search------------------------------------');
-    // console.log(req.query.search);
-
     if(err) return res.status(500).json({err:{msg:"Search is failed!"}})
-    
     res.render('index', {
       title: 'Search page',
       page: 'movies/movies',
