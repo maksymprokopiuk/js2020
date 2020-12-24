@@ -38,6 +38,16 @@ router.get('/save', function(req, res, next){
   })
 })
 
+// видалення доданої інформації
+router.get('/delete/:id', function(req, res, next){
+  Movie.findByIdAndDelete({_id:req.params.id}, function(err, doc){
+    // mongoose.disconnect()
+    if(err) return res.status(500).json({err:{msg:'Deleting failed!'}})
+
+    res.redirect('/movies')
+  })
+})
+
 router.get('/', function(req, res, next) {
     Movie.find({}, function(err, docs){
     // mongoose.disconnect();
@@ -57,16 +67,6 @@ router.get('/add', function(req, res, next) {
     page: 'movies/add-movie',
   });
 });
-
-// видалення доданої інформації
-router.get('/delete/:id', function(req, res, next){
-  Movie.findByIdAndDelete({_id:req.params.id}, function(err, doc){
-    // mongoose.disconnect()
-    if(err) return res.status(500).json({err:{msg:'Deleting failed!'}})
-
-    res.redirect('/movies')
-  })
-})
 
 // пошук
 router.get('/search', function(req, res, next){
