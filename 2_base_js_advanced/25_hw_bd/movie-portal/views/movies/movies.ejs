@@ -1,0 +1,23 @@
+<div class="movies-block">
+    <div><a href="/movies/add">Add movie</a></div>
+    <br>
+    <form action="/movies/search" method="get">
+        <label><input type="text" name="search" placeholder="Search by title"></label>
+        <input type="submit" value="Search">
+    </form>
+    <br>
+    <div class="movie-cards-list">
+        <% for (movie of movies) { %>
+            <div class="movie-card">
+                <a class="close" href="movies/delete/<%= movie._id %>">x</a>
+                <a href="/movies/<%= movie._id %>">
+                    <img src="<%= movie.img %>" alt="<%= movie.title %>">
+                    <div class="movie-cards-title"><h2><%= movie.title %></h2></div>
+                </a>
+                <div class="movie-cards-countries"><%= movie.countries %></div>
+                <div><%= movie.year %></div>
+                <div class="movie-cards-genres"><%= movie.genres %></div>
+            </div>
+        <% } %>
+    </div>
+</div>

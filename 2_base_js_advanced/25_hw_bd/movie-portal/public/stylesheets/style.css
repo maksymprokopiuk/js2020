@@ -1,0 +1,114 @@
+body {
+  /* padding: 50px; */
+  font-family: 'Roboto', sans-serif;
+  background-color: #1e1e1e;
+  color: #cccccc;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* movie-cardHome */
+.movie-cardHome {
+  /* border: 1px solid white; */
+  text-align: center;
+}
+.movie-cardHome-container {
+  /* border: 1px solid red; */
+  width: 440px;
+  display: inline-block;
+  padding: 10px;
+}
+.movie-cardHome img {
+  max-width: 400px;
+  max-height: 600px;
+  display: inline-block;
+}
+.movie-cardHome-title {
+  color: yellowgreen;
+}
+.movie-cardHome-genres {
+  color: rgb(65, 121, 206);
+  font-size: 12px;
+}
+.movie-cardHome-description {
+  text-align: justify;
+  font-style: italic;
+}
+/* movie-cardHome END */
+
+/* movies-block */
+.movies-block {
+  text-align: center;
+}
+/* movies-block END */
+
+/* movie-cards-list */
+.movie-cards-list {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content:center;
+  flex-wrap: wrap;
+}
+.movie-card {
+  border: 1px solid rgba(70, 73, 65, 0.5);
+  border-radius: 5px;
+  padding: 5px 0px;
+  width: 210px;
+  margin: 5px;
+  text-align: center;
+  position: relative;
+}
+.movie-card:hover {
+  border: 1px solid rgba(153, 205, 50, 0.5);
+}
+.movie-card:hover .close {
+  display: block;
+}
+.close {
+  display: none;
+  position: absolute;
+  top: 4px;
+  right: 10px;
+  font-size: 25px;
+  color: tomato;
+  text-shadow: white 0px 0px 4px;
+}
+.movie-card a {
+  text-decoration: none;
+}
+.movie-cards-list img {
+  max-width: 200px;
+  max-height: 400px;
+  display: inline-block;
+}
+.movie-cards-title {
+  color: yellowgreen;
+  overflow: hidden;
+}
+.movie-cards-countries {
+  overflow: hidden;
+}
+.movie-cards-genres {
+  color: rgb(65, 121, 206);
+  font-size: 12px;
+  overflow: hidden;
+}
+/* movie-cards-list END */
+/* add-movie-form */
+.add-movie-form {
+  /* border: 1px solid yellow; */
+  margin: 10px;
+}
+.add-movie-form span {
+  /* border: 1px solid yellow; */
+  width: 120px;
+  display: inline-block;
+  margin: 0 0 10px 10px;
+}
+.add-movie-form .btn {
+  /* text-align: center; */
+  margin: 10px 0 10px 10px;
+}
+/* add-movie-form END */
