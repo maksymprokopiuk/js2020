@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/zero.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1 class="title"><%= title %></h1>
+    <a href="/">Home</a>
+
+    <div class="add-author">
+      <form action="/authors/add" method="GET">
+        <div><label>Image: <input type="text" name="img"></label></div>
+        <div><label>Name: <input type="text" name="name"></label></div>
+        <div><label>Born: <input type="text" name="born"></label></div>
+        <div><label>Genre: <input type="text" name="genre"></label></div>
+        <input type="submit" value="Add author">
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/zero.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1 class="title"><%= title %></h1>
+    <a href="/">Home</a>
+
+    <div class="add-book">
+      <form action="/books/add" method="GET">
+        <div><label>Image: <input type="text" name="img"></label></div>
+        <div><label>Title: <input type="text" name="title"></label></div>
+        <div><label>Year: <input type="text" name="year"></label></div>
+        <div><label>Genre: <input type="text" name="genre"></label></div>
+        <div><select name="author">
+          <% for (author of authors) { %>
+            <option value="<%= author.name %>"><%= author.name %></option>
+          <% } %>
+          
+          </select></div>
+        <input type="submit" value="Add book">
+      </form>
+    </div>
+  </body>
+</html>

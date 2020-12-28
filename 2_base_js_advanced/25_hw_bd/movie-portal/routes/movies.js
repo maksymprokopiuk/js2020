@@ -70,7 +70,6 @@ router.get('/add', function(req, res, next) {
 
 // пошук
 router.get('/search', function(req, res, next){
-  // Movie.find({title:{$regex:req.query.search}}, function(err, docs){
   Movie.find({title:{$regex:req.query.search, $options: 'i'}}, function(err, docs){
     if(err) return res.status(500).json({err:{msg:"Search is failed!"}})
     res.render('index', {

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/zero.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1 class="title"><%= title %></h1>
+    <a href="/">Home</a>
+    <a href="/books/addform">Додати книгу</a>
+    <div class="books-section">
+      <ul>
+        <% for (book of books) { %>
+          <li>
+            <div class="books-img"><img src="<%= book.img %>" alt="<%= book.title %>"></div>
+            <div class="books-title"><%= book.title %></div>
+            <div class="books-year"><%= book.year %></div>
+            <div class="books-genre"><%= book.genre %></div>
+            <div class="books-author"><%= book.author %></div>
+            <div><a href="/books/delete/<%=book._id%>">del</a></div>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

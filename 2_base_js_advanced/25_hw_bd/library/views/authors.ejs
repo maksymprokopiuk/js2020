@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/zero.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1 class="title"><%= title %></h1>
+    <a href="/">Home</a>
+    <a href="/authors/addform">Додати автора</a>
+    <div class="authors-section">
+      <ul>
+        <% for (author of authors) { %>
+          <li>
+            <div class="authors-img"><img src="<%= author.img %>" alt="<%= author.name %>"></div>
+            <div class="authors-name"><%= author.name %></div>
+            <div class="authors-born"><%= author.born %></div>
+            <div class="authors-genre"><%= author.genre %></div>
+            <div><a href="/authors/delete/<%=author._id%>">del</a></div>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

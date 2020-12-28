@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* index */
+.title {
+  text-align: center;
+}
+.links {
+  /* border: 1px solid #000; */
+  display: flex;
+  justify-content: space-around;
+}
+.links img:hover {
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+/* index END */
+
+/* authors-section */
+.authors-section {
+  /* border: 1px solid red; */
+}
+.authors-section li {
+  /* border: 1px solid #000; */
+  display: flex;
+}
+.authors-section li>div {
+  margin: 5px;
+}
+.authors-img {
+  max-width: 100px;
+  max-height: 100px;
+}
+/* authors-section END */
+
+/* add-author */
+.add-author {
+  display: flex;
+}
+/* add-author END */
+
+/* books-section */
+.books-section {
+  /* border: 1px solid red; */
+}
+.books-section li {
+  /* border: 1px solid #000; */
+  display: flex;
+}
+.books-section li>div {
+  margin: 5px;
+}
+.books-img {
+  max-width: 100px;
+  max-height: 100px;
+}
+/* books-section END */
