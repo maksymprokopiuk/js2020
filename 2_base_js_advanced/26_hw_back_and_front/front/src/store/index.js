@@ -5,10 +5,25 @@ import axios from "axios";
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    state: {},
-    mutations: {},
-    actions: {},
-    getters: {},
+    state: {
+        booksList: []
+    },
+    mutations: {
+        setBooksList(state, data){
+            state.booksList = [...data]
+        }
+    },
+    actions: {
+        loadData({ commit }) {
+            axios
+            .get(apiEndpoints.books.read)
+            .then((res)=>res.data)
+            .then((resData)=>{commit('setBooksList', resData.books)})
+        }
+    },
+    getters: {
+        getBooksList: (state) => state.booksList
+    },
     modules: {}
 })
 
