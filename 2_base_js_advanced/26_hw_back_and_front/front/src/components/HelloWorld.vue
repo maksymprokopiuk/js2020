@@ -1,5 +1,5 @@
 <template>
-  <div class="books-container">
+  <div class="books-container ">
     <div v-for="book in getBooksList" :key="book._id" class="book-block">
       <div class="book-picture"><img :src="book.picture" :alt="book.title"></div>
       <div class="book-title"><span>{{ book.title }}</span></div>
