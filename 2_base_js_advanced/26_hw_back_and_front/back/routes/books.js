@@ -14,8 +14,14 @@ const bookScheme = new Schema({
 
 const Book = mongoose.model("Books", bookScheme);
 
+// ALL BOOKS localhost:3000/books
 router.get('/', function(req, res, next) {
-  res.send('BOOKS');
+  Book.find({}, function(err, docs){
+    if(err) return res.status(500).json({err: {msg: 'Fetch failed!'}})
+    res.status(200).json({books: docs})
+    // mongoose.disconnect()
+  })
+
 });
 
 // ADD BOOK localhost:3000/books/add
@@ -29,17 +35,17 @@ router.get('/add', function (req, res, next) {
   book.save(function (err, prod) {
     if (err) return res.status(500).json({ err: { msg: "Saving failed!" } })
     res.status(200).json({ msg: "Saving is good!" })
-    mongoose.disconnect();
+    // mongoose.disconnect();
   });
 });
 
 // DELETE BOOK localhost:3000/books/delete/5feb67b17164e130a80ae754
 router.get('/delete/:id', function (req, res, next){
-  console.log(req.params.id);
+  
   Book.findOneAndDelete({_id: req.params.id}, function (err, doc) {
     if(err) return res.status(500).json({err:{msg: 'Deleting failed!'}})
     res.status(200).json({ msg: "Deleting is good!" })
-    mongoose.disconnect();
+    // mongoose.disconnect();
   })
 })
 
