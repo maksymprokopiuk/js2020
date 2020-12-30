@@ -1,7 +1,7 @@
 <template>
   <div class="books-container">
-    <div v-for="book in booksList" :key="book.id" class="book-block">
-      <div class="book-picture"><img :src="book.picture" :alt="title"></div>
+    <div v-for="book in getBooksList" :key="book._id" class="book-block">
+      <div class="book-picture"><img :src="book.picture" :alt="book.title"></div>
       <div class="book-title"><span>{{ book.title }}</span></div>
       <div class="book-price"><span>{{ book.price }}</span></div>
     </div>
@@ -9,27 +9,10 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: 'HelloWorld',
-
-  data() {
-    return {
-      booksList: [
-        {
-          id: '1',
-          title: 'Book 1',
-          price: 1100,
-          picture: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-        },
-        {
-          id: '2',
-          title: 'Book 2',
-          price: 1200,
-          picture: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-        },
-      ]
-    }
-  },
   
   props: {
     title: {
@@ -44,6 +27,18 @@ export default {
       type: [String, Number],
       default: 'No price'
     },
+  },
+
+  computed: {
+    ...mapGetters(['getBooksList'])
+  },
+
+  methods: {
+    ...mapActions(['loadData'])
+  },
+
+  created () {
+    this.loadData();
   },
 }
 </script>
