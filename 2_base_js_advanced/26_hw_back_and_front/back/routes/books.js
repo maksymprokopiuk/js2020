@@ -49,4 +49,24 @@ router.get('/delete/:id', function (req, res, next){
   })
 })
 
+// EDIT BOOK localhost:3000/books/edit/5feb67b17164e130a80ae754
+router.get('/edit/:id', function(req, res, next){
+  Book.updateOne({_id: req.params.id}, {
+    title: req.query.title,
+    picture: req.query.picture,
+    price: req.query.price
+  }, function(err, result){
+    if(err) return res.status(500).json({err: {msg: 'Editing failed!'}})
+    res.status(200).json({ msg: 'Editing is good!'})
+    // res.status(200).json({ msg: result})
+    // mongoose.disconnect()
+  })
+})
+
+// User.updateOne({name: "Tom"}, {name: "Tom Smith"}, function(err, result){ 
+//       mongoose.disconnect(); 
+//       if(err) return console.log(err); 
+//       console.log(result); 
+//   }); 
+
 module.exports = router;
