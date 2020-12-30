@@ -63,10 +63,4 @@ router.get('/edit/:id', function(req, res, next){
   })
 })
 
-// User.updateOne({name: "Tom"}, {name: "Tom Smith"}, function(err, result){ 
-//       mongoose.disconnect(); 
-//       if(err) return console.log(err); 
-//       console.log(result); 
-//   }); 
-
 module.exports = router;
