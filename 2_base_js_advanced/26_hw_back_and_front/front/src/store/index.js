@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
+import apiEndpoints from "@/constants/apiEndpoints";
 
 Vue.use(Vuex)
 
@@ -18,7 +19,9 @@ const store = new Vuex.Store({
             axios
             .get(apiEndpoints.books.read)
             .then((res)=>res.data)
-            .then((resData)=>{commit('setBooksList', resData.books)})
+            .then((resData)=>{
+                commit('setBooksList', resData.books)
+            })
         }
     },
     getters: {
