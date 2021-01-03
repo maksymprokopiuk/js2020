@@ -12,9 +12,10 @@ console.log(`Database name: ${databaseName}`);
 
 
 
-var indexRouter = require('./app_api/routes/index');
-var usersRouter = require('./app_api/routes/users');
+// var indexRouter = require('./app_api/routes/index');
 var doctorsRouter = require('./app_api/routes/doctors');
+var patientsRouter = require('./app_api/routes/patients');
+// var usersRouter = require('./app_api/routes/users');
 
 var app = express();
 
@@ -29,11 +30,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const apiRouter = require('./app_api/routes')
+// const apiRouter = require('./app_api/routes')
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 // app.use('/api', apiRouter);
-app.use('/api/doctors', doctorsRouter);
+app.use('/doctors', doctorsRouter);
+app.use('/patients', patientsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
