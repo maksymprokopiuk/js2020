@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a href="/doctors/add">Add doctor </a>
+        <b-button class="add-doctor" @click="onAddDoctor">Add doctor</b-button>
         <div class="doctors">
             <!-- <a href="">Add doctor</a> -->
             <doctor-element
@@ -30,7 +30,11 @@
         },
 
         methods: {
-            ...mapActions(['loadData'])
+            ...mapActions(['loadData']),
+
+            onAddDoctor() {
+                this.$router.push({name:'doctoradd'})
+            }
         },
 
         created () {
@@ -43,5 +47,8 @@
 .doctors {
     display: flex;
     flex-wrap: wrap;
+}
+.add-doctor {
+    margin: 0 0 0 10px;
 }
 </style>

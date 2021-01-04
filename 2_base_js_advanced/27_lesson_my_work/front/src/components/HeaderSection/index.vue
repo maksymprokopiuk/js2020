@@ -2,12 +2,13 @@
   <div>
     <b-navbar>
       <template slot="brand">
-        <b-navbar-item href="/"><img :src=logo alt="Health Clinic Logo"/></b-navbar-item>
+        <!-- <b-navbar-item href="/"><img :src=logo alt="Health Clinic Logo"/></b-navbar-item> -->
+        <b-navbar-item @click="onHome"><img :src=logo alt="Health Clinic Logo"/></b-navbar-item>
       </template>
       <template slot="start">
-        <b-navbar-item href="/doctors"> Doctors </b-navbar-item>
-        <b-navbar-item href="/patients"> Patients </b-navbar-item>
-        <b-navbar-item href="/schedules"> Schedules </b-navbar-item>
+        <b-navbar-item @click="onDoctors"> Doctors </b-navbar-item>
+        <b-navbar-item @click="onPatients"> Patients </b-navbar-item>
+        <b-navbar-item @click="onSchedules"> Schedules </b-navbar-item>
       </template>
       <template slot="end">
         <b-navbar-item tag="div">
@@ -29,6 +30,21 @@ export default {
     return {
       logo: require("@/assets/logo.png"),
     };
+  },
+
+  methods: {
+    onHome() {
+      this.$router.push({name:'home'})
+    },
+    onDoctors() {
+      this.$router.push({name:'doctors'})
+    },
+    onPatients() {
+      this.$router.push({name:'patients'})
+    },
+    onSchedules() {
+      this.$router.push({name:'schedules'})
+    },
   },
 };
 </script>
