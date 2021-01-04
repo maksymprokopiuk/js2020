@@ -23,16 +23,17 @@ const store = new Vuex.Store({
             axios
             .get(apiEndpoints.doctors.read)
             .then((res) => {
-                res.data
-                commit('setDoctorsListData', res.data)
+                //  res.data
+                 return res.data
+                // commit('setDoctorsListData', res.data)
             })
             // ! тут не зрозуміло чому втратилося значення?????????
             // ! 1 питання
-            // .then((resData) => {
-            //     console.log('resData------------------------------');
-            //     console.log(resData);
-                // commit('setDoctorsListData', resData)
-            // })
+            .then((resData) => {
+                console.log('resData------------------------------');
+                console.log(resData);
+                commit('setDoctorsListData', resData)
+            })
         },
         addDoctor({ commit }, doctor) { //! doctor???
             axios
