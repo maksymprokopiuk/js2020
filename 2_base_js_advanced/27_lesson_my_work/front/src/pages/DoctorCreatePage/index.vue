@@ -42,7 +42,8 @@
                     name: this.name,
                     specialisation: this.specialisation,
                 });
-    },
+                this.$router.push({ name: "doctors" });
+            },
         },
     }
 </script>
