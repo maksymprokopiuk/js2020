@@ -115,20 +115,22 @@ module.exports.updateDoctor = function (req, res) {
     }
 }
 module.exports.deleteDoctor = function (req, res) {
-    if (req.params.doctorid) {
-        Doctor.findByIdAndDelete(req.params.doctorid, (err) => {
+    // console.log('req.body.doctorid--------------------');
+    // console.log(req.body.doctorid.id);
+    if (req.body.doctorid) {
+        Doctor.findByIdAndDelete(req.body.doctorid.id, (err) => {
             if (err) {
                 sendJSONResponse(res, 500, {
-                    message: "can't delete"
+                    message: "Can't delete"
                 })
                 return
             }
             sendJSONResponse(res, 204, {
-                message: "deleted"
+                message: "Deleted" //! не виводить повідомлення!
             })
         })
     } else
         sendJSONResponse(res, 400, {
-            message: 'bad request'
+            message: 'Bad request'
         })
 }

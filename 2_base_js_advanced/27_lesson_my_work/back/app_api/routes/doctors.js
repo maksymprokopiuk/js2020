@@ -8,6 +8,6 @@ router.get('/', ctrDoctors.getDoctors); // get all doctors or filter
 router.get('/:doctorid', ctrDoctors.getDoctorById);
 router.post('/', urlencodedParser, ctrDoctors.addDoctor);
 router.put('/', urlencodedParser, ctrDoctors.updateDoctor);
-router.delete('/:doctorid', ctrDoctors.deleteDoctor);
+router.delete('/', ctrDoctors.deleteDoctor);
 
 module.exports = router
