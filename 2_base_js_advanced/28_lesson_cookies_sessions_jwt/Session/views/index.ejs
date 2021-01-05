@@ -1,0 +1,16 @@
+<p><%=title%></p>
+<div>
+<%if(products.length>0){%>
+<ul>
+    <%products.forEach((product)=>{%>
+    <li><%=`${product.pr_type} - ${product.title}`%></li>
+    <%})%>
+</ul>
+<%}%>
+</div>
+<div>
+    <a href="addAutoForm.html">Додати авто</a>
+</div>
+<div>
+    <a href="addPhoneForm.html">Додати телефон</a>
+</div>
