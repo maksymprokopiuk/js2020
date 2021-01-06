@@ -19,7 +19,7 @@ bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.post("/login", urlencodedParser, function (req, res) {
   res.cookie("userName", req.body.username);
-  res.cookie("test", "123");
+  // res.cookie("test", "123");
   res.redirect("/");
 });
 
