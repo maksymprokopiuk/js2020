@@ -6,7 +6,7 @@ import DoctorsPage from "@/pages/DoctorsPage";
 import DoctorPage from "@/pages/DoctorPage";
 import DoctorCreatePage from "@/pages/DoctorCreatePage";
 import DoctorEditPage from "@/pages/DoctorEditPage";
-import Patients from "@/pages/Patients";
+import PatientsPage from "@/pages/PatientsPage";
 import Schedules from "@/pages/Schedules";
 
 Vue.use(VueRouter)
@@ -40,7 +40,7 @@ const routes = [
     {
         path: '/patients',
         name: 'patients',
-        component: Patients
+        component: PatientsPage
     },
     {
         path: '/schedules',

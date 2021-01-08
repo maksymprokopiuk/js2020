@@ -60,8 +60,8 @@ module.exports.addDoctor = function (req, res) {
     })
 }
 module.exports.updateDoctor = function (req, res) {
-    console.log('req.body=============================');
-    console.log(req.body);
+    // console.log('req.body=============================');
+    // console.log(req.body);
     if (req.body.doctorid) {
         // Знаходимо і оновлюємо
         Doctor.findByIdAndUpdate(req.body.doctorid,
@@ -69,7 +69,7 @@ module.exports.updateDoctor = function (req, res) {
                 name: req.body.name,
                 specialisation: req.body.specialisation,
             },
-            (err, doctor) => {
+            (err) => {
                 if (err) {
                     sendJSONResponse(res, 404,
                         {

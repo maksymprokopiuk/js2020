@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'Patients'
+        name: 'PatientsPage'
     }
 </script>
 
