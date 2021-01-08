@@ -1,17 +1,17 @@
 <template>
   <div>
-    <router-link :to="'/doctors/' + id">
-      <div class="doctor-element">
-        <router-link to="/doctors">
-          <div class="delete-doctor" @click="onDelete">X</div>
+    <router-link :to="'/patients/' + id">
+      <div class="patient-element">
+        <router-link to="/patients">
+          <div class="delete-patient" @click="onDelete">X</div>
         </router-link>
-        <div class="doctor-name">
-          <span class="span-text">Name: </span>
+        <div class="patient-name">
+          <span class="span-text">Patient name: </span>
           <span><strong>{{ name }}</strong></span>
         </div>
-        <div class="doctor-specialisation">
-          <span class="span-text">Specialisation: </span>
-          <span><strong>{{ specialisation }}</strong></span>
+        <div class="patient-disease">
+          <span class="span-text">Disease: </span>
+          <span><strong>{{ disease }}</strong></span>
         </div>
       </div>
     </router-link>
@@ -32,17 +32,17 @@ export default {
       type: String,
       default: "No name",
     },
-    specialisation: {
+    disease: {
       type: String,
-      default: "No specialisation",
+      default: "No disease",
     },
   },
 
   methods: {
-    ...mapActions('doctors', ['deleteDoctor']),
+    ...mapActions('patients', ['deletePatient']),
 
     onDelete() {
-      this.deleteDoctor({
+      this.deletePatient({
         id: this.id
       })
     }
@@ -51,8 +51,8 @@ export default {
 </script>
 
 <style scoped>
-.doctor-element {
-  border: 1px solid rgba(255, 0, 0, 0.1);
+.patient-element {
+  border: 1px solid rgba(0, 128, 0, 0.1);
   margin: 10px;
   padding: 10px;
   display: inline-block;
@@ -65,7 +65,7 @@ export default {
     width: 110px;
     font-size: 12px;
 }
-.delete-doctor {
+.delete-patient {
   display: none;
   position: absolute;
   top: 5px;
@@ -77,10 +77,10 @@ export default {
   text-align: center;
   border-radius: 50%;
 }
-.doctor-element:hover {
-  border: 1px solid red;
+.patient-element:hover {
+  border: 1px solid green;
 }
-.doctor-element:hover .delete-doctor {
+.patient-element:hover .delete-patient {
   display: block;
 }
 </style>

@@ -28,11 +28,11 @@
         name: 'DoctorPage',
 
         methods: {
-            ...mapActions(['loadData'])
+            ...mapActions('doctors', ['loadData'])
         },
 
         computed: {
-            ...mapGetters(['getDoctorsList']),
+            ...mapGetters('doctors', ['getDoctorsList']),
 
             getDoctorId() {
                 return this.$route.params.id

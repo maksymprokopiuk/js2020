@@ -22,7 +22,7 @@
         name: 'DoctorEditPage',
 
         methods: {
-            ...mapActions(['loadData', 'updateDoctor']),
+            ...mapActions('doctors', ['loadData', 'updateDoctor']),
 
             onUpd() {
                 this.updateDoctor({
@@ -35,7 +35,7 @@
         },
 
         computed: {
-            ...mapGetters(['getDoctorsList']),
+            ...mapGetters('doctors', ['getDoctorsList']),
 
             getDoctorId() {
                 return this.$route.params.id

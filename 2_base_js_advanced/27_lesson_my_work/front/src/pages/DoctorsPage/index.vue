@@ -26,11 +26,11 @@
         },
 
         computed: {
-            ...mapGetters(['getDoctorsList'])
+            ...mapGetters('doctors', ['getDoctorsList'])
         },
 
         methods: {
-            ...mapActions(['loadData']),
+            ...mapActions('doctors', ['loadData']),
 
             onAddDoctor() {
                 this.$router.push({name:'doctoradd'})

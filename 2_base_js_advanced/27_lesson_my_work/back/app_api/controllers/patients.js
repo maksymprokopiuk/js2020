@@ -44,7 +44,7 @@ module.exports.addPatient = function (req, res) {
     const newPatient = new Patient({
         name: req.body.name,
         disease: req.body.disease,
-        doctorid: req.body.doctorid
+        // doctorid: req.body.doctorid
     })
     newPatient.save((err) => {
         if (err) {
@@ -65,7 +65,7 @@ module.exports.updatePatient = function (req, res) {
             {
                 name: req.body.name,
                 disease: req.body.disease,
-                doctorid: req.body.doctorid,
+                // doctorid: req.body.doctorid,
             },
             (err, patient) => {
                 if (err) {
@@ -115,8 +115,8 @@ module.exports.updatePatient = function (req, res) {
     }
 }
 module.exports.deletePatient = function (req, res) {
-    if (req.params.patientid) {
-        Patient.findByIdAndDelete(req.params.patientid, (err) => {
+    if (req.body.patientid) {
+        Patient.findByIdAndDelete(req.body.patientid.id, (err) => {
             if (err) {
                 sendJSONResponse(res, 500, {
                     message: "Can't delete"

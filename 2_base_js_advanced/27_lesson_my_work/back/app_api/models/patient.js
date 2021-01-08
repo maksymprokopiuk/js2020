@@ -4,7 +4,7 @@ const patientSchema = new mongoose.Schema(
     {
         name: {type: String, required: true},
         disease: {type: String, required: true},
-        doctorid: {type: String}
+        // doctorid: {type: String}
     },
     { timestamps: true }
 )

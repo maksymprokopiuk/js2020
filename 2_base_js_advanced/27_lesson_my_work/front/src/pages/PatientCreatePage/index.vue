@@ -4,8 +4,8 @@
             <b-field horizontal label="Name">
               <b-input type="text" v-model="name" required expanded></b-input>
             </b-field>
-            <b-field horizontal label="Specialisation">
-              <b-input type="text" v-model="specialisation" required expanded></b-input>
+            <b-field horizontal label="Disease">
+              <b-input type="text" v-model="disease" required expanded></b-input>
             </b-field>
         </div>
         <b-button
@@ -19,30 +19,30 @@
 <script>
     import { mapActions } from "vuex";
     export default {
-        name: 'DoctorCreatePage',
+        name: 'PatientCreatePage',
 
         data() {
             return {
                 name: null,
-                specialisation: null,
+                disease: null,
             }
         },
 
         computed: {
             isDataValid() {
-                return this.name && this.specialisation;
+                return this.name && this.disease;
             }
         },
 
         methods: {
-            ...mapActions('doctors', ['addDoctor']),
+            ...mapActions('patients', ['addPatient']),
 
             onAdd() {
-                this.addDoctor({
+                this.addPatient({
                     name: this.name,
-                    specialisation: this.specialisation,
+                    disease: this.disease,
                 });
-                this.$router.push({ name: "doctors" });
+                this.$router.push({ name: "patients" });
             },
         },
     }
