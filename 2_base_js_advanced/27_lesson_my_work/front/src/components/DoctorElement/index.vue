@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a v-bind:href="'/doctors/' + id">
+    <router-link :to="'/doctors/' + id">
       <div class="doctor-element">
         <router-link to="/doctors">
           <div class="delete-doctor" @click="onDelete">X</div>
@@ -14,7 +14,7 @@
           <span><strong>{{ specialisation }}</strong></span>
         </div>
       </div>
-    </a>
+    </router-link>
   </div>
 </template>
 

@@ -5,6 +5,7 @@ import Home from "@/pages/Home";
 import DoctorsPage from "@/pages/DoctorsPage";
 import DoctorPage from "@/pages/DoctorPage";
 import DoctorCreatePage from "@/pages/DoctorCreatePage";
+import DoctorEditPage from "@/pages/DoctorEditPage";
 import Patients from "@/pages/Patients";
 import Schedules from "@/pages/Schedules";
 
@@ -27,8 +28,13 @@ const routes = [
         component: DoctorCreatePage
     },
     {
+        path: '/doctors/edit/:id',
+        name: 'doctorEdit',
+        component: DoctorEditPage
+    },
+    {
         path: '/doctors/:id',
-        name: 'doctorsid',
+        name: 'doctor',
         component: DoctorPage
     },
     {

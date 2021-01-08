@@ -10,9 +10,6 @@ console.log(`Your port : ${port}`);
 console.log(`Database name: ${databaseName}`);
 
 
-
-
-// var indexRouter = require('./app_api/routes/index');
 var doctorsRouter = require('./app_api/routes/doctors');
 var patientsRouter = require('./app_api/routes/patients');
 var schedulesRouter = require('./app_api/routes/schedules');

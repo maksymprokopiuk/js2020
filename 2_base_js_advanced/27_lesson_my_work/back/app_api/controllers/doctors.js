@@ -60,6 +60,8 @@ module.exports.addDoctor = function (req, res) {
     })
 }
 module.exports.updateDoctor = function (req, res) {
+    console.log('req.body=============================');
+    console.log(req.body);
     if (req.body.doctorid) {
         // Знаходимо і оновлюємо
         Doctor.findByIdAndUpdate(req.body.doctorid,
@@ -110,13 +112,11 @@ module.exports.updateDoctor = function (req, res) {
         // })
     } else {
         sendJSONResponse(res, 400, {
-            message: 'bad request'
+            message: 'Bad request'
         })
     }
 }
 module.exports.deleteDoctor = function (req, res) {
-    // console.log('req.body.doctorid--------------------');
-    // console.log(req.body.doctorid.id);
     if (req.body.doctorid) {
         Doctor.findByIdAndDelete(req.body.doctorid.id, (err) => {
             if (err) {
