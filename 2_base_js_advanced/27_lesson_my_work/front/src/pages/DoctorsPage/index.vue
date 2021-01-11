@@ -30,7 +30,7 @@
         },
 
         methods: {
-            ...mapActions('doctors', ['loadData']),
+            ...mapActions('doctors', ['loadDataDoctors']),
 
             onAddDoctor() {
                 this.$router.push({name:'doctoradd'})
@@ -38,7 +38,7 @@
         },
 
         created () {
-            this.loadData();
+            this.loadDataDoctors();
         },
     }
 </script>
@@ -49,6 +49,6 @@
     flex-wrap: wrap;
 }
 .add-doctor {
-    margin: 0 0 0 10px;
+    margin: 10px 0 0 10px;
 }
 </style>

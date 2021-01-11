@@ -4,6 +4,7 @@ import Vuex from "vuex";
 // import apiEndpoints from "@/constants/apiEndpoints";
 import patients from "./modules/patients";
 import doctors from "./modules/doctors";
+import schedules from "./modules/schedules";
 
 Vue.use(Vuex)
 
@@ -14,7 +15,8 @@ const store = new Vuex.Store({
     getters: {},
     modules: {
         doctors,
-        patients
+        patients,
+        schedules
     }
 })
 

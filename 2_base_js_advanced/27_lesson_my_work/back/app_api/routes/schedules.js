@@ -8,6 +8,6 @@ router.get('/', ctrSchedules.getSchedule);
 router.get('/:scheduleid', ctrSchedules.getScheduleById);
 router.post('/', urlencodedParser, ctrSchedules.addSchedule);
 router.put('/', urlencodedParser, ctrSchedules.updateSchedule);
-router.delete('/:scheduleid', ctrSchedules.deleteSchedule);
+router.delete('/', ctrSchedules.deleteSchedule);
 
 module.exports = router

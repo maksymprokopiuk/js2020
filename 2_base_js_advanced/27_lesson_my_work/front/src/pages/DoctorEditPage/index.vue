@@ -22,7 +22,7 @@
         name: 'DoctorEditPage',
 
         methods: {
-            ...mapActions('doctors', ['loadData', 'updateDoctor']),
+            ...mapActions('doctors', ['loadDataDoctors', 'updateDoctor']),
 
             onUpd() {
                 this.updateDoctor({
@@ -46,7 +46,7 @@
         },
 
         mounted () {
-            this.loadData();
+            this.loadDataDoctors();
         },
     }
 </script>

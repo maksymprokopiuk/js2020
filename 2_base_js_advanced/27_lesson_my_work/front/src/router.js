@@ -13,7 +13,10 @@ import PatientCreatePage from "@/pages/PatientCreatePage";
 import PatientEditPage from "@/pages/PatientEditPage";
 import PatientPage from "@/pages/PatientPage";
 
-import Schedules from "@/pages/Schedules";
+import SchedulesPage from "@/pages/SchedulesPage";
+import ScheduleCreatePage from "@/pages/ScheduleCreatePage";
+import ScheduleEditPage from "@/pages/ScheduleEditPage";
+import SchedulePage from "@/pages/SchedulePage";
 
 Vue.use(VueRouter)
 
@@ -30,7 +33,10 @@ const routes = [
     { path: '/patients/edit/:id', name: 'patientEdit', component: PatientEditPage },
     { path: '/patients/:id', name: 'patient', component: PatientPage },
     
-    { path: '/schedules', name: 'schedules', component: Schedules },
+    { path: '/schedules', name: 'schedules', component: SchedulesPage },
+    { path: '/schedules/add', name: 'scheduleadd', component: ScheduleCreatePage },
+    { path: '/schedules/edit/:id', name: 'scheduleEdit', component: ScheduleEditPage },
+    { path: '/schedules/:id', name: 'schedule', component: SchedulePage },
 ]
 
 const router = new VueRouter({

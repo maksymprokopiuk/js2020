@@ -1,4 +1,3 @@
-// const mongoose = require('mongoose')
 const Doctor = require('../models/doctor')
 const sendJSONResponse = (res, status, content) => {
     res.setHeader("Access-Control-Allow-Origin", "*")

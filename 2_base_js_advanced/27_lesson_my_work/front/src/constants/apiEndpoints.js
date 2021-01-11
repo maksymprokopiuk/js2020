@@ -11,5 +11,11 @@ export default {
       delete: `${process.env.VUE_APP_API_URL}/patients`,
       upd: `${process.env.VUE_APP_API_URL}/patients`,
     },
+    schedules: {
+      read: `${process.env.VUE_APP_API_URL}/schedules`,
+      add: `${process.env.VUE_APP_API_URL}/schedules`,
+      delete: `${process.env.VUE_APP_API_URL}/schedules`,
+      upd: `${process.env.VUE_APP_API_URL}/schedules`,
+    },
   };
   

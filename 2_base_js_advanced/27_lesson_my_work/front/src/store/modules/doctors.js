@@ -15,7 +15,7 @@ export default {
     }
   },
   actions: {
-    loadData({ commit }) {
+    loadDataDoctors({ commit }) {
       axios
       .get(apiEndpoints.doctors.read)
       .then((res) => res.data)
@@ -37,7 +37,7 @@ export default {
       .delete(apiEndpoints.doctors.delete, { data: {doctorid} })
       .then(res => {
           res.data
-          dispatch ('loadData')
+          dispatch ('loadDataDoctors')
       })
     },
     updateDoctor({ dispatch }, data) {
@@ -46,7 +46,7 @@ export default {
       .put(apiEndpoints.doctors.upd, data)
       .then(res => {
           res.data
-          dispatch ('loadData')
+          dispatch ('loadDataDoctors')
       })
     },
   },

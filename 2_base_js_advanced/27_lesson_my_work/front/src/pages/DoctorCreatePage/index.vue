@@ -9,6 +9,7 @@
             </b-field>
         </div>
         <b-button
+            class="create-btn"
             type="is-success"
             :disabled="!isDataValid"
             @click="onAdd"
@@ -49,5 +50,7 @@
 </script>
 
 <style scoped>
-
+.create-btn {
+    margin: 10px;
+}
 </style>

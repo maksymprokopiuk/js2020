@@ -1,8 +1,6 @@
 <template>
     <div v-if="getPatientsList">
-        <b-button class="add-patient"
-        @click="onAddPatient"
-        >Add patient</b-button>
+        <b-button class="add-patient" @click="onAddPatient">Add patient</b-button>
         <div class="patients">
             <patient-element
                 v-for="patient in getPatientsList"
@@ -31,7 +29,7 @@
         },
 
         methods: {
-            ...mapActions('patients', ['loadData']),
+            ...mapActions('patients', ['loadDataPatients']),
 
             onAddPatient() {
                 this.$router.push({name:'patientadd'})
@@ -39,7 +37,7 @@
         },
 
         created () {
-            this.loadData();
+            this.loadDataPatients();
         },
     }
 </script>
@@ -50,6 +48,6 @@
     flex-wrap: wrap;
 }
 .add-patient {
-    margin: 0 0 0 10px;
+    margin: 10px 0 0 10px;
 }
 </style>

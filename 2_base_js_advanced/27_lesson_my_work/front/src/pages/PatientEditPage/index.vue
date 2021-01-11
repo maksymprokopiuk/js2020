@@ -22,11 +22,11 @@
         name: 'PatientEditPage',
 
         methods: {
-            ...mapActions('patients', ['loadData', 'updatePatient']),
+            ...mapActions('patients', ['loadDataPatients', 'updatePatient']),
 
             onUpd() {
                 this.updatePatient({
-                    patientid: this.getPatient._id,
+                    patientid: this.getPatientId,
                     name: this.getPatient.name,
                     disease: this.getPatient.disease,
                 });
@@ -46,7 +46,7 @@
         },
 
         mounted () {
-            this.loadData();
+            this.loadDataPatients();
         },
     }
 </script>

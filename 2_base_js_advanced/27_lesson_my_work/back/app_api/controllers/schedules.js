@@ -117,8 +117,8 @@ module.exports.updateSchedule = function (req, res) {
     }
 }
 module.exports.deleteSchedule = function (req, res) {
-    if (req.params.scheduleid) {
-        Schedule.findByIdAndDelete(req.params.scheduleid, (err) => {
+    if (req.body.scheduleid) {
+        Schedule.findByIdAndDelete(req.body.scheduleid.id, (err) => {
             if (err) {
                 sendJSONResponse(res, 500, {
                     message: "Can't delete"

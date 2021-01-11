@@ -28,7 +28,7 @@
         name: 'DoctorPage',
 
         methods: {
-            ...mapActions('doctors', ['loadData'])
+            ...mapActions('doctors', ['loadDataDoctors'])
         },
 
         computed: {
@@ -43,7 +43,7 @@
         },
 
         mounted () {
-            this.loadData();
+            this.loadDataDoctors();
         },
     }
 </script>

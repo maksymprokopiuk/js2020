@@ -1,10 +1,7 @@
 <template>
     <div>
         <div v-if="getPatient">
-            
-            <!-- <a v-bind:href="'/patients/edit/' + getPatient._id"><div class="edit-patient">Edit</div></a> -->
             <router-link :to="'/patients/edit/' + getPatient._id"><div class="edit-patient">Edit</div></router-link>
-
             <div class="patient-id">
                 <span class="span-text">id: </span>
                 <span><strong>{{ getPatient._id }}</strong></span>
@@ -28,7 +25,7 @@
         name: 'PatientPage',
 
         methods: {
-            ...mapActions('patients', ['loadData'])
+            ...mapActions('patients', ['loadDataPatients'])
         },
 
         computed: {
@@ -43,7 +40,7 @@
         },
 
         mounted () {
-            this.loadData();
+            this.loadDataPatients();
         },
     }
 </script>
