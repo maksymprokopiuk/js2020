@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 //2. Встановлюємо з"єднання
 mongoose.connect("mongodb://localhost:27017/storedb", {
-  useNewUrlParser: true,
+  useNewUrlParser: true, useUnifiedTopology: true,
 });
 
 //3. Свторюємо схему
